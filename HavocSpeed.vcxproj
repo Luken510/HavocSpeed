@@ -110,6 +110,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\meshLoader.cpp" />
+    <ClCompile Include="source\modelLoader.cpp" />
+    <ClCompile Include="source\shader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\meshLoader.h" />
+    <ClInclude Include="include\modelLoader.h" />
+    <ClInclude Include="include\shader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
