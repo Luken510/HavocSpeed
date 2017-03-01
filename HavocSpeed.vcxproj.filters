@@ -18,47 +18,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\meshLoader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\modelLoader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\shader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="include\meshLoader.h">
-      <Filter>Header Files\Draw Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="include\modelLoader.h">
-      <Filter>Header Files\Draw Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="include\shader.h">
-      <Filter>Header Files\Draw Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gl.hpp">
-      <Filter>Header Files\Draw Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="include\logger.h">
-      <Filter>Header Files\Draw Framework</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="source\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="HavocSpeed.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
+    <ClCompile Include="source\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

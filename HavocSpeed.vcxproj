@@ -22,9 +22,6 @@
     <ClCompile Include="source\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="HavocSpeed.rc" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="external\Bullet2.86\src\BulletCollision\BulletCollision.vcxproj">
       <Project>{ad38c57b-5ef3-337f-971f-4fb6dd117adb}</Project>
     </ProjectReference>
