@@ -88,34 +88,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>./include;./external/include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <SourcePath>./source;$(VC_SourcePath);</SourcePath>
-<<<<<<< HEAD
     <LibraryPath>./external/win32/libs;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
-=======
->>>>>>> origin/master
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>./include;./external/include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <SourcePath>./source;$(VC_SourcePath);</SourcePath>
-<<<<<<< HEAD
     <LibraryPath>./external/win32/libs;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
-=======
->>>>>>> origin/master
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>./include;./external/include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <SourcePath>./source;$(VC_SourcePath);</SourcePath>
-<<<<<<< HEAD
     <LibraryPath>./external/win64/libs;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
-=======
->>>>>>> origin/master
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>./include;./external/include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <SourcePath>./source;$(VC_SourcePath);</SourcePath>
-<<<<<<< HEAD
     <LibraryPath>./external/win64/libs;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
-=======
->>>>>>> origin/master
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -169,23 +157,6 @@
       <AdditionalDependencies>glfw3.lib;assimp.lib;soil2d64.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-<<<<<<< HEAD
-=======
-  <ItemGroup>
-    <ClCompile Include="source\gl.cpp" />
-    <ClCompile Include="source\main.cpp" />
-    <ClCompile Include="source\meshLoader.cpp" />
-    <ClCompile Include="source\modelLoader.cpp" />
-    <ClCompile Include="source\shader.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="include\gl.hpp" />
-    <ClInclude Include="include\logger.h" />
-    <ClInclude Include="include\meshLoader.h" />
-    <ClInclude Include="include\modelLoader.h" />
-    <ClInclude Include="include\shader.h" />
-  </ItemGroup>
->>>>>>> origin/master
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
