@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\FinalYearProject1.0\HavocSpeed\external\Bullet2.86\CMakeFiles\ce0c08021b30b247f57e19deed31a1cc\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{25DD3B67-4BA2-388D-92F6-ABF33FA43B82}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
