@@ -1,6 +1,6 @@
 #include "..\include\shader.h"
 /**
-* @Author	DJ Coombes, Luke Newell, Lewis Mabbutt, Ella
+* @Author	Luke Newell
 * @date     15th February 2017
 * @brief    Shader loader.
 */

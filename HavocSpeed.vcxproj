@@ -159,7 +159,11 @@
     <ClCompile Include="external\include\bullet\LinearMath\btSerializer.cpp" />
     <ClCompile Include="external\include\bullet\LinearMath\btThreads.cpp" />
     <ClCompile Include="external\include\bullet\LinearMath\btVector3.cpp" />
+    <ClCompile Include="source\gl.cpp" />
     <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\meshLoader.cpp" />
+    <ClCompile Include="source\modelLoader.cpp" />
+    <ClCompile Include="source\shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\include\bullet\btBulletCollisionCommon.h" />
@@ -378,6 +382,11 @@
     <ClInclude Include="external\include\bullet\LinearMath\btTransform.h" />
     <ClInclude Include="external\include\bullet\LinearMath\btTransformUtil.h" />
     <ClInclude Include="external\include\bullet\LinearMath\btVector3.h" />
+    <ClInclude Include="include\gl.hpp" />
+    <ClInclude Include="include\logger.h" />
+    <ClInclude Include="include\meshLoader.h" />
+    <ClInclude Include="include\modelLoader.h" />
+    <ClInclude Include="include\shader.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4227FB72-E4E5-4A52-A021-E46F07343F5B}</ProjectGuid>

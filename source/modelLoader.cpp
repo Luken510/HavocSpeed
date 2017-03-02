@@ -1,5 +1,5 @@
 /**
-* @Author	DJ, Ella, Luke, Lewis
+* @Author	Luke Newell
 * @date		18th Feburary 2017
 * @brief    implemention of the model class
 */
@@ -20,7 +20,7 @@ void GRAPHICS::Model::LoadModel(std::string path) {
 
 	if (!scene || scene->mFlags == AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
 	{
-		ENGINE::LOG(ENGINE::LOG::ERRORR) << "ERROR::ASSIMP::" << import.GetErrorString();
+		UTIL::LOG(UTIL::LOG::FAULT) << "ERROR::ASSIMP::" << import.GetErrorString();
 		return;
 	}
 

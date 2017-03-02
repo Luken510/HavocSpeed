@@ -1,5 +1,5 @@
 /**
-* @Author DJ, Ella, Lewis, Luke
+* @Author	Luke Newell
 * @date     16th Feburary 2017
 * @brief    implementation of the Mesh class
 */
