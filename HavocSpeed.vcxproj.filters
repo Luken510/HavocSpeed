@@ -16,6 +16,9 @@
     <Filter Include="Header Files\Draw Framework">
       <UniqueIdentifier>{f25496b6-6ff5-4c57-8af3-f414a705728a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Draw Framework">
+      <UniqueIdentifier>{db733d6d-f854-4a94-8b79-91eb08cc0bad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\main.cpp">

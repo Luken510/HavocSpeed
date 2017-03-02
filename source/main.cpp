@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include "btBulletDynamicsCommon.h"
 #include "BulletCollision\Gimpact\btGImpactCollisionAlgorithm.h"
 
@@ -66,7 +66,7 @@ int main()
 				the call an update/ADD function that adds all the current rigidbodyes to the world
 				can then call update like bullet needs to run through all the physics???
 				TO DO : READ UP ON THE TIME STEP FOR BULLET AND HOW YOU CAN USE IT*/
-	for (int i = 0; i < 300; i++) {
+	/*for (int i = 0; i < 300; i++) {
 
 		dynamicsWorld->stepSimulation(1 / 60.f, 10);
 
@@ -100,5 +100,11 @@ int main()
 
 
 	system("PAUSE");
+	return 0;
+}*/
+
+
+int main()
+{
 	return 0;
 }

@@ -21,17 +21,6 @@
   <ItemGroup>
     <ClCompile Include="source\main.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="external\Bullet2.86\src\BulletCollision\BulletCollision.vcxproj">
-      <Project>{ad38c57b-5ef3-337f-971f-4fb6dd117adb}</Project>
-    </ProjectReference>
-    <ProjectReference Include="external\Bullet2.86\src\BulletDynamics\BulletDynamics.vcxproj">
-      <Project>{a13d2a00-f8ef-3c37-8e57-ca2ea3356c6b}</Project>
-    </ProjectReference>
-    <ProjectReference Include="external\Bullet2.86\src\LinearMath\LinearMath.vcxproj">
-      <Project>{f23e27cc-bbbb-34d4-a9cc-863416e9e451}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4227FB72-E4E5-4A52-A021-E46F07343F5B}</ProjectGuid>
     <RootNamespace>HavocSpeed</RootNamespace>
@@ -108,7 +97,8 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>./external/bullet-2.86.1/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>glfw3.lib;assimp.lib;soil2d32.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -131,7 +121,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>./external/bullet-2.86.1/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
