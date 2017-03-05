@@ -1,8 +1,16 @@
 #include <iostream>
+#include <string>
+#include <GLFW/glfw3.h>
 #include "btBulletDynamicsCommon.h"
 #include "BulletCollision\Gimpact\btGImpactCollisionAlgorithm.h"
+#include "gl.hpp"
 
 
+#include "logger.h"
+#include "game.h"
+
+
+/*
 int main()
 {
 	std::cout << "Hello World!" << std::endl;
@@ -59,13 +67,13 @@ int main()
 			construct it, and only used at initialisation time.If you want to create a thousand bodies
 			with exactly the same properties, you only need to build one btRigidBodyConstructionInfo, 
 			and pass that same one to all the bodies that you create.
-			*/
+			
 
-	/* IDEA:  Create a vector/array of rigid bodies, every time we add an 
+	 IDEA:  Create a vector/array of rigid bodies, every time we add an 
 				object we run update/process and it adds this to the array,
 				the call an update/ADD function that adds all the current rigidbodyes to the world
 				can then call update like bullet needs to run through all the physics???
-				TO DO : READ UP ON THE TIME STEP FOR BULLET AND HOW YOU CAN USE IT*/
+				TO DO : READ UP ON THE TIME STEP FOR BULLET AND HOW YOU CAN USE IT
 	for (int i = 0; i < 300; i++) {
 
 		dynamicsWorld->stepSimulation(1 / 60.f, 10);
@@ -101,4 +109,71 @@ int main()
 
 	system("PAUSE");
 	return 0;
+}*/ 
+
+// take a Screenshot of Debugging/Testing BULLET // SCREEN SHOT FOR EVIDENCE OF DEBUGGING AND TESTING WITH BULLET
+
+#define WIN_WIDTH 1280
+#define WIN_HEIGHT 780
+
+
+GLFWwindow *window = nullptr;
+Game *Game = nullptr;
+
+int main()
+{
+	InitProgram();
+
+
+
+
+
+
+
+	return 0;
+}
+
+void InitProgram()
+{
+	std::string name = "Havoc Speed";
+
+	//Init GLFW
+	if (!glfwInit())
+	{
+		UTIL::LOG(UTIL::LOG::FAULT) << "GLFW Failed to start";
+		exit(EXIT_FAILURE);
+	}
+
+	//Select OpenGL4.3 with a forward compatible core profile.
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, true);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_RESIZABLE, true);
+	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true);
+
+	//Open the window
+	window = glfwCreateWindow(WIN_WIDTH, WIN_HEIGHT, name.c_str(), NULL, NULL); // try to make full screen
+
+	if (!window) {
+		glfwTerminate();
+		UTIL::LOG(UTIL::LOG::FAULT) << " GLFW window failed to create";
+		exit(EXIT_FAILURE);
+	}
+
+	glfwMakeContextCurrent(window);
+
+	// Can Set up a key/mouse/scroll CALLBACK back here
+
+	//
+
+	gl::exts::LoadTest didLoad = gl::sys::LoadFunctions();
+
+	if (!didLoad) {
+		glfwTerminate();
+		UTIL::LOG(UTIL::LOG::FAULT) << "OpenGL Functions failed to load";
+		exit(EXIT_FAILURE);
+	}
+
+
 }
