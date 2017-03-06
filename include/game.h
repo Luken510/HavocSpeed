@@ -55,15 +55,15 @@ namespace GAME {
 		GAME::Window m_window; //!< Window Object to render the game
 
 		//Physics setup
-		btBroadphaseInterface* broadphase;
+		//btBroadphaseInterface* broadphase;
 
-		btDefaultCollisionConfiguration* collisionConfig;
-		btCollisionDispatcher* dispatcher;
+		//btDefaultCollisionConfiguration* collisionConfig;
+		//btCollisionDispatcher* dispatcher;
 
 		// the actual physics solver
-		btSequentialImpulseConstraintSolver* solver;
+		//btSequentialImpulseConstraintSolver* solver;
 
 		// the world
-		btDiscreteDynamicsWorld* dynamicsWorld;
+//		btDiscreteDynamicsWorld* dynamicsWorld;
 	};
 }

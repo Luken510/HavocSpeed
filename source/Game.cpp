@@ -20,11 +20,11 @@ GAME::Game::~Game()
 	//delete fallRigidBody->getMotionState();
 	//delete fallRigidBody;
 
-	delete dynamicsWorld;
-	delete solver;
-	delete dispatcher;
-	delete collisionConfig;
-	delete broadphase;
+	//delete dynamicsWorld;
+	//delete solver;
+	//delete dispatcher;
+	//delete collisionConfig;
+	//delete broadphase;
 
 }
 
@@ -36,7 +36,7 @@ void GAME::Game::Init()
 	//https://msdn.microsoft.com/en-us/library/hh279669.aspx
 	// Car = std::make_shared<GRAPHICS::Model>("../external/assets/Car/Futuristic_Car_2.1_blend.blend");
 
-	//build the broadphase
+	/*//build the broadphase
 	broadphase = new btDbvtBroadphase();
 
 	//set up the collision configuration and dispatcher
@@ -51,7 +51,7 @@ void GAME::Game::Init()
 	// the world
 	dynamicsWorld = new btDiscreteDynamicsWorld(dispatcher, broadphase, solver, collisionConfig);
 	dynamicsWorld->setGravity(btVector3(0, -9.8, 0));
-
+	*/
 
 	// load objects, textures
 
