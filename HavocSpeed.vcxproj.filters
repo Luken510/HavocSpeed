@@ -67,6 +67,9 @@
     <Filter Include="BulletPhysicsEngine\LinearMath">
       <UniqueIdentifier>{665e8acf-214e-4df6-b907-8337588c8bfd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\UTIL">
+      <UniqueIdentifier>{c02717f5-511b-42fd-95cd-6836595cb4db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\main.cpp">
@@ -503,6 +506,15 @@
     </ClCompile>
     <ClCompile Include="source\shader.cpp">
       <Filter>Source Files\Draw Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\raceCar.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1171,7 +1183,16 @@
     <ClInclude Include="include\shader.h">
       <Filter>Header Files\Draw Framework</Filter>
     </ClInclude>
+    <ClInclude Include="include\game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="include\logger.h">
+      <Filter>Header Files\UTIL</Filter>
+    </ClInclude>
+    <ClInclude Include="include\window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\raceCar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
