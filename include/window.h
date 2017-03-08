@@ -29,8 +29,10 @@ namespace GAME {
 		\brief get a pointer to the window
 		*/
 		GLFWwindow* GetWindow();
+		void ScrollButtonCallBack();
 	private:
-		GLFWwindow* m_window;//!< Pointer to the GLFW window.
+		GLFWwindow* m_window = nullptr;//!< Pointer to the GLFW window.
+		Window* m_myWindow = nullptr;
 		int			m_width;//!< Width of the window
 		int			m_height;//!< Heightof the window
 	};

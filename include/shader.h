@@ -7,6 +7,7 @@
 #pragma once
 
 #include <map>
+#include <iostream>
 #include <string>
 #include <stdexcept>
 
@@ -48,6 +49,13 @@ namespace GRAPHICS {
 		\brief Destructor.
 		*/
 		~Shader();
+
+		/*!
+		brief Compile and link the shader to the program.
+		param vertexshader path to the vs file for vertex shading
+		param fragmentshader path to the vs file for the fragment shading
+		*/
+		void CompileAndLinkShader(std::string vertexshader, std::string fragmentshader);
 
 		/*!
 		\brief Compile shader.
@@ -209,6 +217,16 @@ namespace GRAPHICS {
 		\param type GL enum type.
 		*/
 		const char* GetTypeString(GLenum type);
+		/*!
+		\brief Shader.
+		\param other Constant shader type value.
+		*/
+		Shader(const Shader& other) { }
+		/*!
+		\brief Operator.
+		\param other Constant shader type value.
+		*/
+		Shader& operator = (const Shader& other) { return*this; }
 
 	private:
 		/*!
@@ -229,17 +247,9 @@ namespace GRAPHICS {
 		*/
 		std::string getExtension(const char* filename);
 
-		/*!
-		\brief Shader.
-		\param other Constant shader type value.
-		*/
-		Shader(const Shader& other) { }
+		
 
-		/*!
-		\brief Operator.
-		\param other Constant shader type value.
-		*/
-		Shader& operator = (const Shader& other) { return*this; }
+		
 
 
 		int m_handle;  //!< Integer value for shader handle.

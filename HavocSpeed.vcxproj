@@ -165,6 +165,7 @@
     <ClCompile Include="source\meshLoader.cpp" />
     <ClCompile Include="source\modelLoader.cpp" />
     <ClCompile Include="source\PhysicsController.cpp" />
+    <ClCompile Include="source\QuatCamera.cpp" />
     <ClCompile Include="source\raceCar.cpp" />
     <ClCompile Include="source\shader.cpp" />
     <ClCompile Include="source\window.cpp" />
@@ -386,18 +387,22 @@
     <ClInclude Include="external\include\bullet\LinearMath\btTransform.h" />
     <ClInclude Include="external\include\bullet\LinearMath\btTransformUtil.h" />
     <ClInclude Include="external\include\bullet\LinearMath\btVector3.h" />
+    <ClInclude Include="include\eventHandler.h" />
     <ClInclude Include="include\game.h" />
     <ClInclude Include="include\gl.hpp" />
     <ClInclude Include="include\logger.h" />
     <ClInclude Include="include\meshLoader.h" />
     <ClInclude Include="include\modelLoader.h" />
     <ClInclude Include="include\PhysicsController.h" />
+    <ClInclude Include="include\QuatCamera.h" />
     <ClInclude Include="include\raceCar.h" />
     <ClInclude Include="include\shader.h" />
     <ClInclude Include="include\window.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="external\assets\Car\shaders\car.fs" />
+    <None Include="external\assets\Car\shaders\car.vs" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4227FB72-E4E5-4A52-A021-E46F07343F5B}</ProjectGuid>

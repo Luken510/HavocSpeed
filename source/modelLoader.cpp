@@ -9,6 +9,9 @@
 GRAPHICS::Model::Model(GLchar* path) {
 	this->LoadModel(path);
 }
+GRAPHICS::Model::Model(const char* path) {
+	this->LoadModel(path);
+}
 
 void GRAPHICS::Model::Render(std::shared_ptr<GRAPHICS::Shader> shader) {
 	for (GLuint i = 0; i < this->m_meshes.size(); i++)

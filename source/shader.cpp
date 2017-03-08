@@ -52,6 +52,20 @@ GRAPHICS::Shader::~Shader() {
 	delete[] shaderNames;
 }
 
+void GRAPHICS::Shader::CompileAndLinkShader(std::string vertexshader, std::string fragmentshader)
+{
+	try {
+		this->CompileShader(vertexshader.c_str());
+		this->CompileShader(fragmentshader.c_str());
+		this->Link();
+		this->Validate();
+	}
+	catch (ShaderException& e) {
+		std::cerr << e.what() << std::endl;
+		exit(EXIT_FAILURE);
+	}
+}
+
 void GRAPHICS::Shader::CompileShader(const char * filename)
 throw(ShaderException) {
 	int numExts = sizeof(ShaderType::extensions) / sizeof(ShaderType::shader_file_extension);
@@ -93,6 +107,7 @@ throw(ShaderException) {
 	if (!fileExists(fileName))
 	{
 		std::string message = std::string("Shader: ") + fileName + " not found.";
+		std::cout << message;
 		throw ShaderException(message);
 	}
 

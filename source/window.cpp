@@ -7,7 +7,7 @@
 
 GAME::Window::Window()
 {
-	m_window;
+	
 	//Select OpenGL4.3 with a forward compatible core profile.
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -49,6 +49,7 @@ GAME::Window::Window()
 
 	gl::Enable(gl::MULTISAMPLE);
 	gl::ClearColor(0.3f, 0.3f, 0.3f, 1.0f);
+	
 }
 
 GAME::Window::~Window()
@@ -65,3 +66,5 @@ GLFWwindow* GAME::Window::GetWindow()
 {
 	return m_window;
 }
+
+

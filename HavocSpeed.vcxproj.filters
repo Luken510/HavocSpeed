@@ -70,6 +70,9 @@
     <Filter Include="Header Files\UTIL">
       <UniqueIdentifier>{c02717f5-511b-42fd-95cd-6836595cb4db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\UTIL">
+      <UniqueIdentifier>{c4e37591-127e-490a-ba98-8ac94609ff6a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\main.cpp">
@@ -518,6 +521,9 @@
     </ClCompile>
     <ClCompile Include="source\PhysicsController.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\QuatCamera.cpp">
+      <Filter>Source Files\UTIL</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1201,8 +1207,20 @@
     <ClInclude Include="include\PhysicsController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\QuatCamera.h">
+      <Filter>Header Files\UTIL</Filter>
+    </ClInclude>
+    <ClInclude Include="include\eventHandler.h">
+      <Filter>Header Files\UTIL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="external\assets\Car\shaders\car.fs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="external\assets\Car\shaders\car.vs">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

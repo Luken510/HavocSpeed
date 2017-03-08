@@ -5,6 +5,8 @@
 #include "window.h"
 #include "modelLoader.h"
 #include "PhysicsController.h"
+#include "QuatCamera.h"
+#include "eventHandler.h"
 
 
 #define MS_PER_UPDATE (float)0.0166666666666667
@@ -37,7 +39,7 @@ namespace GAME {
 		\param action, the action the key is doing, REPEAT, PRESS, or RELEASE
 		\param mods, 
 		*/
-		static void HandleEvents(GLFWwindow* window, int key, int scancode, int action, int mods);
+		static void HandleKeyEvents(GLFWwindow* window, int key, int scancode, int action, int mods);
 		/*
 		\brief Update the game
 		\param deltaTime, Current timestep within the game
@@ -48,15 +50,22 @@ namespace GAME {
 		\param Interpolate, used for buffering the render mid update if needed
 		*/
 		void Render(float Interpolate);
+		/*!
+		\brief Set up the lighting parameters
+		*/
+		void setLightParams();
+	
 	private:
 		std::shared_ptr<PHYSICS::PhysicsController> worldPhysics = nullptr;
 		std::shared_ptr<GRAPHICS::Model> car = nullptr;
-		std::shared_ptr<GRAPHICS::Shader> shader = nullptr;
+		std::shared_ptr<GRAPHICS::Model> map = nullptr;
+		UTIL::QuatCamera Camera;
+		GRAPHICS::Shader carShader;
 		double m_timeSinceLastUpdate; //!< the time since the last update - "lag"
 		double m_CurrentTime; //!< current time of update
 		double m_PreviousTime; //!< previous time when updated
 		GAME::Window m_window; //!< Window Object to render the game
-
+		UTIL::EventHandler &EventHandler = UTIL::EventHandler::getInstance(); // worth mentioning that this implementation won't work on multiple glfw windows
 		//Physics setup
 		//btBroadphaseInterface* broadphase;
 

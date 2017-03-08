@@ -40,6 +40,7 @@ namespace GRAPHICS {
 		\param path takes the path of the model e.g. xx/yy.obj
 		*/
 		Model(GLchar* path);
+		Model(const char* path);
 
 		/*!
 		\brief Render's each Node to draw the Model
