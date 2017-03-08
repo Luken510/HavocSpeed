@@ -15,6 +15,7 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 #include <SOIL2/SOIL2.h>
+#include <memory>
 
 #include "shader.h"
 #include "meshLoader.h"
@@ -44,7 +45,12 @@ namespace GRAPHICS {
 		\brief Render's each Node to draw the Model
 		\param shader is the current shader program in use
 		*/
-		void Render(Shader* shader);
+		void Render(std::shared_ptr<Shader> shader);
+		/*!
+		\brief Get the mode's meshes
+		*/
+		std::unique_ptr<std::vector<Mesh>> GetMeshes(); // USE FOR BULLET http://gamedev.stackexchange.com/questions/99045/how-to-load-a-level-for-use-with-the-bullet-physics-library
+								   //https://www.gamedev.net/topic/651157-mesh-physics-bullet-physics-and-assimp/
 	private:
 		/*!
 		\brief Loads the data into our class

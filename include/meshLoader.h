@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <memory>
 
 #include <glm/glm.hpp>
 #include <gl.hpp>
@@ -51,7 +52,7 @@ namespace GRAPHICS {
 		\brief Render function binds the mesh data to the shader program
 		\param shader takes a pointer to the shader program
 		*/
-		void Render(Shader* shader);
+		void Render(std::shared_ptr<Shader> shader);
 
 		std::vector<Vertex> m_vertices; //!< a vector array of the Struct Vertex for the mesh vertices
 		std::vector<GLuint> m_indices; //!< a vector array of GL unsigned ints, used for the mesh indices 

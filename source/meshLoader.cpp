@@ -4,6 +4,7 @@
 * @brief    implementation of the Mesh class
 */
 #include "meshLoader.h"
+#include <memory>
 
 GRAPHICS::Mesh::Mesh(std::vector<Vertex> vertices, std::vector<GLuint> indices, std::vector<Texture> textures)
 {
@@ -43,7 +44,7 @@ void GRAPHICS::Mesh::SetupMesh()
 
 }
 
-void GRAPHICS::Mesh::Render(Shader* shader)
+void GRAPHICS::Mesh::Render(std::shared_ptr<GRAPHICS::Shader> shader)
 {
 	GLuint diffuseNr = 1;
 	GLuint specularNr = 1;

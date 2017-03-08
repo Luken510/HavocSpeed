@@ -390,6 +390,7 @@
     <ClInclude Include="include\logger.h" />
     <ClInclude Include="include\meshLoader.h" />
     <ClInclude Include="include\modelLoader.h" />
+    <ClInclude Include="include\PhysicsController.h" />
     <ClInclude Include="include\raceCar.h" />
     <ClInclude Include="include\shader.h" />
     <ClInclude Include="include\window.h" />

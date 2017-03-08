@@ -1,19 +1,15 @@
 #pragma once
 
-
-//struct for the main defining of suspension & wheel params
-struct WheelInfo
-{
-	// RaycastInfo contains info for raycasting the wheel
-	// updated by bullet
-	struct RaycastInfo
-	{
-
-	};
-};
+#include <btBulletDynamicsCommon.h>
+#include <BulletCollision/CollisionShapes/btHeightfieldTerrainShape.h>
+#include <BulletDynamics\Vehicle\btRaycastVehicle.h>
+#include <BulletDynamics\ConstraintSolver\btHingeConstraint.h>
+#include <BulletDynamics\ConstraintSolver\btSliderConstraint.h>
 
 
-
+struct VehicleTuning;
+struct VehicleRaycaster;
+struct CollisionShape;
 
 
 class RaceCar {
@@ -27,5 +23,13 @@ public:
 	\brief Destructor
 	*/
 	~RaceCar();
+
+	btRigidBody* m_carChassis;
+	btRigidBody* localCreateRigidBody(btScalar mass, const btTransform& worldTransform, btCollisionShape* colShape);
+
+	int m_wheelInstances[4];
+
+	//
+
 
 };

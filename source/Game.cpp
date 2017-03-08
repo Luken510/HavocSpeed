@@ -1,10 +1,11 @@
 #include "game.h"
 
 #include <GLFW/glfw3.h>
-#include "btBulletDynamicsCommon.h"
-#include "BulletCollision/Gimpact/btGImpactCollisionAlgorithm.h"
+#include <btBulletDynamicsCommon.h>
+#include <BulletCollision/Gimpact/btGImpactCollisionAlgorithm.h>
 
 #include "logger.h"
+#include "shader.h"
 #include "modelLoader.h"
 
 
@@ -56,6 +57,9 @@ void GAME::Game::Init()
 	// load objects, textures
 
 
+	//Car = std::make_shared<GRAPHICS::Model>("../assets/car/LEGO_CAR_B1.obj");
+
+	RunGame();
 
 }
 
@@ -96,6 +100,7 @@ void GAME::Game::Update(float deltaTime)
 void GAME::Game::Render(float Interpolate)
 {
 	gl::Clear(gl::COLOR_BUFFER_BIT | gl::DEPTH_BUFFER_BIT);
+
 
 	m_window.Display();
 }

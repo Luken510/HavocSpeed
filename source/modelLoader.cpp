@@ -4,14 +4,21 @@
 * @brief    implemention of the model class
 */
 #include "modelLoader.h"
+#include <memory>
 
 GRAPHICS::Model::Model(GLchar* path) {
 	this->LoadModel(path);
 }
 
-void GRAPHICS::Model::Render(Shader* shader) {
+void GRAPHICS::Model::Render(std::shared_ptr<GRAPHICS::Shader> shader) {
 	for (GLuint i = 0; i < this->m_meshes.size(); i++)
 		this->m_meshes[i].Render(shader);
+}
+
+std::unique_ptr<std::vector<GRAPHICS::Mesh>> GRAPHICS::Model::GetMeshes()
+{
+	
+	return std::make_unique<std::vector<GRAPHICS::Mesh>>(m_meshes);
 }
 
 void GRAPHICS::Model::LoadModel(std::string path) {
