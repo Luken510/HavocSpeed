@@ -164,6 +164,7 @@
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\meshLoader.cpp" />
     <ClCompile Include="source\modelLoader.cpp" />
+    <ClCompile Include="source\PhysicsController.cpp" />
     <ClCompile Include="source\raceCar.cpp" />
     <ClCompile Include="source\shader.cpp" />
     <ClCompile Include="source\window.cpp" />
@@ -394,6 +395,9 @@
     <ClInclude Include="include\raceCar.h" />
     <ClInclude Include="include\shader.h" />
     <ClInclude Include="include\window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4227FB72-E4E5-4A52-A021-E46F07343F5B}</ProjectGuid>

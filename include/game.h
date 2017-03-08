@@ -4,6 +4,7 @@
 
 #include "window.h"
 #include "modelLoader.h"
+#include "PhysicsController.h"
 
 
 #define MS_PER_UPDATE (float)0.0166666666666667
@@ -48,8 +49,9 @@ namespace GAME {
 		*/
 		void Render(float Interpolate);
 	private:
-		std::shared_ptr<GRAPHICS::Model> Car = nullptr;
-		std::shared_ptr<GRAPHICS::Shader> Shader = nullptr;
+		std::shared_ptr<PHYSICS::PhysicsController> worldPhysics = nullptr;
+		std::shared_ptr<GRAPHICS::Model> car = nullptr;
+		std::shared_ptr<GRAPHICS::Shader> shader = nullptr;
 		double m_timeSinceLastUpdate; //!< the time since the last update - "lag"
 		double m_CurrentTime; //!< current time of update
 		double m_PreviousTime; //!< previous time when updated

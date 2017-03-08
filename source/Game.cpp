@@ -7,6 +7,7 @@
 #include "logger.h"
 #include "shader.h"
 #include "modelLoader.h"
+#include "PhysicsController.h"
 
 
 GAME::Game::Game() : m_timeSinceLastUpdate(0), m_CurrentTime(0), m_PreviousTime(0) {
@@ -34,30 +35,11 @@ void GAME::Game::Init()
 	// physics engine
 	glfwSetKeyCallback((m_window.GetWindow()),HandleEvents);
 
-	//https://msdn.microsoft.com/en-us/library/hh279669.aspx
-	// Car = std::make_shared<GRAPHICS::Model>("../external/assets/Car/Futuristic_Car_2.1_blend.blend");
-
-	/*//build the broadphase
-	broadphase = new btDbvtBroadphase();
-
-	//set up the collision configuration and dispatcher
-	collisionConfig = new btDefaultCollisionConfiguration();
-	dispatcher = new btCollisionDispatcher(collisionConfig);
-
-	btGImpactCollisionAlgorithm::registerAlgorithm(dispatcher);
-
-	// the actual physics solver
-	solver = new btSequentialImpulseConstraintSolver;
-
-	// the world
-	dynamicsWorld = new btDiscreteDynamicsWorld(dispatcher, broadphase, solver, collisionConfig);
-	dynamicsWorld->setGravity(btVector3(0, -9.8, 0));
-	*/
-
 	// load objects, textures
 
-
+	worldPhysics = std::make_shared<PHYSICS::PhysicsController>(worldPhysics->getPhysicsInstance()); // CHECK IF THIS EVEN WORKS
 	//Car = std::make_shared<GRAPHICS::Model>("../assets/car/LEGO_CAR_B1.obj");
+	
 
 	RunGame();
 
