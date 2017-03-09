@@ -5,7 +5,7 @@
 #include "logger.h"
 
 
-GAME::Window::Window()
+GAME::Window::Window() : lastCursorPositionX(0), lastCursorPositionY(0), cursorPositionX(0), cursorPositionY(0)
 {
 	
 	//Select OpenGL4.3 with a forward compatible core profile.
@@ -45,7 +45,6 @@ GAME::Window::Window()
 
 	UTIL::LOG(UTIL::LOG::DEBUG) << "Amount of OpenGL functions that haven't loaded : " << LoadFunctions.GetNumMissing();
 
-	gl::Viewport(0, 0, WIN_WIDTH, WIN_HEIGHT);
 
 	gl::Enable(gl::MULTISAMPLE);
 	gl::ClearColor(0.3f, 0.3f, 0.3f, 1.0f);
@@ -67,4 +66,49 @@ GLFWwindow* GAME::Window::GetWindow()
 	return m_window;
 }
 
+void GAME::Window::resizeGL(std::shared_ptr<UTIL::QuatCamera> camera, int w, int h)
+{
+	gl::Viewport(0, 0, w, h);
+	m_height = h;
+	m_width = w;
+	camera->setAspectRatio((float)w / h);
+}
+
+void GAME::Window::update(float deltaTime, std::shared_ptr<UTIL::QuatCamera> camera)
+{
+	//Get the current cursor position
+	glfwGetCursorPos(m_window, &cursorPositionX, &cursorPositionY);
+
+	//See how much the cursor has moved
+	float deltaX = (float)(lastCursorPositionX - cursorPositionX);
+	float deltaY = (float)(lastCursorPositionY - cursorPositionY);
+
+	//Using a different way (i.e. instead of callback) to check for LEFT mouse button
+	if (glfwGetMouseButton(m_window, GLFW_MOUSE_BUTTON_LEFT))
+	{
+		//Rotate the camera. The 0.001f is a velocity mofifier to make the speed sensible
+
+		camera->rotate(deltaX*ROTATE_VELOCITY, deltaY*ROTATE_VELOCITY);
+
+	}
+
+	//Using a different way (i.e. instead of callback) to check for RIGHT mouse button
+	if (glfwGetMouseButton(m_window, GLFW_MOUSE_BUTTON_RIGHT))
+	{
+
+		//Rotate the camera. The 0.01f is a velocity mofifier to make the speed sensible
+		camera->pan(deltaX*MOVE_VELOCITY, deltaY*MOVE_VELOCITY);
+
+	}
+	//To adjust Roll with MIDDLE mouse button
+	if (glfwGetMouseButton(m_window, GLFW_MOUSE_BUTTON_MIDDLE))
+	{
+
+		camera->roll(deltaX*ROTATE_VELOCITY);
+	}
+
+	//Store the current cursor position
+	lastCursorPositionX = cursorPositionX;
+	lastCursorPositionY = cursorPositionY;
+}
 

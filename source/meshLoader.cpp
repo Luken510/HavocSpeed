@@ -48,16 +48,29 @@ void GRAPHICS::Mesh::Render(std::shared_ptr<GRAPHICS::Shader> shader)
 {
 	GLuint diffuseNr = 1;
 	GLuint specularNr = 1;
+	GLuint ambientNr = 1;
 
 
 	for (GLuint i = 0; i < (this->m_textures.size()); i++)
 	{
 		gl::ActiveTexture(gl::TEXTURE0 + i); // activating the proper texture unit before binding the data											 
 
+		std::string Number;
 		std::string Name = this->m_textures[i].m_type;
-		std::string Number = (Name == "texture_diffuse") ? std::to_string(diffuseNr++) : std::to_string(specularNr);
+		 if (Name == "texture_diffuse")
+		 {
+			 diffuseNr++;
+		 }
+		 else if (Name == "texture_specular")
+		 {
+			 specularNr++;
+		 }
+		 else if (Name == "texture_ambient")
+		 {
+			 ambientNr++;
+		 }
 
-		gl::Uniform1f(gl::GetUniformLocation(shader->GetHandle(), ("material." + Name + Number).c_str()), i); // now finds the correct location in the shader using the above gluint to string function
+		gl::Uniform1f(gl::GetUniformLocation(shader->GetHandle(), (Name + Number).c_str()), i); // now finds the correct location in the shader using the above gluint to string function
 		gl::BindTexture(gl::TEXTURE_2D, this->m_textures[i].m_id);
 	}
 

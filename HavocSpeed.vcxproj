@@ -159,6 +159,7 @@
     <ClCompile Include="external\include\bullet\LinearMath\btSerializer.cpp" />
     <ClCompile Include="external\include\bullet\LinearMath\btThreads.cpp" />
     <ClCompile Include="external\include\bullet\LinearMath\btVector3.cpp" />
+    <ClCompile Include="source\eventHandler.cpp" />
     <ClCompile Include="source\Game.cpp" />
     <ClCompile Include="source\gl.cpp" />
     <ClCompile Include="source\main.cpp" />

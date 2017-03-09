@@ -36,20 +36,22 @@ GAME::Game::~Game()
 
 void GAME::Game::Init()
 {
+	//init camera
+	m_window.resizeGL(m_camera, 1280, 720);
 	gl::Enable(gl::DEPTH_TEST);
-
-	carShader.CompileAndLinkShader("./external/assets/car/shaders/car.vs", "./external/assets/car/shaders/car.fs");
-		
+	//link shaders
+	m_carShader->CompileAndLinkShader("./external/assets/car/shaders/car.vs", "./external/assets/car/shaders/car.fs");
 	// physics engine
-	EventHandler.setCamera(std::make_shared<UTIL::QuatCamera>(Camera));
+	
 
-	glfwSetScrollCallback(m_window.GetWindow(),&EventHandler.ScrollButtonCallBack);
+	//m_worldPhysics->
+	
+	EventHandler.setCamera(m_camera);
+	glfwSetScrollCallback(m_window.GetWindow(), &EventHandler.ScrollButtonCallBack);
 	// need to make a fair bit of get/set because of this work around???
 	// load objects, textures
-
-	worldPhysics = std::make_shared<PHYSICS::PhysicsController>(worldPhysics->getPhysicsInstance()); // CHECK IF THIS EVEN WORKS
-	car = std::make_shared<GRAPHICS::Model>("./external/assets/car/LEGO_CAR_B1.obj");
-	map = std::make_shared<GRAPHICS::Model>("./external/assets/map/Skyscraper+Bay.stl");
+	m_car = std::make_shared<GRAPHICS::Model>("./external/assets/car/LEGO_CAR_B1.obj");
+	m_map = std::make_shared<GRAPHICS::Model>("./external/assets/map/track01_.3ds");
 
 	RunGame();
 
@@ -64,7 +66,7 @@ void GAME::Game::RunGame()
 	{
 
 		m_CurrentTime = (double)glfwGetTime();
-		double elaspedTime = m_CurrentTime - m_PreviousTime;
+		double elaspedTime = m_CurrentTime - m_PreviousTime; //m_CurrentTime - m_PreviousTime;
 		m_PreviousTime = m_CurrentTime;
 		m_timeSinceLastUpdate += elaspedTime;
 
@@ -86,7 +88,7 @@ void GAME::Game::HandleKeyEvents(GLFWwindow* window, int key, int scancode, int 
 
 void GAME::Game::Update(float deltaTime)
 {
-	
+	m_window.update(deltaTime, m_camera);
 }
 
 void GAME::Game::Render(float Interpolate)
@@ -94,10 +96,10 @@ void GAME::Game::Render(float Interpolate)
 	gl::Clear(gl::COLOR_BUFFER_BIT | gl::DEPTH_BUFFER_BIT);
 
 
-	carShader.Use();
+	m_carShader->Use();
 	setLightParams(); // to be replaced
-	car->Render(std::make_shared<GRAPHICS::Shader>(carShader));
-	map->Render(std::make_shared<GRAPHICS::Shader>(carShader));
+	m_car->Render(m_carShader);
+	m_map->Render(m_carShader);
 
 	m_window.Display();
 }
@@ -108,8 +110,8 @@ void GAME::Game::setLightParams()
 	model = model * glm::scale(glm::vec3(0.01f, 0.01f, 0.01f));
 	
 	//move to set up matricies
-	carShader.SetUniform("model", model);
-	carShader.SetUniform("view", Camera.view());
-	carShader.SetUniform("projection", Camera.projection());
+	m_carShader->SetUniform("model", model);
+	m_carShader->SetUniform("view", m_camera->view());
+	m_carShader->SetUniform("projection", m_camera->projection());
 
 }

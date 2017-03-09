@@ -168,7 +168,7 @@ const glm::vec3 WORLDZ = glm::vec3(0,0,1);
 	{
 
 		_position += _zaxis * z;
-			
+		std::cout << _position.z << std::endl;
 		//Now call updateView()
 		updateView();
 
@@ -189,7 +189,7 @@ const glm::vec3 WORLDZ = glm::vec3(0,0,1);
 		_xaxis = glm::vec3(_view[0][0],_view[1][0],_view[2][0]);
 		_yaxis = glm::vec3(_view[0][1],_view[1][1],_view[2][1]);
 		_zaxis = glm::vec3(_view[0][2],_view[1][2],_view[2][2]);
-
+		
 		//And use this and current camera position to set the translate part of the view matrix
 		_view[3][0] = -glm::dot(_xaxis,_position); //Translation x
 		_view[3][1] = -glm::dot(_yaxis,_position); //Translation y

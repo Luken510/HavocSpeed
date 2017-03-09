@@ -77,6 +77,7 @@ GRAPHICS::Mesh GRAPHICS::Model::ProcessMesh(aiMesh* mesh, const aiScene* scene) 
 		if (mesh->mTextureCoords[0]) // if it has texture coords
 		{
 			glm::vec2 vector2;
+			
 			vector2.x = mesh->mTextureCoords[0][i].x;
 			vector2.y = mesh->mTextureCoords[0][i].y;
 			vertex.m_textureCoords = vector2;
@@ -112,6 +113,9 @@ GRAPHICS::Mesh GRAPHICS::Model::ProcessMesh(aiMesh* mesh, const aiScene* scene) 
 		//specular
 		std::vector<Texture> specularMaps = this->LoadMaterialTextures(material, aiTextureType_SPECULAR, "texture_specular");
 		textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
+		//ambient
+		std::vector<Texture> ambientMaps = this->LoadMaterialTextures(material, aiTextureType_AMBIENT, "texture_ambient");
+		textures.insert(textures.end(), ambientMaps.begin(), ambientMaps.end());
 	}
 
 	return Mesh(vertices, indices, textures);
@@ -153,12 +157,14 @@ GLint GRAPHICS::TextureFromFile(const char * path, std::string directory)
 	std::string filename = std::string(path);
 
 	filename = directory + '/' + filename;
+	std::cout << filename << std::endl;
 	GLuint textureID;
 
 	gl::GenTextures(1, &textureID);
 	int width, height;
 
 	unsigned char* image = SOIL_load_image(filename.c_str(), &width, &height, 0, SOIL_LOAD_RGB);
+	std::cout << image;
 	//Assign Texture to the ID
 
 	gl::BindTexture(gl::TEXTURE_2D, textureID);

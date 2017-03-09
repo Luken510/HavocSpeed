@@ -525,6 +525,9 @@
     <ClCompile Include="source\QuatCamera.cpp">
       <Filter>Source Files\UTIL</Filter>
     </ClCompile>
+    <ClCompile Include="source\eventHandler.cpp">
+      <Filter>Source Files\UTIL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\main.cpp">

@@ -56,11 +56,11 @@ namespace GAME {
 		void setLightParams();
 	
 	private:
-		std::shared_ptr<PHYSICS::PhysicsController> worldPhysics = nullptr;
-		std::shared_ptr<GRAPHICS::Model> car = nullptr;
-		std::shared_ptr<GRAPHICS::Model> map = nullptr;
-		UTIL::QuatCamera Camera;
-		GRAPHICS::Shader carShader;
+		std::shared_ptr<PHYSICS::PhysicsController> m_worldPhysics = std::make_shared<PHYSICS::PhysicsController>(PHYSICS::PhysicsController::getPhysicsInstance());
+		std::shared_ptr<GRAPHICS::Model> m_car = nullptr;
+		std::shared_ptr<GRAPHICS::Model> m_map = nullptr;
+		std::shared_ptr<UTIL::QuatCamera> m_camera = std::make_shared<UTIL::QuatCamera>();
+		std::shared_ptr<GRAPHICS::Shader> m_carShader = std::make_shared<GRAPHICS::Shader>();
 		double m_timeSinceLastUpdate; //!< the time since the last update - "lag"
 		double m_CurrentTime; //!< current time of update
 		double m_PreviousTime; //!< previous time when updated
