@@ -40,7 +40,8 @@ void GAME::Game::Init()
 	m_window.resizeGL(m_camera, 1280, 720);
 	gl::Enable(gl::DEPTH_TEST);
 	//link shaders
-	m_carShader->CompileAndLinkShader("./external/assets/car/shaders/car.vs", "./external/assets/car/shaders/car.fs");
+	m_objShader->CompileAndLinkShader("./external/assets/shaders/object.vs", "./external/assets/shaders/object.fs");
+	//m_MapShader->CompileAndLinkShader("./external/assets/shaders/map.vs", "./external/assets/shaders/map.fs");
 	// physics engine
 	
 
@@ -48,10 +49,11 @@ void GAME::Game::Init()
 	
 	EventHandler.setCamera(m_camera);
 	glfwSetScrollCallback(m_window.GetWindow(), &EventHandler.ScrollButtonCallBack);
+	glfwSetMouseButtonCallback(m_window.GetWindow(), &EventHandler.mouseButtonCallback);
 	// need to make a fair bit of get/set because of this work around???
 	// load objects, textures
-	m_car = std::make_shared<GRAPHICS::Model>("./external/assets/car/LEGO_CAR_B1.obj");
-	m_map = std::make_shared<GRAPHICS::Model>("./external/assets/map/track01_.3ds");
+	m_car = std::make_shared<GRAPHICS::Model>("./external/assets/car/car.3ds");
+	//m_map = std::make_shared<GRAPHICS::Model>("./external/assets/map/track01_.3ds");
 
 	RunGame();
 
@@ -96,22 +98,27 @@ void GAME::Game::Render(float Interpolate)
 	gl::Clear(gl::COLOR_BUFFER_BIT | gl::DEPTH_BUFFER_BIT);
 
 
-	m_carShader->Use();
-	setLightParams(); // to be replaced
-	m_car->Render(m_carShader);
-	m_map->Render(m_carShader);
+	m_objShader->Use();
+	//need to create the car class to enable it to move/set its position elsewhere from here.
+	m_setModel = glm::mat4(1.0f) * glm::translate(glm::vec3(85.0f, 1.0f, 0.0f)) * glm::rotate(glm::radians(-90.0f), glm::vec3(1.0f,0.0f,0.0f)) * glm::scale(glm::vec3(0.05f, 0.05f, 0.05f));
+	setmatricies(m_objShader);
+	m_car->Render(m_objShader);
 
+	/*m_MapShader->Use();
+	m_setModel = glm::mat4(1.0f) * glm::rotate(glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f)) * glm::scale(glm::vec3(0.2f, 0.2f, 0.2f));
+	setmatricies(m_MapShader);
+	m_map->Render(m_MapShader);*/
+	
 	m_window.Display();
 }
 
-void GAME::Game::setLightParams()
+void GAME::Game::setmatricies(std::shared_ptr<GRAPHICS::Shader> Shader)
 {
-	glm::mat4 model = glm::mat4(1.0f);
-	model = model * glm::scale(glm::vec3(0.01f, 0.01f, 0.01f));
+	
 	
 	//move to set up matricies
-	m_carShader->SetUniform("model", model);
-	m_carShader->SetUniform("view", m_camera->view());
-	m_carShader->SetUniform("projection", m_camera->projection());
+	Shader->SetUniform("model", m_setModel);
+	Shader->SetUniform("view", m_camera->view());
+	Shader->SetUniform("projection", m_camera->projection());
 
 }

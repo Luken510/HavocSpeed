@@ -41,6 +41,8 @@ namespace GAME {
 		//To keep track of cursor location
 		double lastCursorPositionX, lastCursorPositionY, cursorPositionX, cursorPositionY;
 
+		
+
 	private:
 		GLFWwindow* m_window = nullptr;//!< Pointer to the GLFW window.
 		Window* m_myWindow = nullptr;

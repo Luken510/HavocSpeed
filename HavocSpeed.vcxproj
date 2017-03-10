@@ -402,8 +402,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
-    <None Include="external\assets\Car\shaders\car.fs" />
-    <None Include="external\assets\Car\shaders\car.vs" />
+    <None Include="external\assets\Car\shaders\object.fs" />
+    <None Include="external\assets\Car\shaders\object.vs" />
+    <None Include="external\assets\shaders\map.fs" />
+    <None Include="external\assets\shaders\map.vs" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4227FB72-E4E5-4A52-A021-E46F07343F5B}</ProjectGuid>

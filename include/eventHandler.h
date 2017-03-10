@@ -9,10 +9,10 @@ namespace UTIL {
 		static EventHandler& getInstance(); // Singleton is accessed via getInstance()
 		
 
-		static void mouseButtonCallback(int key, int action); // this method is specified as glfw callback
+		static void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods); // this method is specified as glfw callback
 	
 
-		void mouseButtonCallbackImpl(int key, int action); //this is the actual implementation of the callback method
+		void mouseButtonCallbackImpl(GLFWwindow* window, int button, int action, int mods); //this is the actual implementation of the callback method
 		
 		static void ScrollButtonCallBack(GLFWwindow *window, double x, double y);
 		

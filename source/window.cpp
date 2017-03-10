@@ -78,7 +78,6 @@ void GAME::Window::update(float deltaTime, std::shared_ptr<UTIL::QuatCamera> cam
 {
 	//Get the current cursor position
 	glfwGetCursorPos(m_window, &cursorPositionX, &cursorPositionY);
-
 	//See how much the cursor has moved
 	float deltaX = (float)(lastCursorPositionX - cursorPositionX);
 	float deltaY = (float)(lastCursorPositionY - cursorPositionY);
