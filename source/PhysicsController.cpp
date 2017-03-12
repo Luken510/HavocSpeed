@@ -26,6 +26,13 @@ PHYSICS::PhysicsController::PhysicsController()
 
 PHYSICS::PhysicsController::~PhysicsController()
 {
+	// Clean up, LIFO system
+
+	delete m_dynamicWorld;
+	delete m_constraintSolver;
+	delete m_dispatcher;
+	delete m_collisionConfig;
+	delete m_broadphase;
 }
 
 PHYSICS::PhysicsController& PHYSICS::PhysicsController::getPhysicsInstance()

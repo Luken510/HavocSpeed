@@ -46,17 +46,15 @@ void GAME::Game::Init()
 	
 
 	//m_worldPhysics->
-	
+
+	m_map = std::make_shared<GRAPHICS::Model>("./external/assets/map/track01_.3ds");
+
 	EventHandler.setCamera(m_camera);
 	glfwSetScrollCallback(m_window.GetWindow(), &EventHandler.ScrollButtonCallBack);
 	glfwSetMouseButtonCallback(m_window.GetWindow(), &EventHandler.mouseButtonCallback);
 	// need to make a fair bit of get/set because of this work around???
 	// load objects, textures
-	m_car = std::make_shared<GRAPHICS::Model>("./external/assets/car/CarChasis.obj");
-	m_carRwheels = std::make_shared<GRAPHICS::Model>("./external/assets/car/rearWheels.obj");
-	m_carFrontR = std::make_shared<GRAPHICS::Model>("./external/assets/car/frontRightWheel.obj");
-	m_carFrontL = std::make_shared<GRAPHICS::Model>("./external/assets/car/frontLeftWheel.obj"); // similar to the robot, built car class and init them all in there.
-	m_map = std::make_shared<GRAPHICS::Model>("./external/assets/map/track01_.3ds");
+
 
 	RunGame();
 
@@ -105,10 +103,7 @@ void GAME::Game::Render(float Interpolate)
 	//need to create the car class to enable it to move/set its position elsewhere from here.
 	m_setModel = glm::mat4(1.0f) * glm::translate(glm::vec3(85.0f, 1.0f, 0.0f)) *glm::scale(glm::vec3(0.05f, 0.05f, 0.05f));
 	setmatricies(m_objShader);
-	m_car->Render(m_objShader);
-	m_carRwheels->Render(m_objShader);
-	m_carFrontR->Render(m_objShader);
-	m_carFrontL->Render(m_objShader);
+	m_player1Car.render(m_objShader);
 
 	m_MapShader->Use();
 	m_setModel = glm::mat4(1.0f) * glm::rotate(glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f)) * glm::scale(glm::vec3(0.2f, 0.2f, 0.2f));
