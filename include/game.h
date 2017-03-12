@@ -58,6 +58,9 @@ namespace GAME {
 	private:
 		std::shared_ptr<PHYSICS::PhysicsController> m_worldPhysics = std::make_shared<PHYSICS::PhysicsController>(PHYSICS::PhysicsController::getPhysicsInstance());
 		std::shared_ptr<GRAPHICS::Model> m_car = nullptr;
+		std::shared_ptr<GRAPHICS::Model> m_carRwheels = nullptr;
+		std::shared_ptr<GRAPHICS::Model> m_carFrontR = nullptr;
+		std::shared_ptr<GRAPHICS::Model> m_carFrontL = nullptr;
 		std::shared_ptr<GRAPHICS::Model> m_map = nullptr;
 		std::shared_ptr<UTIL::QuatCamera> m_camera = std::make_shared<UTIL::QuatCamera>();
 		std::shared_ptr<GRAPHICS::Shader> m_objShader = std::make_shared<GRAPHICS::Shader>();

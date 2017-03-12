@@ -123,10 +123,12 @@ GRAPHICS::Mesh GRAPHICS::Model::ProcessMesh(aiMesh* mesh, const aiScene* scene) 
 
 std::vector<GRAPHICS::Texture> GRAPHICS::Model::LoadMaterialTextures(aiMaterial* material, aiTextureType type, std::string typeName) {
 	std::vector<Texture> textures;
-	for (GLuint i = 0; i < material->GetTextureCount(type); i++)
+	GLuint t = 0;
+	GLuint test = material->GetTextureCount(type);
+	for ( t = 0; t < material->GetTextureCount(type); t++)
 	{
 		aiString str;
-		material->GetTexture(type, i, &str);
+		material->GetTexture(type, t, &str);
 		GLboolean skip = false;
 
 		for (GLuint j = 0; j < m_texturesLoaded.size(); j++)
