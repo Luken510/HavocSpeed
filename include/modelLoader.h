@@ -50,7 +50,7 @@ namespace GRAPHICS {
 		/*!
 		\brief Get the mode's meshes
 		*/
-		std::unique_ptr<std::vector<Mesh>> GetMeshes(); // USE FOR BULLET http://gamedev.stackexchange.com/questions/99045/how-to-load-a-level-for-use-with-the-bullet-physics-library
+		std::vector<Mesh> GetMeshes(); // USE FOR BULLET http://gamedev.stackexchange.com/questions/99045/how-to-load-a-level-for-use-with-the-bullet-physics-library
 								   //https://www.gamedev.net/topic/651157-mesh-physics-bullet-physics-and-assimp/
 	private:
 		/*!

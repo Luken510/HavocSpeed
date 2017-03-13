@@ -16,6 +16,18 @@ struct VehicleRaycaster;
 struct CollisionShape;
 
 
+namespace CarConfig
+{
+	struct Config
+	{
+		btScalar mass;
+		btScalar dampingLinear;
+		btScalar dampingAngle;
+	};
+}
+
+
+
 class RaceCar {
 
 public:
@@ -31,11 +43,8 @@ public:
 	void update(float deltaTime);
 	void render(std::shared_ptr<GRAPHICS::Shader> shader);
 
-	btRigidBody* m_carChassis;
+	
 	btRigidBody* localCreateRigidBody(btScalar mass, const btTransform& worldTransform, btCollisionShape* colShape);
-
-	int m_wheelInstances[4];
-
 	//
 
 private:
@@ -45,4 +54,14 @@ private:
 	std::shared_ptr<GRAPHICS::Model> m_carFrontL = nullptr;
 	std::shared_ptr<GRAPHICS::Model> m_map = nullptr;
 
+	btVehicleRaycaster* m_carRayCaster = nullptr;
+	btRaycastVehicle* m_rayCar = nullptr;
+	btRigidBody* m_carChassis = nullptr;
+	btCompoundShape* m_carCompound = nullptr;
+	btConvexTriangleMeshShape* m_carTriMeshShape = nullptr;
+	btConvexHullShape* m_carConvexHullShape = nullptr;
+	btBvhTriangleMeshShape* m_carTestTri = nullptr;
+
+
+	int m_wheelInstances[4];
 };

@@ -57,17 +57,17 @@ namespace GAME {
 		void setmatricies(std::shared_ptr<GRAPHICS::Shader> Shader);
 	
 	private:
+		GAME::Window m_window; //!< Window Object to render the game
 		std::shared_ptr<PHYSICS::PhysicsController> m_worldPhysics = std::make_shared<PHYSICS::PhysicsController>(PHYSICS::PhysicsController::getPhysicsInstance());
 		std::shared_ptr<UTIL::QuatCamera> m_camera = std::make_shared<UTIL::QuatCamera>();
 		std::shared_ptr<GRAPHICS::Shader> m_objShader = std::make_shared<GRAPHICS::Shader>();
 		std::shared_ptr<GRAPHICS::Shader> m_MapShader = std::make_shared<GRAPHICS::Shader>();
 		std::shared_ptr<GRAPHICS::Model> m_map = nullptr;
-		RaceCar m_player1Car;
+		std::shared_ptr<RaceCar> m_player1Car = nullptr; // if it isn't a pointer, make sure the window is init'd before called this object, as it will return an error
 		double m_timeSinceLastUpdate; //!< the time since the last update - "lag"
 		double m_CurrentTime; //!< current time of update
 		double m_PreviousTime; //!< previous time when updated
-		glm::mat4 m_setModel;
-		GAME::Window m_window; //!< Window Object to render the game
+		glm::mat4 m_setModel;		
 		UTIL::EventHandler &EventHandler = UTIL::EventHandler::getInstance(); // worth mentioning that this implementation won't work on multiple glfw windows
 		//Physics setup
 		//btBroadphaseInterface* broadphase;

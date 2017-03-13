@@ -43,7 +43,7 @@ void GAME::Game::Init()
 	m_objShader->CompileAndLinkShader("./external/assets/shaders/object.vs", "./external/assets/shaders/object.fs");
 	m_MapShader->CompileAndLinkShader("./external/assets/shaders/map.vs", "./external/assets/shaders/map.fs");
 	// physics engine
-	
+	m_player1Car = std::make_shared<RaceCar>();
 
 	//m_worldPhysics->
 
@@ -101,12 +101,12 @@ void GAME::Game::Render(float Interpolate)
 
 	m_objShader->Use();
 	//need to create the car class to enable it to move/set its position elsewhere from here.
-	m_setModel = glm::mat4(1.0f) * glm::translate(glm::vec3(85.0f, 1.0f, 0.0f)) *glm::scale(glm::vec3(0.05f, 0.05f, 0.05f));
+	m_setModel = glm::mat4(1.0f) * glm::translate(glm::vec3(45.0f, 1.0f, 0.0f)) *glm::scale(glm::vec3(0.08f, 0.08f, 0.08f));
 	setmatricies(m_objShader);
-	m_player1Car.render(m_objShader);
+	m_player1Car->render(m_objShader);
 
 	m_MapShader->Use();
-	m_setModel = glm::mat4(1.0f) * glm::rotate(glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f)) * glm::scale(glm::vec3(0.2f, 0.2f, 0.2f));
+	m_setModel = glm::mat4(1.0f) * glm::rotate(glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f)) * glm::scale(glm::vec3(0.1f, 0.1f, 0.1f));
 	setmatricies(m_MapShader);
 	m_map->Render(m_MapShader);
 	

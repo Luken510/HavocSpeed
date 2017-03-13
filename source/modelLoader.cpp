@@ -18,10 +18,10 @@ void GRAPHICS::Model::Render(std::shared_ptr<GRAPHICS::Shader> shader) {
 		this->m_meshes[i].Render(shader);
 }
 
-std::unique_ptr<std::vector<GRAPHICS::Mesh>> GRAPHICS::Model::GetMeshes()
+std::vector<GRAPHICS::Mesh> GRAPHICS::Model::GetMeshes()
 {
 	
-	return std::make_unique<std::vector<GRAPHICS::Mesh>>(m_meshes);
+	return m_meshes;
 }
 
 void GRAPHICS::Model::LoadModel(std::string path) {
