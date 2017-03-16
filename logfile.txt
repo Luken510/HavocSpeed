@@ -1,2 +1,2 @@
-[INFO] Obj Loaded: number of extracted vertices :14742
-[INFO] Obj Loaded: number of extracted vertices :14742
+[INFO] Obj Loaded: number of extracted vertices :44226
+[INFO] Obj Loaded: number of extracted indices :14742

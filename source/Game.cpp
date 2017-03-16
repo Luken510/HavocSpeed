@@ -101,7 +101,7 @@ void GAME::Game::Render(float Interpolate)
 
 	m_objShader->Use();
 	//need to create the car class to enable it to move/set its position elsewhere from here.
-	m_setModel = glm::mat4(1.0f) * glm::translate(glm::vec3(45.0f, 1.0f, 0.0f)) *glm::scale(glm::vec3(0.08f, 0.08f, 0.08f));
+	m_setModel = glm::mat4(1.0f) * glm::translate(glm::vec3(45.0f, 1.0f, 0.0f));
 	setmatricies(m_objShader);
 	m_player1Car->render(m_objShader);
 

@@ -40,6 +40,10 @@ public:
 	*/
 	~RaceCar();
 
+	void init();
+
+	void CreateCarBulletObjFromModel();
+
 	void update(float deltaTime);
 	void render(std::shared_ptr<GRAPHICS::Shader> shader);
 

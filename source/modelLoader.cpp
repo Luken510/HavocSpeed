@@ -117,7 +117,6 @@ GRAPHICS::Mesh GRAPHICS::Model::ProcessMesh(aiMesh* mesh, const aiScene* scene) 
 		std::vector<Texture> ambientMaps = this->LoadMaterialTextures(material, aiTextureType_AMBIENT, "texture_ambient");
 		textures.insert(textures.end(), ambientMaps.begin(), ambientMaps.end());
 	}
-
 	return Mesh(vertices, indices, textures);
 }
 
@@ -166,7 +165,6 @@ GLint GRAPHICS::TextureFromFile(const char * path, std::string directory)
 	int width, height;
 
 	unsigned char* image = SOIL_load_image(filename.c_str(), &width, &height, 0, SOIL_LOAD_RGB);
-	std::cout << image;
 	//Assign Texture to the ID
 
 	gl::BindTexture(gl::TEXTURE_2D, textureID);

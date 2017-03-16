@@ -59,6 +59,8 @@ std::shared_ptr<GRAPHICS::ObjInstanceShape> GRAPHICS::AssimpToBulletObj(std::vec
 	bulletObj->m_numOfVertices = verticesPtr->size();
 	bulletObj->m_indices = indicesPtr;
 	bulletObj->m_numOfIndices = indicesPtr->size();
+	UTIL::LOG(UTIL::LOG::INFO) << "Obj Loaded: number of extracted vertices :" << bulletObj->m_numOfVertices * 3;
+	UTIL::LOG(UTIL::LOG::INFO) << "Obj Loaded: number of extracted indices :" << bulletObj->m_numOfIndices;
 	for (int i = 0; i < 4; i++)
 		bulletObj->m_scaling[i] = 1;
 

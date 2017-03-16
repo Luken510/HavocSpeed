@@ -168,7 +168,7 @@ const glm::vec3 WORLDZ = glm::vec3(0,0,1);
 	{
 
 		_position += _zaxis * z;
-		std::cout << _position.z << std::endl;
+		
 		//Now call updateView()
 		updateView();
 
