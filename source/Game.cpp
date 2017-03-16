@@ -43,10 +43,11 @@ void GAME::Game::Init()
 	m_objShader->CompileAndLinkShader("./external/assets/shaders/object.vs", "./external/assets/shaders/object.fs");
 	m_MapShader->CompileAndLinkShader("./external/assets/shaders/map.vs", "./external/assets/shaders/map.fs");
 	// physics engine
+
+	//car
 	m_player1Car = std::make_shared<RaceCar>();
-
-	//m_worldPhysics->
-
+	m_player1Car->init();
+	//track
 	m_map = std::make_shared<GRAPHICS::Model>("./external/assets/map/track01_.3ds");
 
 	EventHandler.setCamera(m_camera);

@@ -5,6 +5,7 @@
 */
 
 #pragma once
+#pragma warning( disable : 4290 )  
 
 #include <map>
 #include <iostream>

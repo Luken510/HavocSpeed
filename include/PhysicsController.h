@@ -12,6 +12,7 @@
 #include "meshLoader.h"
 #include "modelLoader.h"
 #include "raceCar.h"
+#include "assimpToBulletObj.h"
 
 namespace PHYSICS
 {
@@ -25,15 +26,18 @@ namespace PHYSICS
 
 		void StepSimulation(double deltaTime);
 
-		void AddRigidBody(float mass, const btTransform& startTransform, std::shared_ptr<btCollisionShape> Shape);
 
 		void DrawDebugWorld();
 
-		//static std::shared_ptr<btCollisionShape> CreateStaticCollideShape(std::shared_ptr<GRAPHICS::Mesh> mesh, const btVector3& scale);
-		static std::shared_ptr<std::vector<btCollisionShape*>> CreateStaticCollisionShapes(std::shared_ptr<GRAPHICS::Model> model, float scale);
-		static std::shared_ptr<std::vector<btCollisionShape*>> CreateStaticCollisionShapes(std::shared_ptr<GRAPHICS::Mesh> model, float scale);
-
-		std::shared_ptr<RaceCar> getCar();
+		btConvexHullShape* CreateConvexHull(const GRAPHICS::ObjInstanceVertex&  vertices, int numOfVerts, int Stride, float scale, btScalar mass);
+		void AddModel(btCollisionShape* shape, const btTransform &startingPos, btScalar mass);
+		void AddModel(btConvexHullShape* shape, const btTransform &startingPos, btScalar mass);
+		void AddRigidBody(float mass, const btTransform& transform, btCollisionShape* shape);
+		void AddRigidBody(float mass, const btTransform& transform, btConvexHullShape* shape);
+		btRigidBody* CreateRigidbody(btScalar mass, const btTransform & transform, btCollisionShape* shape);
+		btRigidBody* CreateRigidbody(btScalar mass, const btTransform & transform, btConvexHullShape* shape);
+	
+	//	std::shared_ptr<RaceCar> getCar();
 
 		void AddCar(const btTransform & transform);
 		void addRocket(const btTransform & transform);
@@ -48,7 +52,8 @@ namespace PHYSICS
 		btDefaultCollisionConfiguration* m_collisionConfig = nullptr;
 		btDiscreteDynamicsWorld* m_dynamicWorld = nullptr;
 
-		std::shared_ptr<RaceCar> m_raceCar;
+		btAlignedObjectArray<btCollisionShape*> m_collisionShapes;
+		//std::shared_ptr<RaceCar> m_raceCar = nullptr;
 		// shared ptr of weapons
 		// checkpoints?
 		// map points?

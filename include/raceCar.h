@@ -9,6 +9,7 @@
 
 #include "modelLoader.h"
 #include "meshLoader.h"
+#include "PhysicsController.h"
 #include "shader.h"
 
 struct VehicleTuning;
@@ -58,12 +59,13 @@ private:
 	std::shared_ptr<GRAPHICS::Model> m_carFrontL = nullptr;
 	std::shared_ptr<GRAPHICS::Model> m_map = nullptr;
 
+	btConvexHullShape* carChasis = nullptr;
+
 	btVehicleRaycaster* m_carRayCaster = nullptr;
 	btRaycastVehicle* m_rayCar = nullptr;
 	btRigidBody* m_carChassis = nullptr;
 	btCompoundShape* m_carCompound = nullptr;
 	btConvexTriangleMeshShape* m_carTriMeshShape = nullptr;
-	btConvexHullShape* m_carConvexHullShape = nullptr;
 	btBvhTriangleMeshShape* m_carTestTri = nullptr;
 
 

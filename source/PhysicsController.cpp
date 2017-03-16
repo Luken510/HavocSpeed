@@ -47,23 +47,86 @@ void PHYSICS::PhysicsController::StepSimulation(double deltaTime)
 {
 }
 
-void PHYSICS::PhysicsController::AddRigidBody(float mass, const btTransform & startTransform, std::shared_ptr<btCollisionShape> Shape)
+void PHYSICS::PhysicsController::AddRigidBody(float mass, const btTransform & startTransform, btCollisionShape* Shape)
 {
+	btRigidBody* body = CreateRigidbody(mass, startTransform, Shape);
+
+	m_dynamicWorld->addRigidBody(body);
+}
+void PHYSICS::PhysicsController::AddRigidBody(float mass, const btTransform & startTransform, btConvexHullShape* Shape)
+{
+	btRigidBody* body = CreateRigidbody(mass, startTransform, Shape);
+
+	m_dynamicWorld->addRigidBody(body);
+}
+
+btRigidBody * PHYSICS::PhysicsController::CreateRigidbody(btScalar mass, const btTransform & transform, btCollisionShape * shape)
+{
+	btVector3 localInertia(0, 0, 0);
+	if (mass != 0.f)
+		shape->calculateLocalInertia(mass, localInertia);
+	
+	btDefaultMotionState* motionState = new btDefaultMotionState(transform);
+
+	btRigidBody::btRigidBodyConstructionInfo info(mass, motionState, shape, localInertia);
+
+	btRigidBody* body = new btRigidBody(info);
+	//body set contact processing threshold (0);
+
+	return body;
+}
+
+btRigidBody * PHYSICS::PhysicsController::CreateRigidbody(btScalar mass, const btTransform & transform, btConvexHullShape * shape)
+{
+	btVector3 localInertia(0, 0, 0);
+	if (mass != 0.f)
+		shape->calculateLocalInertia(mass, localInertia);
+
+	btDefaultMotionState* motionState = new btDefaultMotionState(transform);
+
+	btRigidBody::btRigidBodyConstructionInfo info(mass, motionState, shape, localInertia);
+
+	btRigidBody* body = new btRigidBody(info);
+	//body set contact processing threshold (0);
+
+	return body;
 }
 
 void PHYSICS::PhysicsController::DrawDebugWorld()
 {
 }
 
-std::shared_ptr<std::vector<btCollisionShape*>> PHYSICS::PhysicsController::CreateStaticCollisionShapes(std::shared_ptr<GRAPHICS::Model> model, float scale)
+btConvexHullShape*  PHYSICS::PhysicsController::CreateConvexHull(const GRAPHICS::ObjInstanceVertex& vertices, int numOfVerts, 
+																	int Stride, float scale, btScalar mass)
 {
-	return std::shared_ptr<std::vector<btCollisionShape*>>();
+	int i = Stride;
+	btConvexHullShape* shape = new btConvexHullShape((const btScalar*)(&(vertices.xyzw[0])), numOfVerts, Stride);
+	btVector3 localscaling(scale, scale, scale);
+	shape->setLocalScaling(localscaling);
+	shape->optimizeConvexHull();
+
+	return shape;
 }
 
-std::shared_ptr<RaceCar> PHYSICS::PhysicsController::getCar()
+void PHYSICS::PhysicsController::AddModel( btCollisionShape * shape, const btTransform& startingPos, btScalar mass)
+{
+	m_collisionShapes.push_back(shape);
+
+	AddRigidBody(mass, startingPos, shape);
+}
+
+void PHYSICS::PhysicsController::AddModel(btConvexHullShape * shape, const btTransform &startingPos, btScalar mass)
+{
+	m_collisionShapes.push_back(shape);
+
+	AddRigidBody(mass, startingPos, shape);
+}
+
+
+/*std::shared_ptr<RaceCar> PHYSICS::PhysicsController::getCar()
 {
 	return std::shared_ptr<RaceCar>();
-}
+}*/
 
 void PHYSICS::PhysicsController::AddCar(const btTransform & transform)
 {
