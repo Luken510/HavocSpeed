@@ -87,6 +87,18 @@ btRigidBody * PHYSICS::PhysicsController::CreateRigidbody(btScalar mass, const b
 	return body;
 }
 
+glm::mat4 PHYSICS::PhysicsController::btTransTo_glmMat4(const btTransform & transform)
+{
+	btMatrix3x3 m = transform.getBasis();
+	btVector3 v = transform.getOrigin();
+	
+	
+	return glm::mat4(m[0].x(), m[1].x(), m[2].x(), 0,
+					 m[0].y(), m[1].y(), m[2].y(), 0,
+					 m[0].z(), m[1].z(), m[2].z(), 0,
+					 v.x(), v.y(), v.z(), 1);
+}
+
 
 void PHYSICS::PhysicsController::DrawDebugWorld()
 {

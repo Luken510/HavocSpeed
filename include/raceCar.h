@@ -90,15 +90,20 @@ public:
 	*/
 	~RaceCar();
 
-	void init();
+	void Init();
 
 	void CreateCarBulletObjFromModel();
 
-	void update(float deltaTime);
-	void render(std::shared_ptr<GRAPHICS::Shader> shader);
+	void Update(float deltaTime);
+	void Render(std::shared_ptr<GRAPHICS::Shader> shader);
 
+	void UpdateMatrix(glm::vec3 Pos, glm::vec3 scale);
+	void UpdateMatrix(glm::vec3 Pos, glm::vec3 scale, glm::vec3 rotateAxis, float angle);
+	void UpdateMatrix(glm::mat4 matrix);
+	glm::mat4 GetCarMatrix();
+	glm::mat4 getWorldPos();
 	
-	btRigidBody* localCreateRigidBody(btScalar mass, const btTransform& worldTransform, btCollisionShape* colShape);
+	//btRigidBody* LocalCreateRigidBody(btScalar mass, const btTransform& worldTransform, btCollisionShape* colShape);
 	//
 
 private:
@@ -114,10 +119,15 @@ private:
 	btConvexHullShape* m_carChasis = nullptr;
 	btCompoundShape* m_carChasisComp = nullptr;
 	btVehicleRaycaster* m_carRayCaster = nullptr;
-	btRaycastVehicle* m_rayCar = nullptr;
+	btRaycastVehicle* m_raycastCar = nullptr;
 	btRigidBody* m_carChassisRigid = nullptr;
 
+	float m_enginePower;
+	float m_brakingPower;
+	float m_steeringPower;
 
+	glm::mat4 m_carModelMatrix;
+	glm::vec3 m_carScale = glm::vec3(0.08f, 0.08f, 0.08f);
 
 	int m_wheelInstances[4];
 };

@@ -35,6 +35,7 @@ namespace PHYSICS
 		void AddRigidBody(btRigidBody * body);
 		btRigidBody* CreateRigidbody(btScalar mass, const btTransform & transform, btCollisionShape* shape);
 		btRigidBody* CreateRigidbody(btScalar mass, const btTransform & transform, btConvexHullShape* shape);
+		glm::mat4 btTransTo_glmMat4(const btTransform & transform);
 	//	std::shared_ptr<RaceCar> getCar();
 
 		btDynamicsWorld* GetDynamicWorld();

@@ -44,9 +44,10 @@ void GAME::Game::Init()
 	m_MapShader->CompileAndLinkShader("./external/assets/shaders/map.vs", "./external/assets/shaders/map.fs");
 	// physics engine
 	PHYSICS::PhysicsController::GetPhysicsInstance();
+
 	//car
 	m_player1Car = std::make_shared<RaceCar>();
-	m_player1Car->init();
+	m_player1Car->Init();
 	//track
 	m_map = std::make_shared<GRAPHICS::Model>("./external/assets/map/track01_.3ds");
 
@@ -93,6 +94,8 @@ void GAME::Game::HandleKeyEvents(GLFWwindow* window, int key, int scancode, int 
 void GAME::Game::Update(float deltaTime)
 {
 	m_window.update(deltaTime, m_camera);
+	m_player1Car->Update(deltaTime);
+	PHYSICS::PhysicsController::GetPhysicsInstance().GetDynamicWorld()->stepSimulation(deltaTime, 10); //default 60fps
 }
 
 void GAME::Game::Render(float Interpolate)
@@ -102,9 +105,9 @@ void GAME::Game::Render(float Interpolate)
 
 	m_objShader->Use();
 	//need to create the car class to enable it to move/set its position elsewhere from here.
-	m_setModel = glm::mat4(1.0f) * glm::translate(glm::vec3(45.0f, 1.0f, 0.0f));
+	m_setModel = glm::mat4(1.0f) * m_player1Car->GetCarMatrix();
 	setmatricies(m_objShader);
-	m_player1Car->render(m_objShader);
+	m_player1Car->Render(m_objShader);
 
 	m_MapShader->Use();
 	m_setModel = glm::mat4(1.0f) * glm::rotate(glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f)) * glm::scale(glm::vec3(0.1f, 0.1f, 0.1f));
