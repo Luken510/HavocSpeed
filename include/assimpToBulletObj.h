@@ -37,6 +37,6 @@ namespace GRAPHICS {
 	};
 
 
-	struct std::shared_ptr<ObjInstanceShape> AssimpToBulletObj(std::vector<GRAPHICS::Mesh>& meshes);
+	std::shared_ptr<ObjInstanceShape> AssimpToBulletObj(std::vector<GRAPHICS::Mesh>& meshes);
 
 }

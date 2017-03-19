@@ -58,7 +58,7 @@ namespace GAME {
 	
 	private:
 		GAME::Window m_window; //!< Window Object to render the game
-		std::shared_ptr<PHYSICS::PhysicsController> m_worldPhysics = m_worldPhysics = std::make_shared<PHYSICS::PhysicsController>(PHYSICS::PhysicsController::getPhysicsInstance());
+		//std::shared_ptr<PHYSICS::PhysicsController> m_worldPhysics = m_worldPhysics = std::make_shared<PHYSICS::PhysicsController>(PHYSICS::PhysicsController::GetPhysicsInstance());
 		std::shared_ptr<UTIL::QuatCamera> m_camera = std::make_shared<UTIL::QuatCamera>();
 		std::shared_ptr<GRAPHICS::Shader> m_objShader = std::make_shared<GRAPHICS::Shader>();
 		std::shared_ptr<GRAPHICS::Shader> m_MapShader = std::make_shared<GRAPHICS::Shader>();

@@ -20,7 +20,7 @@ namespace PHYSICS
 
 	public:
 		
-		static PhysicsController& getPhysicsInstance();
+		static PhysicsController& GetPhysicsInstance();
 
 		~PhysicsController();
 
@@ -30,16 +30,17 @@ namespace PHYSICS
 		void DrawDebugWorld();
 
 		btConvexHullShape* CreateConvexHull(const GRAPHICS::ObjInstanceVertex&  vertices, int numOfVerts, int Stride, float scale, btScalar mass);
-		void AddModel(btCollisionShape* shape, const btTransform &startingPos, btScalar mass);
-		void AddModel(btConvexHullShape* shape, const btTransform &startingPos, btScalar mass);
-		void AddRigidBody(float mass, const btTransform& transform, btCollisionShape* shape);
-		void AddRigidBody(float mass, const btTransform& transform, btConvexHullShape* shape);
+		void AddModel(btCollisionShape* shape);
+		void AddModel(btConvexHullShape* shape);
+		void AddRigidBody(btRigidBody * body);
 		btRigidBody* CreateRigidbody(btScalar mass, const btTransform & transform, btCollisionShape* shape);
 		btRigidBody* CreateRigidbody(btScalar mass, const btTransform & transform, btConvexHullShape* shape);
-	
 	//	std::shared_ptr<RaceCar> getCar();
 
-		void AddCar(const btTransform & transform);
+		btDynamicsWorld* GetDynamicWorld();
+
+		void AddCar();
+		btRaycastVehicle* getCar();
 		void addRocket(const btTransform & transform);
 		// maybe Add Weapon template instead, with it changing aka virtual
 		// somehow add a map to find certain points within the dynamic world

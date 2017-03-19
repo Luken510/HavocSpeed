@@ -43,7 +43,7 @@ void GAME::Game::Init()
 	m_objShader->CompileAndLinkShader("./external/assets/shaders/object.vs", "./external/assets/shaders/object.fs");
 	m_MapShader->CompileAndLinkShader("./external/assets/shaders/map.vs", "./external/assets/shaders/map.fs");
 	// physics engine
-
+	PHYSICS::PhysicsController::GetPhysicsInstance();
 	//car
 	m_player1Car = std::make_shared<RaceCar>();
 	m_player1Car->init();

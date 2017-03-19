@@ -20,7 +20,7 @@ PHYSICS::PhysicsController::PhysicsController()
 
 	// the world
 	m_dynamicWorld = new btDiscreteDynamicsWorld(m_dispatcher, m_broadphase, m_constraintSolver, m_collisionConfig);
-	m_dynamicWorld->setGravity(btVector3(0, -9.8, 0));
+	m_dynamicWorld->setGravity(btVector3(0.0f, -9.8f, 0.0f));
 
 }
 
@@ -35,7 +35,7 @@ PHYSICS::PhysicsController::~PhysicsController()
 	delete m_broadphase;
 }
 
-PHYSICS::PhysicsController& PHYSICS::PhysicsController::getPhysicsInstance()
+PHYSICS::PhysicsController& PHYSICS::PhysicsController::GetPhysicsInstance()
 {
 	
 	static PHYSICS::PhysicsController* instance = new PhysicsController();
@@ -47,18 +47,13 @@ void PHYSICS::PhysicsController::StepSimulation(double deltaTime)
 {
 }
 
-void PHYSICS::PhysicsController::AddRigidBody(float mass, const btTransform & startTransform, btCollisionShape* Shape)
+void PHYSICS::PhysicsController::AddRigidBody(btRigidBody * body)
 {
-	btRigidBody* body = CreateRigidbody(mass, startTransform, Shape);
-
+	
 	m_dynamicWorld->addRigidBody(body);
 }
-void PHYSICS::PhysicsController::AddRigidBody(float mass, const btTransform & startTransform, btConvexHullShape* Shape)
-{
-	btRigidBody* body = CreateRigidbody(mass, startTransform, Shape);
 
-	m_dynamicWorld->addRigidBody(body);
-}
+
 
 btRigidBody * PHYSICS::PhysicsController::CreateRigidbody(btScalar mass, const btTransform & transform, btCollisionShape * shape)
 {
@@ -92,6 +87,7 @@ btRigidBody * PHYSICS::PhysicsController::CreateRigidbody(btScalar mass, const b
 	return body;
 }
 
+
 void PHYSICS::PhysicsController::DrawDebugWorld()
 {
 }
@@ -108,19 +104,18 @@ btConvexHullShape*  PHYSICS::PhysicsController::CreateConvexHull(const GRAPHICS:
 	return shape;
 }
 
-void PHYSICS::PhysicsController::AddModel( btCollisionShape * shape, const btTransform& startingPos, btScalar mass)
+void PHYSICS::PhysicsController::AddModel( btCollisionShape * shape)
 {
 	m_collisionShapes.push_back(shape);
-
-	AddRigidBody(mass, startingPos, shape);
+	
 }
 
-void PHYSICS::PhysicsController::AddModel(btConvexHullShape * shape, const btTransform &startingPos, btScalar mass)
+void PHYSICS::PhysicsController::AddModel(btConvexHullShape * shape)
 {
 	m_collisionShapes.push_back(shape);
-
-	AddRigidBody(mass, startingPos, shape);
 }
+
+
 
 
 /*std::shared_ptr<RaceCar> PHYSICS::PhysicsController::getCar()
@@ -128,7 +123,12 @@ void PHYSICS::PhysicsController::AddModel(btConvexHullShape * shape, const btTra
 	return std::shared_ptr<RaceCar>();
 }*/
 
-void PHYSICS::PhysicsController::AddCar(const btTransform & transform)
+btDynamicsWorld * PHYSICS::PhysicsController::GetDynamicWorld()
+{
+	return m_dynamicWorld;
+}
+
+void PHYSICS::PhysicsController::AddCar()
 {
 }
 
