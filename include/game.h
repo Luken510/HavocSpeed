@@ -45,7 +45,7 @@ namespace GAME {
 		\brief Update the game
 		\param deltaTime, Current timestep within the game
 		*/
-		void Update(float deltaTime);
+		void Update(double deltaTime);
 		/*
 		\brief Render the Game
 		\param Interpolate, used for buffering the render mid update if needed

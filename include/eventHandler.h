@@ -1,7 +1,11 @@
 #pragma once
 #include <GLFW/glfw3.h>
 #include <memory>
+
 #include "QuatCamera.h"
+
+class RaceCar;
+
 namespace UTIL {
 	class EventHandler
 	{
@@ -9,16 +13,21 @@ namespace UTIL {
 		static EventHandler& getInstance(); // Singleton is accessed via getInstance()
 		
 
-		static void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods); // this method is specified as glfw callback
+		static void MouseButtonCallback(GLFWwindow* window, int button, int action, int mods); // this method is specified as glfw callback
 	
 
-		void mouseButtonCallbackImpl(GLFWwindow* window, int button, int action, int mods); //this is the actual implementation of the callback method
+		void MouseButtonCallbackImpl(GLFWwindow* window, int button, int action, int mods); //this is the actual implementation of the callback method
 		
 		static void ScrollButtonCallBack(GLFWwindow *window, double x, double y);
 		
 		void ScrollButtonCallBackImp(GLFWwindow *window, double x, double y);
 		
+		static void KeyCallBack(GLFWwindow * window, int key, int cancode, int action, int mods);
+
+		void KeyCallBackImp(GLFWwindow * window, int key, int cancode, int action, int mods);
+
 		void setCamera(std::shared_ptr<UTIL::QuatCamera> Camera);
+		void setCar(std::shared_ptr<RaceCar> car);
 		
 	private:
 		EventHandler();
@@ -27,6 +36,7 @@ namespace UTIL {
 		void operator=(EventHandler const&); // prevent assignments
 
 		std::shared_ptr<UTIL::QuatCamera> camera;
+		std::shared_ptr<RaceCar> m_car;
 		
 		
 	};

@@ -10,7 +10,7 @@
 
 
 
-RaceCar::RaceCar()
+RaceCar::RaceCar() : m_enginePower(0)
 {
 
 	m_carModelMatrix = glm::translate(glm::vec3(45.0f, 1.0f, 0.0f)) * glm::scale(m_carScale); // default pos to draw 
@@ -105,10 +105,12 @@ void RaceCar::CreateCarBulletObjFromModel()
 
 }
 
-void RaceCar::Update(float deltaTime)
+void RaceCar::Update(double deltaTime)
 {
+	if (std::abs(m_raycastCar->getCurrentSpeedKmHour()) < carConfig.m_maxSpeed)
 	m_enginePower = carConfig.m_maxEnginePower;
 	
+
 	m_raycastCar->applyEngineForce(m_enginePower, 2); // WHEEL rearLEFt, - SET UP AN ENUM ( 0, 1, 2,3)
 	m_raycastCar->applyEngineForce(m_enginePower, 3); // WHEEL rearRIGHT
 
@@ -123,8 +125,8 @@ void RaceCar::Update(float deltaTime)
 
 	//do turning decrease/increase?;
 	
-	//update model pos
-	
+	UTIL::LOG(UTIL::LOG::INFO) << " car Speed : " << m_raycastCar->getCurrentSpeedKmHour();
+	//update car position for its model
 	UpdateMatrix(getWorldPos());
 }
 

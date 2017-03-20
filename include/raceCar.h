@@ -68,7 +68,7 @@ namespace CarConfig
 			m_suspensionDampCompression(10.7f),
 			m_suspensionMaxLength(0.06f),
 			m_suspensionMaxTravel(12.0f),
-			m_rollInfluence(0.2f),
+			m_rollInfluence(0.0f),
 			m_wheelDirection(0.0f, -1.0f, -0.0f),
 			wheelAxel(-1.0f, -0.0f, 0.0f)
 		{
@@ -94,7 +94,7 @@ public:
 
 	void CreateCarBulletObjFromModel();
 
-	void Update(float deltaTime);
+	void Update(double deltaTime);
 	void Render(std::shared_ptr<GRAPHICS::Shader> shader);
 
 	void UpdateMatrix(glm::vec3 Pos, glm::vec3 scale);
@@ -102,6 +102,12 @@ public:
 	void UpdateMatrix(glm::mat4 matrix);
 	glm::mat4 GetCarMatrix();
 	glm::mat4 getWorldPos();
+
+	void Drive();
+	void Reverse();
+	void TurnLeft();
+	void TurnRight();
+	void Brake();
 	
 	//btRigidBody* LocalCreateRigidBody(btScalar mass, const btTransform& worldTransform, btCollisionShape* colShape);
 	//

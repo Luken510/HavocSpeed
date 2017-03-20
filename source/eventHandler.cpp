@@ -3,6 +3,7 @@
 
 #include "eventHandler.h"
 #include "QuatCamera.h"
+#include "raceCar.h"
 
 UTIL::EventHandler & UTIL::EventHandler::getInstance()
 {
@@ -12,15 +13,15 @@ UTIL::EventHandler & UTIL::EventHandler::getInstance()
 	
 }
 
-void UTIL::EventHandler::mouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
+void UTIL::EventHandler::MouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
 {
 	
 		//here we access the instance via the singleton pattern and forward the callback to the instance method
-		getInstance().mouseButtonCallbackImpl(window, button, action, mods);
+		getInstance().MouseButtonCallbackImpl(window, button, action, mods);
 	
 }
 
-void UTIL::EventHandler::mouseButtonCallbackImpl(GLFWwindow* window, int button, int action, int mods)
+void UTIL::EventHandler::MouseButtonCallbackImpl(GLFWwindow* window, int button, int action, int mods)
 {
 	
 		//the callback is handled in this instance method           
@@ -68,6 +69,35 @@ void UTIL::EventHandler::ScrollButtonCallBackImp(GLFWwindow * window, double x, 
 	
 }
 
+void UTIL::EventHandler::KeyCallBack(GLFWwindow * window, int key, int cancode, int action, int mods)
+{
+	getInstance().KeyCallBackImp(window, key, cancode, action, mods);
+}
+
+void UTIL::EventHandler::KeyCallBackImp(GLFWwindow * window, int key, int cancode, int action, int mods)
+{
+	if (key == 'W' &&  action == GLFW_PRESS)
+		m_car->Drive();
+	if (key == 'S' && action == GLFW_PRESS)
+		m_car->Reverse();
+	if (key == 'A' && action == GLFW_PRESS)
+		m_car->TurnLeft();
+	if (key == 'D' && action == GLFW_PRESS)
+		m_car->TurnRight();
+
+	// test which works better, press or release, add brake, make it work to test car physics.
+
+	if (key == GLFW_KEY_UP && action == GLFW_RELEASE)
+		m_car->Drive();
+	if (key == GLFW_KEY_DOWN && action == GLFW_RELEASE)
+		m_car->Reverse();
+	if (key == GLFW_KEY_LEFT && action == GLFW_RELEASE)
+		m_car->TurnLeft();
+	if (key == GLFW_KEY_RIGHT && action == GLFW_RELEASE)
+		m_car->TurnRight();
+	
+}
+
 void UTIL::EventHandler::setCamera(std::shared_ptr<UTIL::QuatCamera> Camera)
 {
 	
@@ -75,8 +105,14 @@ void UTIL::EventHandler::setCamera(std::shared_ptr<UTIL::QuatCamera> Camera)
 	
 }
 
+void UTIL::EventHandler::setCar(std::shared_ptr<RaceCar> car)
+{
+	m_car = car;
+}
+
 UTIL::EventHandler::EventHandler()
 {
+
 }
 
 void UTIL::EventHandler::operator=(EventHandler const &)

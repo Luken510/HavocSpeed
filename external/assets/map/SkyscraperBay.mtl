@@ -1,0 +1,720 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl M_0020_Red
+Ka 0.000000 0.000000 0.000000
+Kd 1.000000 0.000000 0.000000
+Ks 0.330000 0.330000 0.330000
+
+newmtl FrontColor
+Ka 0.000000 0.000000 0.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.330000 0.330000 0.330000
+
+newmtl _Metal_Seamed_1
+Ka 0.000000 0.000000 0.000000
+Kd 0.462745 0.466667 0.450980
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_Metal_Seamed_1.jpg
+
+newmtl _78
+Ka 0.000000 0.000000 0.000000
+Kd 0.262745 0.619608 0.854902
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_78.jpg
+
+newmtl _Metal_Steel_Textured_1
+Ka 0.000000 0.000000 0.000000
+Kd 0.415686 0.431373 0.482353
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_Metal_Steel_Textured_1.jpg
+
+newmtl _79
+Ka 0.000000 0.000000 0.000000
+Kd 0.698039 0.686275 0.321569
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_79.jpg
+
+newmtl _80
+Ka 0.000000 0.000000 0.000000
+Kd 0.745098 0.854902 0.854902
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_80.jpg
+
+newmtl _82
+Ka 0.000000 0.000000 0.000000
+Kd 0.411765 0.576471 0.639216
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_82.jpg
+
+newmtl Stone_Pavers_Flagstone_Gray
+Ka 0.000000 0.000000 0.000000
+Kd 0.635294 0.635294 0.635294
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/Stone_Pavers_Flagstone_Gray.jpg
+
+newmtl Associates_Center_Chicago_IL_repeated_window
+Ka 0.000000 0.000000 0.000000
+Kd 0.227451 0.227451 0.227451
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/Associates_Center_Chicago_IL_repeated_window.jpg
+
+newmtl _7
+Ka 0.000000 0.000000 0.000000
+Kd 0.400000 0.521569 0.690196
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_7.jpg
+
+newmtl M_96_96_96
+Ka 0.000000 0.000000 0.000000
+Kd 0.376471 0.376471 0.376471
+Ks 0.330000 0.330000 0.330000
+
+newmtl C_ChicC_d_wind_w5_0_h5_65
+Ka 0.000000 0.000000 0.000000
+Kd 0.337255 0.396078 0.352941
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/C_ChicC_d_wind_w5_0_h5_65.jpg
+
+newmtl _70
+Ka 0.000000 0.000000 0.000000
+Kd 0.082353 0.101961 0.007843
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_70.jpg
+
+newmtl _8
+Ka 0.000000 0.000000 0.000000
+Kd 0.435294 0.270588 0.266667
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_8.jpg
+
+newmtl Color_000
+Ka 0.000000 0.000000 0.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.330000 0.330000 0.330000
+
+newmtl C_ClasA_wind1_w4_0_h3_5
+Ka 0.000000 0.000000 0.000000
+Kd 0.572549 0.580392 0.556863
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/C_ClasA_wind1_w4_0_h3_5.jpg
+
+newmtl _67
+Ka 0.000000 0.000000 0.000000
+Kd 0.258824 0.635294 0.752941
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_67.jpg
+
+newmtl _49
+Ka 0.000000 0.000000 0.000000
+Kd 0.015686 0.101961 0.086275
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_49.jpg
+
+newmtl C_ChicC_wind_w5_0_h3_5
+Ka 0.000000 0.000000 0.000000
+Kd 0.415686 0.384314 0.360784
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/C_ChicC_wind_w5_0_h3_5.jpg
+
+newmtl _11
+Ka 0.000000 0.000000 0.000000
+Kd 0.419608 0.490196 0.521569
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_11.jpg
+
+newmtl _2
+Ka 0.000000 0.000000 0.000000
+Kd 0.337255 0.486275 0.521569
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_2.jpg
+
+newmtl _Metal_Aluminum_Anodized_1
+Ka 0.000000 0.000000 0.000000
+Kd 0.784314 0.819608 0.854902
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_Metal_Aluminum_Anodized_1.jpg
+
+newmtl _Concrete_Aggregate_Smoke_1
+Ka 0.000000 0.000000 0.000000
+Kd 0.603922 0.588235 0.580392
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_Concrete_Aggregate_Smoke_1.jpg
+
+newmtl C_ModeA_d_wind_w2_0_h5_0
+Ka 0.000000 0.000000 0.000000
+Kd 0.258824 0.262745 0.266667
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/C_ModeA_d_wind_w2_0_h5_0.jpg
+
+newmtl Concrete_Block_8x8_Gray
+Ka 0.000000 0.000000 0.000000
+Kd 0.615686 0.619608 0.603922
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/Concrete_Block_8x8_Gray.jpg
+
+newmtl C_ItalA_d_wind_w5_0_h4_0
+Ka 0.000000 0.000000 0.000000
+Kd 0.705882 0.701961 0.584314
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/C_ItalA_d_wind_w5_0_h4_0.jpg
+
+newmtl _12
+Ka 0.000000 0.000000 0.000000
+Kd 0.258824 0.392157 0.556863
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_12.jpg
+
+newmtl _4
+Ka 0.000000 0.000000 0.000000
+Kd 0.380392 0.494118 0.603922
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_4.jpg
+
+newmtl C_ItalE_d_wind_w2_0_h4_0
+Ka 0.000000 0.000000 0.000000
+Kd 0.384314 0.384314 0.384314
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/C_ItalE_d_wind_w2_0_h4_0.jpg
+
+newmtl C_ModeB_wind_w5_0_h4_0
+Ka 0.000000 0.000000 0.000000
+Kd 0.282353 0.298039 0.321569
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/C_ModeB_wind_w5_0_h4_0.jpg
+
+newmtl cementPenobscot
+Ka 0.000000 0.000000 0.000000
+Kd 0.694118 0.658824 0.631373
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/cementPenobscot.jpg
+
+newmtl C_ArtDC_wind4_w5_0_h4_0
+Ka 0.000000 0.000000 0.000000
+Kd 0.411765 0.384314 0.337255
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/C_ArtDC_wind4_w5_0_h4_0.jpg
+
+newmtl Concrete_Block_Retaining_Gray
+Ka 0.000000 0.000000 0.000000
+Kd 0.568627 0.560784 0.564706
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/Concrete_Block_Retaining_Gray.png
+
+newmtl C_ChicB_d_wind_w4_0_h5_0
+Ka 0.000000 0.000000 0.000000
+Kd 0.423529 0.372549 0.364706
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/C_ChicB_d_wind_w4_0_h5_0.jpg
+
+newmtl Concrete_Pavers_Block_Multi
+Ka 0.000000 0.000000 0.000000
+Kd 0.486275 0.549020 0.568627
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/Concrete_Pavers_Block_Multi.jpg
+
+newmtl C_ChicA_d_wind_w5_0_h5_0
+Ka 0.000000 0.000000 0.000000
+Kd 0.258824 0.274510 0.278431
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/C_ChicA_d_wind_w5_0_h5_0.jpg
+
+newmtl cementPenobscot_copy
+Ka 0.000000 0.000000 0.000000
+Kd 0.823529 0.780392 0.749020
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/cementPenobscot_copy.jpg
+
+newmtl _13
+Ka 0.000000 0.000000 0.000000
+Kd 0.231373 0.368627 0.423529
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_13.png
+
+newmtl _1
+Ka 0.000000 0.000000 0.000000
+Kd 0.388235 0.603922 0.729412
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_1.jpg
+
+newmtl C_ArtDE_d_wind_w4_0_h5_0
+Ka 0.000000 0.000000 0.000000
+Kd 0.286275 0.290196 0.337255
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/C_ArtDE_d_wind_w4_0_h5_0.jpg
+
+newmtl C_ArtDD_wind3_w4_0_h4_0
+Ka 0.000000 0.000000 0.000000
+Kd 0.407843 0.403922 0.419608
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/C_ArtDD_wind3_w4_0_h4_0.jpg
+
+newmtl C_ArtDD_corn_w2_0_h1_0
+Ka 0.000000 0.000000 0.000000
+Kd 0.568627 0.560784 0.576471
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/C_ArtDD_corn_w2_0_h1_0.jpg
+
+newmtl Stone_Pavers_Walk
+Ka 0.000000 0.000000 0.000000
+Kd 0.635294 0.615686 0.439216
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/Stone_Pavers_Walk.jpg
+
+newmtl C_ModeH_wind_w2_0_h4_0
+Ka 0.000000 0.000000 0.000000
+Kd 0.305882 0.313725 0.349020
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/C_ModeH_wind_w2_0_h4_0.jpg
+
+newmtl Brick_Colored_Blue
+Ka 0.000000 0.000000 0.000000
+Kd 0.564706 0.560784 0.572549
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/Brick_Colored_Blue.jpg
+
+newmtl _16
+Ka 0.000000 0.000000 0.000000
+Kd 0.721569 0.788235 0.831373
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_16.jpg
+
+newmtl _14
+Ka 0.000000 0.000000 0.000000
+Kd 0.239216 0.266667 0.317647
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_14.jpg
+
+newmtl _68
+Ka 0.000000 0.000000 0.000000
+Kd 0.294118 0.231373 0.137255
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_68.jpg
+
+newmtl _66
+Ka 0.000000 0.000000 0.000000
+Kd 0.274510 0.494118 0.572549
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_66.jpg
+
+newmtl _26
+Ka 0.000000 0.000000 0.000000
+Kd 0.266667 0.164706 0.352941
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_26.jpg
+
+newmtl _42
+Ka 0.000000 0.000000 0.000000
+Kd 0.933333 0.337255 0.388235
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_42.png
+
+newmtl _41
+Ka 0.000000 0.000000 0.000000
+Kd 0.376471 0.419608 0.411765
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_41.jpg
+
+newmtl C_RenaA_d_wind_w2_5_h4_5
+Ka 0.000000 0.000000 0.000000
+Kd 0.462745 0.462745 0.466667
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/C_RenaA_d_wind_w2_5_h4_5.jpg
+
+newmtl _43
+Ka 0.000000 0.000000 0.000000
+Kd 0.172549 0.294118 0.458824
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_43.png
+
+newmtl C_ModeA_wind_w2_0_h4_0
+Ka 0.000000 0.000000 0.000000
+Kd 0.321569 0.325490 0.329412
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/C_ModeA_wind_w2_0_h4_0.jpg
+
+newmtl _37
+Ka 0.000000 0.000000 0.000000
+Kd 0.215686 0.188235 0.349020
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_37.jpg
+
+newmtl _38
+Ka 0.000000 0.000000 0.000000
+Kd 0.082353 0.101961 0.007843
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_38.jpg
+
+newmtl _28
+Ka 0.000000 0.000000 0.000000
+Kd 0.192157 0.156863 0.196078
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_28.jpg
+
+newmtl _27
+Ka 0.000000 0.000000 0.000000
+Kd 0.454902 0.564706 0.650980
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_27.jpg
+
+newmtl _19
+Ka 0.000000 0.000000 0.000000
+Kd 0.223529 0.309804 0.321569
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_19.jpg
+
+newmtl _48
+Ka 0.000000 0.000000 0.000000
+Kd 0.145098 0.341176 0.607843
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_48.jpg
+
+newmtl _45
+Ka 0.000000 0.000000 0.000000
+Kd 0.286275 0.549020 0.807843
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_45.png
+
+newmtl _47
+Ka 0.000000 0.000000 0.000000
+Kd 0.505882 0.650980 0.823529
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_47.jpg
+
+newmtl _39
+Ka 0.000000 0.000000 0.000000
+Kd 0.066667 0.282353 0.643137
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_39.jpg
+
+newmtl _65
+Ka 0.000000 0.000000 0.000000
+Kd 0.933333 0.258824 0.282353
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_65.png
+
+newmtl _22
+Ka 0.000000 0.000000 0.000000
+Kd 0.368627 0.403922 0.454902
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_22.png
+
+newmtl _36
+Ka 0.000000 0.000000 0.000000
+Kd 0.078431 0.262745 0.403922
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_36.jpg
+
+newmtl _25
+Ka 0.000000 0.000000 0.000000
+Kd 0.949020 0.890196 0.886275
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_25.jpg
+
+newmtl _17
+Ka 0.000000 0.000000 0.000000
+Kd 0.196078 0.294118 0.305882
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_17.jpg
+
+newmtl _23
+Ka 0.000000 0.000000 0.000000
+Kd 0.247059 0.427451 0.937255
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_23.jpg
+
+newmtl _61
+Ka 0.000000 0.000000 0.000000
+Kd 0.000000 0.098039 0.141176
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_61.jpg
+
+newmtl _50
+Ka 0.000000 0.000000 0.000000
+Kd 0.894118 0.172549 0.196078
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_50.jpg
+
+newmtl _62
+Ka 0.000000 0.000000 0.000000
+Kd 0.372549 0.039216 0.035294
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_62.jpg
+
+newmtl _29
+Ka 0.000000 0.000000 0.000000
+Kd 0.501961 0.427451 0.407843
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_29.png
+
+newmtl C_ClasA_wind2_w4_0_h3_5
+Ka 0.000000 0.000000 0.000000
+Kd 0.478431 0.494118 0.462745
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/C_ClasA_wind2_w4_0_h3_5.jpg
+
+newmtl _73
+Ka 0.000000 0.000000 0.000000
+Kd 0.588235 0.517647 0.074510
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_73.png
+
+newmtl C_ModeC_wind1_w2_5_h4_0
+Ka 0.000000 0.000000 0.000000
+Kd 0.266667 0.321569 0.325490
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/C_ModeC_wind1_w2_5_h4_0.jpg
+
+newmtl _20
+Ka 0.000000 0.000000 0.000000
+Kd 0.415686 0.450980 0.458824
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_20.jpg
+
+newmtl _69
+Ka 0.000000 0.000000 0.000000
+Kd 0.458824 0.517647 0.474510
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_69.jpg
+
+newmtl _30
+Ka 0.000000 0.000000 0.000000
+Kd 0.380392 0.419608 0.505882
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_30.png
+
+newmtl _64
+Ka 0.000000 0.000000 0.000000
+Kd 0.396078 0.349020 0.419608
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_64.jpg
+
+newmtl Metal_Aluminum_Anodized
+Ka 0.000000 0.000000 0.000000
+Kd 0.384314 0.400000 0.419608
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/Metal_Aluminum_Anodized.jpg
+
+newmtl cn_bs
+Ka 0.000000 0.000000 0.000000
+Kd 0.478431 0.537255 0.623529
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/cn_bs.jpg
+
+newmtl _33
+Ka 0.000000 0.000000 0.000000
+Kd 0.513725 0.549020 0.603922
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_33.jpg
+
+newmtl C_PostM_d_wind_w2_5_h6_0
+Ka 0.000000 0.000000 0.000000
+Kd 0.517647 0.447059 0.447059
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/C_PostM_d_wind_w2_5_h6_0.jpg
+
+newmtl _24
+Ka 0.000000 0.000000 0.000000
+Kd 0.380392 0.490196 0.537255
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_24.jpg
+
+newmtl Concrete_Sidewalk
+Ka 0.000000 0.000000 0.000000
+Kd 0.729412 0.694118 0.666667
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/Concrete_Sidewalk.jpg
+
+newmtl Brick_Pavers_Herringbone
+Ka 0.000000 0.000000 0.000000
+Kd 0.674510 0.450980 0.450980
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/Brick_Pavers_Herringbone.jpg
+
+newmtl _6
+Ka 0.000000 0.000000 0.000000
+Kd 0.376471 0.490196 0.607843
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_6.jpg
+
+newmtl Brick_Pavers_Modular
+Ka 0.000000 0.000000 0.000000
+Kd 0.686275 0.560784 0.505882
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/Brick_Pavers_Modular.jpg
+
+newmtl _9
+Ka 0.000000 0.000000 0.000000
+Kd 0.478431 0.576471 0.650980
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_9.jpg
+
+newmtl _3
+Ka 0.000000 0.000000 0.000000
+Kd 0.329412 0.552941 0.611765
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_3.jpg
+
+newmtl C_PostF_wind2_w2_0_h4_0
+Ka 0.000000 0.000000 0.000000
+Kd 0.352941 0.352941 0.360784
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/C_PostF_wind2_w2_0_h4_0.jpg
+
+newmtl rough_tin_roof_1_48_1
+Ka 0.000000 0.000000 0.000000
+Kd 0.254902 0.313725 0.368627
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/rough_tin_roof_1_48_1.jpg
+
+newmtl Material
+Ka 0.000000 0.000000 0.000000
+Kd 0.490196 0.537255 0.615686
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/Material.jpg
+
+newmtl rough_tin_roof_1_48
+Ka 0.000000 0.000000 0.000000
+Kd 0.207843 0.415686 0.603922
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/rough_tin_roof_1_48.jpg
+
+newmtl _71
+Ka 0.000000 0.000000 0.000000
+Kd 0.000000 0.329412 0.321569
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_71.jpg
+
+newmtl Metal_Rough
+Ka 0.000000 0.000000 0.000000
+Kd 0.600000 0.615686 0.627451
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/Metal_Rough.jpg
+
+newmtl _5
+Ka 0.000000 0.000000 0.000000
+Kd 0.301961 0.329412 0.000000
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_5.jpg
+
+newmtl _40
+Ka 0.000000 0.000000 0.000000
+Kd 0.270588 0.349020 0.454902
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_40.jpg
+
+newmtl _58
+Ka 0.000000 0.000000 0.000000
+Kd 0.121569 0.262745 0.341176
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_58.png
+
+newmtl _32
+Ka 0.000000 0.000000 0.000000
+Kd 0.050980 0.050980 0.050980
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_32.jpg
+
+newmtl _57
+Ka 0.000000 0.000000 0.000000
+Kd 0.113725 0.329412 0.529412
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_57.jpg
+
+newmtl _55
+Ka 0.000000 0.000000 0.000000
+Kd 0.149020 0.219608 0.266667
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_55.png
+
+newmtl _72
+Ka 0.000000 0.000000 0.000000
+Kd 0.047059 0.329412 0.000000
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_72.jpg
+
+newmtl _34
+Ka 0.000000 0.000000 0.000000
+Kd 0.109804 0.294118 0.670588
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_34.jpg
+
+newmtl cableTexture
+Ka 0.000000 0.000000 0.000000
+Kd 0.913725 0.941176 0.968627
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/cableTexture.jpg
+
+newmtl _74
+Ka 0.000000 0.000000 0.000000
+Kd 0.643137 0.768627 0.827451
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_74.jpg
+
+newmtl _76
+Ka 0.000000 0.000000 0.000000
+Kd 0.537255 0.584314 0.588235
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_76.jpg
+
+newmtl Groundcover_Rock_Crushed_2inch
+Ka 0.000000 0.000000 0.000000
+Kd 0.509804 0.498039 0.501961
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/Groundcover_Rock_Crushed_2inch.jpg
+
+newmtl Groundcover_Brick_Crushed
+Ka 0.000000 0.000000 0.000000
+Kd 0.607843 0.345098 0.305882
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/Groundcover_Brick_Crushed.jpg
+
+newmtl Groundcover_Rock_Crushed_Multi
+Ka 0.000000 0.000000 0.000000
+Kd 0.560784 0.521569 0.505882
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/Groundcover_Rock_Crushed_Multi.jpg
+
+newmtl Groundcover_Gravel_Indian
+Ka 0.000000 0.000000 0.000000
+Kd 0.564706 0.431373 0.392157
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/Groundcover_Gravel_Indian.jpg
+
+newmtl Groundcover_Gravel_1inch
+Ka 0.000000 0.000000 0.000000
+Kd 0.596078 0.521569 0.431373
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/Groundcover_Gravel_1inch.jpg
+
+newmtl Vegetation_Grass_Artificial
+Ka 0.000000 0.000000 0.000000
+Kd 0.384314 0.549020 0.290196
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/Vegetation_Grass_Artificial.jpg
+
+newmtl _83
+Ka 0.000000 0.000000 0.000000
+Kd 0.000000 0.631373 1.000000
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_83.png
+
+newmtl _77
+Ka 0.000000 0.000000 0.000000
+Kd 1.000000 0.580392 0.000000
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_77.png
+
+newmtl _56
+Ka 0.000000 0.000000 0.000000
+Kd 0.113725 0.203922 0.227451
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_56.jpg
+
+newmtl _35
+Ka 0.000000 0.000000 0.000000
+Kd 0.160784 0.188235 0.219608
+Ks 0.330000 0.330000 0.330000
+map_Kd SkyscraperBay/_35.jpg
+

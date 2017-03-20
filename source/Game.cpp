@@ -39,6 +39,7 @@ void GAME::Game::Init()
 	//init camera
 	m_window.resizeGL(m_camera, 1280, 720);
 	gl::Enable(gl::DEPTH_TEST);
+	
 	//link shaders
 	m_objShader->CompileAndLinkShader("./external/assets/shaders/object.vs", "./external/assets/shaders/object.fs");
 	m_MapShader->CompileAndLinkShader("./external/assets/shaders/map.vs", "./external/assets/shaders/map.fs");
@@ -48,15 +49,31 @@ void GAME::Game::Init()
 	//car
 	m_player1Car = std::make_shared<RaceCar>();
 	m_player1Car->Init();
+	
 	//track
-	m_map = std::make_shared<GRAPHICS::Model>("./external/assets/map/track01_.3ds");
+	m_map = std::make_shared<GRAPHICS::Model>("./external/assets/map/track/racetrack3d.3ds");
 
 	EventHandler.setCamera(m_camera);
 	glfwSetScrollCallback(m_window.GetWindow(), &EventHandler.ScrollButtonCallBack);
-	glfwSetMouseButtonCallback(m_window.GetWindow(), &EventHandler.mouseButtonCallback);
+	glfwSetMouseButtonCallback(m_window.GetWindow(), &EventHandler.MouseButtonCallback);
+	glfwSetKeyCallback(m_window.GetWindow(), &EventHandler.KeyCallBack);
 	// need to make a fair bit of get/set because of this work around???
 	// load objects, textures
 
+
+	//move to map class??
+
+	btBoxShape* groundShape = new btBoxShape(btVector3(btScalar(500.0), btScalar(1.0), btScalar(500.0)));
+
+	PHYSICS::PhysicsController::GetPhysicsInstance().AddModel(groundShape);
+
+	btTransform groundTransform;
+	groundTransform.setIdentity();
+	//groundTransform.setOrigin(btVector3(0, 0, 0));
+
+	
+	PHYSICS::PhysicsController::GetPhysicsInstance().AddRigidBody(PHYSICS::PhysicsController::GetPhysicsInstance().CreateRigidbody(0, groundTransform, groundShape));
+	
 
 	RunGame();
 
@@ -76,7 +93,7 @@ void GAME::Game::RunGame()
 		m_timeSinceLastUpdate += elaspedTime;
 
 		glfwPollEvents();
-
+		
 		while (m_timeSinceLastUpdate >= MS_PER_UPDATE) {
 			Update(MS_PER_UPDATE);
 			m_timeSinceLastUpdate -= MS_PER_UPDATE;
@@ -91,11 +108,11 @@ void GAME::Game::HandleKeyEvents(GLFWwindow* window, int key, int scancode, int 
 	
 }
 
-void GAME::Game::Update(float deltaTime)
+void GAME::Game::Update(double deltaTime)
 {
 	m_window.update(deltaTime, m_camera);
 	m_player1Car->Update(deltaTime);
-	PHYSICS::PhysicsController::GetPhysicsInstance().GetDynamicWorld()->stepSimulation(deltaTime, 10); //default 60fps
+	PHYSICS::PhysicsController::GetPhysicsInstance().StepSimulation(deltaTime);
 }
 
 void GAME::Game::Render(float Interpolate)
@@ -110,7 +127,7 @@ void GAME::Game::Render(float Interpolate)
 	m_player1Car->Render(m_objShader);
 
 	m_MapShader->Use();
-	m_setModel = glm::mat4(1.0f) * glm::rotate(glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f)) * glm::scale(glm::vec3(0.1f, 0.1f, 0.1f));
+	m_setModel = glm::mat4(1.0f) * glm::translate(glm::vec3(0.0f, -8.0f, 0.0f)) * glm::rotate(glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)) * glm::scale(glm::vec3(0.005f, 0.005f, 0.005f));
 	setmatricies(m_MapShader);
 	m_map->Render(m_MapShader);
 	

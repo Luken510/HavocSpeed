@@ -45,6 +45,7 @@ PHYSICS::PhysicsController& PHYSICS::PhysicsController::GetPhysicsInstance()
 
 void PHYSICS::PhysicsController::StepSimulation(double deltaTime)
 {
+	m_dynamicWorld->stepSimulation(deltaTime);
 }
 
 void PHYSICS::PhysicsController::AddRigidBody(btRigidBody * body)
@@ -61,6 +62,22 @@ btRigidBody * PHYSICS::PhysicsController::CreateRigidbody(btScalar mass, const b
 	if (mass != 0.f)
 		shape->calculateLocalInertia(mass, localInertia);
 	
+	btDefaultMotionState* motionState = new btDefaultMotionState(transform);
+
+	btRigidBody::btRigidBodyConstructionInfo info(mass, motionState, shape, localInertia);
+
+	btRigidBody* body = new btRigidBody(info);
+	//body set contact processing threshold (0);
+
+	return body;
+}
+
+btRigidBody * PHYSICS::PhysicsController::CreateRigidbody(btScalar mass, const btTransform & transform, btBoxShape * shape)
+{
+	btVector3 localInertia(0, 0, 0);
+	if (mass != 0.f)
+		shape->calculateLocalInertia(mass, localInertia);
+
 	btDefaultMotionState* motionState = new btDefaultMotionState(transform);
 
 	btRigidBody::btRigidBodyConstructionInfo info(mass, motionState, shape, localInertia);
