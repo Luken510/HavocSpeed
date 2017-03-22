@@ -58,8 +58,10 @@ namespace GAME {
 	
 	private:
 		GAME::Window m_window; //!< Window Object to render the game
+		
 		//std::shared_ptr<PHYSICS::PhysicsController> m_worldPhysics = m_worldPhysics = std::make_shared<PHYSICS::PhysicsController>(PHYSICS::PhysicsController::GetPhysicsInstance());
 		std::shared_ptr<UTIL::QuatCamera> m_camera = std::make_shared<UTIL::QuatCamera>();
+		UTIL::EventHandler &EventHandler = UTIL::EventHandler::getInstance(); // worth mentioning that this implementation won't work on multiple glfw windows
 		std::shared_ptr<GRAPHICS::Shader> m_objShader = std::make_shared<GRAPHICS::Shader>();
 		std::shared_ptr<GRAPHICS::Shader> m_MapShader = std::make_shared<GRAPHICS::Shader>();
 		std::shared_ptr<GRAPHICS::Model> m_map = nullptr;
@@ -68,7 +70,7 @@ namespace GAME {
 		double m_CurrentTime; //!< current time of update
 		double m_PreviousTime; //!< previous time when updated
 		glm::mat4 m_setModel;		
-		UTIL::EventHandler &EventHandler = UTIL::EventHandler::getInstance(); // worth mentioning that this implementation won't work on multiple glfw windows
+		bool m_DrawDebugBool;
 		//Physics setup
 		//btBroadphaseInterface* broadphase;
 

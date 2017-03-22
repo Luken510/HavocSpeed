@@ -13,6 +13,7 @@
 #include "modelLoader.h"
 #include "raceCar.h"
 #include "assimpToBulletObj.h"
+#include "physicsDebugDrawer.h"
 
 namespace PHYSICS
 {
@@ -40,6 +41,7 @@ namespace PHYSICS
 	//	std::shared_ptr<RaceCar> getCar();
 
 		btDynamicsWorld* GetDynamicWorld();
+		GRAPHICS::PhysicsDebugDrawer* GetDebugDrawer();
 
 		void AddCar();
 		btRaycastVehicle* getCar();
@@ -54,6 +56,7 @@ namespace PHYSICS
 		btSequentialImpulseConstraintSolver* m_constraintSolver = nullptr;
 		btDefaultCollisionConfiguration* m_collisionConfig = nullptr;
 		btDiscreteDynamicsWorld* m_dynamicWorld = nullptr;
+		GRAPHICS::PhysicsDebugDrawer* m_debugDrawer = nullptr;
 
 		btAlignedObjectArray<btCollisionShape*> m_collisionShapes;
 		//std::shared_ptr<RaceCar> m_raceCar = nullptr;

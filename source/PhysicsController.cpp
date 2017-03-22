@@ -119,6 +119,7 @@ glm::mat4 PHYSICS::PhysicsController::btTransTo_glmMat4(const btTransform & tran
 
 void PHYSICS::PhysicsController::DrawDebugWorld()
 {
+	m_dynamicWorld->debugDrawWorld();
 }
 
 btConvexHullShape*  PHYSICS::PhysicsController::CreateConvexHull(const GRAPHICS::ObjInstanceVertex& vertices, int numOfVerts, 
@@ -155,6 +156,11 @@ void PHYSICS::PhysicsController::AddModel(btConvexHullShape * shape)
 btDynamicsWorld * PHYSICS::PhysicsController::GetDynamicWorld()
 {
 	return m_dynamicWorld;
+}
+
+GRAPHICS::PhysicsDebugDrawer* PHYSICS::PhysicsController::GetDebugDrawer()
+{
+	return m_debugDrawer;
 }
 
 void PHYSICS::PhysicsController::AddCar()

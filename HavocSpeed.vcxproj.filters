@@ -537,6 +537,9 @@
     <ClCompile Include="source\assimpToBulletObj.cpp">
       <Filter>Source Files\Draw Framework</Filter>
     </ClCompile>
+    <ClCompile Include="source\physicsDebugDrawer.cpp">
+      <Filter>Source Files\Draw Framework</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\main.cpp">
@@ -1226,6 +1229,9 @@
       <Filter>Header Files\PHYSICS</Filter>
     </ClInclude>
     <ClInclude Include="include\assimpToBulletObj.h">
+      <Filter>Header Files\Draw Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="include\physicsDebugDrawer.h">
       <Filter>Header Files\Draw Framework</Filter>
     </ClInclude>
   </ItemGroup>

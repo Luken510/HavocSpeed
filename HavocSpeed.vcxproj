@@ -167,6 +167,7 @@
     <ClCompile Include="source\meshLoader.cpp" />
     <ClCompile Include="source\modelLoader.cpp" />
     <ClCompile Include="source\PhysicsController.cpp" />
+    <ClCompile Include="source\physicsDebugDrawer.cpp" />
     <ClCompile Include="source\QuatCamera.cpp" />
     <ClCompile Include="source\raceCar.cpp" />
     <ClCompile Include="source\shader.cpp" />
@@ -397,6 +398,7 @@
     <ClInclude Include="include\meshLoader.h" />
     <ClInclude Include="include\modelLoader.h" />
     <ClInclude Include="include\PhysicsController.h" />
+    <ClInclude Include="include\physicsDebugDrawer.h" />
     <ClInclude Include="include\QuatCamera.h" />
     <ClInclude Include="include\raceCar.h" />
     <ClInclude Include="include\shader.h" />

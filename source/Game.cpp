@@ -1,5 +1,6 @@
 #include "game.h"
 
+#include <gl.hpp>
 #include <GLFW/glfw3.h>
 #include <btBulletDynamicsCommon.h>
 #include <BulletCollision/Gimpact/btGImpactCollisionAlgorithm.h>
@@ -14,7 +15,7 @@
 #include "eventHandler.h"
 
 
-GAME::Game::Game() : m_timeSinceLastUpdate(0), m_CurrentTime(0), m_PreviousTime(0) {
+GAME::Game::Game() : m_timeSinceLastUpdate(0), m_CurrentTime(0), m_PreviousTime(0), m_DrawDebugBool(false) {
 	UTIL::LOG::Clear();
 }
 
@@ -56,7 +57,7 @@ void GAME::Game::Init()
 	EventHandler.setCamera(m_camera);
 	glfwSetScrollCallback(m_window.GetWindow(), &EventHandler.ScrollButtonCallBack);
 	glfwSetMouseButtonCallback(m_window.GetWindow(), &EventHandler.MouseButtonCallback);
-	glfwSetKeyCallback(m_window.GetWindow(), &EventHandler.KeyCallBack);
+	//glfwSetKeyCallback(m_window.GetWindow(), &EventHandler.KeyCallBack);
 	// need to make a fair bit of get/set because of this work around???
 	// load objects, textures
 

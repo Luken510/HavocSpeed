@@ -69,14 +69,14 @@ void UTIL::EventHandler::ScrollButtonCallBackImp(GLFWwindow * window, double x, 
 	
 }
 
-void UTIL::EventHandler::KeyCallBack(GLFWwindow * window, int key, int cancode, int action, int mods)
+/*void UTIL::EventHandler::KeyCallBack(GLFWwindow * window, int key, int cancode, int action, int mods)
 {
 	getInstance().KeyCallBackImp(window, key, cancode, action, mods);
 }
 
 void UTIL::EventHandler::KeyCallBackImp(GLFWwindow * window, int key, int cancode, int action, int mods)
 {
-	if (key == 'W' &&  action == GLFW_PRESS)
+	/*if (key == 'W' &&  action == GLFW_PRESS)
 		m_car->Drive();
 	if (key == 'S' && action == GLFW_PRESS)
 		m_car->Reverse();
@@ -94,9 +94,9 @@ void UTIL::EventHandler::KeyCallBackImp(GLFWwindow * window, int key, int cancod
 	if (key == GLFW_KEY_LEFT && action == GLFW_RELEASE)
 		m_car->TurnLeft();
 	if (key == GLFW_KEY_RIGHT && action == GLFW_RELEASE)
-		m_car->TurnRight();
+		m_car->TurnRight();*/
 	
-}
+//}
 
 void UTIL::EventHandler::setCamera(std::shared_ptr<UTIL::QuatCamera> Camera)
 {
@@ -105,10 +105,10 @@ void UTIL::EventHandler::setCamera(std::shared_ptr<UTIL::QuatCamera> Camera)
 	
 }
 
-void UTIL::EventHandler::setCar(std::shared_ptr<RaceCar> car)
+/*void UTIL::EventHandler::setCar(std::shared_ptr<RaceCar> car)
 {
 	m_car = car;
-}
+}*/
 
 UTIL::EventHandler::EventHandler()
 {
