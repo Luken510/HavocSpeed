@@ -33,15 +33,6 @@ namespace GAME {
 		*/
 		void RunGame();
 		/*
-		\brief Handle Input events
-		\param window, window that is looking for inputs
-		\param key, current key that is calling an action
-		\param scancode unique code for each key
-		\param action, the action the key is doing, REPEAT, PRESS, or RELEASE
-		\param mods, 
-		*/
-		static void HandleKeyEvents(GLFWwindow* window, int key, int scancode, int action, int mods);
-		/*
 		\brief Update the game
 		\param deltaTime, Current timestep within the game
 		*/
@@ -50,20 +41,22 @@ namespace GAME {
 		\brief Render the Game
 		\param Interpolate, used for buffering the render mid update if needed
 		*/
-		void Render(float Interpolate);
+		void Render(double Interpolate);
 		/*!
 		\brief Set up the lighting parameters
 		*/
 		void setmatricies(std::shared_ptr<GRAPHICS::Shader> Shader);
+		void WireFrameMode(std::vector<GRAPHICS::Line> & lines);
 	
 	private:
 		GAME::Window m_window; //!< Window Object to render the game
 		
 		//std::shared_ptr<PHYSICS::PhysicsController> m_worldPhysics = m_worldPhysics = std::make_shared<PHYSICS::PhysicsController>(PHYSICS::PhysicsController::GetPhysicsInstance());
 		std::shared_ptr<UTIL::QuatCamera> m_camera = std::make_shared<UTIL::QuatCamera>();
-		UTIL::EventHandler &EventHandler = UTIL::EventHandler::getInstance(); // worth mentioning that this implementation won't work on multiple glfw windows
+		
 		std::shared_ptr<GRAPHICS::Shader> m_objShader = std::make_shared<GRAPHICS::Shader>();
 		std::shared_ptr<GRAPHICS::Shader> m_MapShader = std::make_shared<GRAPHICS::Shader>();
+		std::shared_ptr<GRAPHICS::Shader> m_debugDrawerShader = std::make_shared<GRAPHICS::Shader>();
 		std::shared_ptr<GRAPHICS::Model> m_map = nullptr;
 		std::shared_ptr<RaceCar> m_player1Car = nullptr; // if it isn't a pointer, make sure the window is init'd before called this object, as it will return an error
 		double m_timeSinceLastUpdate; //!< the time since the last update - "lag"
@@ -71,6 +64,9 @@ namespace GAME {
 		double m_PreviousTime; //!< previous time when updated
 		glm::mat4 m_setModel;		
 		bool m_DrawDebugBool;
+
+		GLuint m_wireVaoHandle;
+		GLuint m_wireVboHandle[2];
 		//Physics setup
 		//btBroadphaseInterface* broadphase;
 

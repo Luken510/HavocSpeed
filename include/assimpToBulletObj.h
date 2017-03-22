@@ -18,15 +18,16 @@ namespace GRAPHICS {
 	};
 	struct ObjInstanceShape
 	{
-		std::shared_ptr<btAlignedObjectArray<ObjInstanceVertex>> m_vertices = nullptr; //obj array used to replace vector
+		btAlignedObjectArray<ObjInstanceVertex>* m_vertices = nullptr; //obj array used to replace vector
 		int m_numOfVertices;
-		std::shared_ptr<btAlignedObjectArray<int>> m_indices = nullptr;
+		btAlignedObjectArray<int>* m_indices = nullptr;
 		int m_numOfIndices;
 		float m_scaling[4];
 
 		ObjInstanceShape() :m_vertices(0), m_indices(0)
 		{
 
+		
 		}
 
 		/*virtual ~ObjInstanceShape()
@@ -37,6 +38,6 @@ namespace GRAPHICS {
 	};
 
 
-	std::shared_ptr<ObjInstanceShape> AssimpToBulletObj(std::vector<GRAPHICS::Mesh>& meshes);
+	std::shared_ptr<ObjInstanceShape> AssimpToBulletObj(const std::vector<GRAPHICS::Mesh>& meshes);
 
 }

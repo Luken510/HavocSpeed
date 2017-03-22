@@ -45,7 +45,7 @@ GAME::Window::Window() : lastCursorPositionX(0), lastCursorPositionY(0), cursorP
 
 	UTIL::LOG(UTIL::LOG::DEBUG) << "Amount of OpenGL functions that haven't loaded : " << LoadFunctions.GetNumMissing();
 
-
+	
 	gl::Enable(gl::MULTISAMPLE);
 	gl::ClearColor(0.3f, 0.3f, 0.3f, 1.0f);
 	
@@ -74,7 +74,7 @@ void GAME::Window::resizeGL(std::shared_ptr<UTIL::QuatCamera> camera, int w, int
 	camera->setAspectRatio((float)w / h);
 }
 
-void GAME::Window::update(float deltaTime, std::shared_ptr<UTIL::QuatCamera> camera)
+void GAME::Window::update(double deltaTime, std::shared_ptr<UTIL::QuatCamera> camera)
 {
 	//Get the current cursor position
 	glfwGetCursorPos(m_window, &cursorPositionX, &cursorPositionY);

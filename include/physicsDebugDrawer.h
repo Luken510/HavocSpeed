@@ -19,11 +19,17 @@ namespace GRAPHICS
 		PhysicsDebugDrawer();
 		~PhysicsDebugDrawer();
 
-		virtual void DrawLine(const btVector3 & start, const btVector3 & finish, const btVector3 & colour);
-		virtual void SetDebug(int debugMode);
-		virtual int getDebugMode();
-
+		//needed functions for btIdebugDraw
+		virtual void drawLine(const btVector3 & from, const btVector3 & to, const btVector3 & color);
+		virtual void setDebugMode(int debugMode);
+		virtual int getDebugMode() const;
+		virtual void drawContactPoint(const btVector3& PointOnB, const btVector3& normalOnB, btScalar distance, int lifeTime, const btVector3& color);
+		virtual void drawTriangle(const btVector3 & a, const btVector3 & b, const btVector3 & c, const btVector3 & color, btScalar alpha);
+		void reportErrorWarning(const char * warningString);
+		virtual void draw3dText(const btVector3& location, const char* textString);
+	
 		std::vector<GRAPHICS::Line> GetLines();
+		void ClearLines();
 
 	private:
 

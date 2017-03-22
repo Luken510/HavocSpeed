@@ -3,6 +3,8 @@
 
 #include "PhysicsController.h"
 
+#include "physicsDebugDrawer.h"
+
 PHYSICS::PhysicsController::PhysicsController()
 {
 	std::cout << "Hello World!" << std::endl;
@@ -21,6 +23,9 @@ PHYSICS::PhysicsController::PhysicsController()
 	// the world
 	m_dynamicWorld = new btDiscreteDynamicsWorld(m_dispatcher, m_broadphase, m_constraintSolver, m_collisionConfig);
 	m_dynamicWorld->setGravity(btVector3(0.0f, -9.8f, 0.0f));
+
+	m_debugDrawer = new GRAPHICS::PhysicsDebugDrawer();
+	m_dynamicWorld->setDebugDrawer(m_debugDrawer);
 
 }
 
@@ -104,29 +109,17 @@ btRigidBody * PHYSICS::PhysicsController::CreateRigidbody(btScalar mass, const b
 	return body;
 }
 
-glm::mat4 PHYSICS::PhysicsController::btTransTo_glmMat4(const btTransform & transform)
-{
-	btMatrix3x3 m = transform.getBasis();
-	btVector3 v = transform.getOrigin();
-	
-	
-	return glm::mat4(m[0].x(), m[1].x(), m[2].x(), 0,
-					 m[0].y(), m[1].y(), m[2].y(), 0,
-					 m[0].z(), m[1].z(), m[2].z(), 0,
-					 v.x(), v.y(), v.z(), 1);
-}
-
 
 void PHYSICS::PhysicsController::DrawDebugWorld()
 {
 	m_dynamicWorld->debugDrawWorld();
 }
 
-btConvexHullShape*  PHYSICS::PhysicsController::CreateConvexHull(const GRAPHICS::ObjInstanceVertex& vertices, int numOfVerts, 
+btConvexHullShape*  PHYSICS::PhysicsController::CreateConvexHull(btAlignedObjectArray<GRAPHICS::ObjInstanceVertex>* vertices, int numOfVerts, 
 																	int Stride, float scale, btScalar mass)
 {
 	int i = Stride;
-	btConvexHullShape* shape = new btConvexHullShape((const btScalar*)(&(vertices.xyzw[0])), numOfVerts, Stride);
+	btConvexHullShape* shape = new btConvexHullShape((const btScalar*)(&(vertices->at(0).xyzw[0])), numOfVerts, Stride);
 	btVector3 localscaling(scale, scale, scale);
 	shape->setLocalScaling(localscaling);
 	shape->optimizeConvexHull();
@@ -169,4 +162,16 @@ void PHYSICS::PhysicsController::AddCar()
 
 void PHYSICS::PhysicsController::addRocket(const btTransform & transform)
 {
+}
+
+glm::mat4 PHYSICS::PhysicsController::btTransToGlmMat4(const btTransform & transform)
+{
+	//rotation
+	btMatrix3x3 rotate = transform.getBasis();
+	//position
+	btVector3 translate = transform.getOrigin();
+	return glm::mat4( rotate[0].x(), rotate[1].x(), rotate[2].x(), 0,
+					  rotate[0].y(), rotate[1].y(), rotate[2].y(), 0,
+					  rotate[0].z(), rotate[1].z(), rotate[2].z(), 0,
+					  translate.x(), translate.y(), translate.z(), 1);
 }

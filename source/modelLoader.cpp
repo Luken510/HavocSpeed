@@ -41,16 +41,20 @@ void GRAPHICS::Model::LoadModel(std::string path) {
 
 void GRAPHICS::Model::ProcessNode(aiNode* node, const aiScene* scene) {
 	// proces all of the node's meshes
+	int hilol = 0;
 	for (GLuint i = 0; i < node->mNumMeshes; i++)
 	{
 		aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
 		this->m_meshes.push_back(this->ProcessMesh(mesh, scene));
+		hilol++;
 	}
 	// process all of its childrens if it has any and do the same
 	for (GLuint i = 0; i < node->mNumChildren; i++)
 	{
 		this->ProcessNode(node->mChildren[i], scene);
 	}
+	UTIL::LOG(UTIL::LOG::INFO) << " How many child nodes there are : " << node->mNumChildren;
+	UTIL::LOG(UTIL::LOG::INFO) << " How many Mesh nodes there are : " << hilol;
 }
 
 GRAPHICS::Mesh GRAPHICS::Model::ProcessMesh(aiMesh* mesh, const aiScene* scene) {

@@ -12,9 +12,7 @@
 #include "PhysicsController.h"
 #include "shader.h"
 
-struct VehicleTuning;
-struct VehicleRaycaster;
-struct CollisionShape;
+#define CAR_SCALE 0.08f
 
 
 namespace CarConfig
@@ -41,7 +39,8 @@ namespace CarConfig
 			m_suspensionDampCompression,//!< damping coefficient for when the suspension is compressed
 			m_suspensionMaxLength, //!< the max length of the suspension (metres)
 			m_suspensionMaxTravel, //!< the maximum distance the suspension can be compressed
-			m_rollInfluence; //!< reduces the rolling torque applied from the wheel that cause the vehicle to roll over - a slight hack
+			m_rollInfluence, //!< reduces the rolling torque applied from the wheel that cause the vehicle to roll over - a slight hack
+			m_bodyToChasisHeight;
 
 		btVector3 m_wheelDirection, //!< the direction of the ray cast in chasis space
 				  wheelAxel; //!< the axis that the wheels rotate around
@@ -70,8 +69,15 @@ namespace CarConfig
 			m_suspensionMaxTravel(12.0f),
 			m_rollInfluence(0.0f),
 			m_wheelDirection(0.0f, -1.0f, -0.0f),
-			wheelAxel(-1.0f, -0.0f, 0.0f)
+			wheelAxel(-1.0f, -0.0f, 0.0f),
+			m_bodyToChasisHeight(0.6f)
 		{
+			m_wheelRadius *= CAR_SCALE;
+			m_wheelWidth *= CAR_SCALE;
+			m_wheelConnectionHeight *= CAR_SCALE - 0.2f;  
+			m_wheelConnectionWidth *= CAR_SCALE;
+			m_wheelConnectionLength *= CAR_SCALE;
+			m_bodyToChasisHeight *= CAR_SCALE; 
 		}
 	}; 
 }
@@ -133,7 +139,6 @@ private:
 	float m_steeringPower;
 
 	glm::mat4 m_carModelMatrix;
-	glm::vec3 m_carScale = glm::vec3(0.08f, 0.08f, 0.08f);
 
 	int m_wheelInstances[4];
 };

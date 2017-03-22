@@ -1249,5 +1249,11 @@
     <None Include="external\assets\shaders\map.vs">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="external\assets\shaders\line.fs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="external\assets\shaders\line.vs">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

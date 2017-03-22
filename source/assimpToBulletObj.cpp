@@ -3,17 +3,19 @@
 #include <LinearMath/btAlignedObjectArray.h>
 #include <btBulletDynamicsCommon.h>
 
-std::shared_ptr<GRAPHICS::ObjInstanceShape> GRAPHICS::AssimpToBulletObj(std::vector<GRAPHICS::Mesh>& meshes)
+std::shared_ptr<GRAPHICS::ObjInstanceShape> GRAPHICS::AssimpToBulletObj(const std::vector<GRAPHICS::Mesh>& meshes)
 {
 	//&getMeshes();
 	
 	//here we take the data from assimp's model, put it into our data structs to be fed into bullet.
 
-	std::shared_ptr<btAlignedObjectArray<ObjInstanceVertex>> verticesPtr(new btAlignedObjectArray<ObjInstanceVertex>);
-	std::shared_ptr<btAlignedObjectArray<int>> indicesPtr(new btAlignedObjectArray<int>);
+	btAlignedObjectArray<ObjInstanceVertex>* verticesPtr(new btAlignedObjectArray<ObjInstanceVertex>);
+	btAlignedObjectArray<int>* indicesPtr(new btAlignedObjectArray<int>);
 
-		{
-			for (int i = 0; i < (int)meshes.size(); i++)
+		
+		UTIL::LOG(UTIL::LOG::INFO) << "Obj Loaded: number of extracted Meshes :" << meshes.size();
+			
+		for (int i = 0; i < (int)meshes.size(); i++)
 			{
 				GRAPHICS::Mesh tempMesh = meshes[i];
 
@@ -37,6 +39,13 @@ std::shared_ptr<GRAPHICS::ObjInstanceShape> GRAPHICS::AssimpToBulletObj(std::vec
 						vertex0.uv[0] = tempMesh.m_vertices[v].m_textureCoords.x;
 						vertex0.uv[1] = tempMesh.m_vertices[v].m_textureCoords.y;
 					}
+					else
+					{
+						vertex0.uv[0] = 1;
+						vertex0.uv[1] = 1;
+					}
+
+
 
 					verticesPtr->push_back(vertex0);
 				}
@@ -49,7 +58,7 @@ std::shared_ptr<GRAPHICS::ObjInstanceShape> GRAPHICS::AssimpToBulletObj(std::vec
 				}
 
 			}
-		}
+		
 
 	
 	
@@ -59,7 +68,7 @@ std::shared_ptr<GRAPHICS::ObjInstanceShape> GRAPHICS::AssimpToBulletObj(std::vec
 	bulletObj->m_numOfVertices = verticesPtr->size();
 	bulletObj->m_indices = indicesPtr;
 	bulletObj->m_numOfIndices = indicesPtr->size();
-	UTIL::LOG(UTIL::LOG::INFO) << "Obj Loaded: number of extracted vertices :" << bulletObj->m_numOfVertices * 3;
+	UTIL::LOG(UTIL::LOG::INFO) << "Obj Loaded: number of extracted vertices :" << bulletObj->m_numOfVertices * 8;
 	UTIL::LOG(UTIL::LOG::INFO) << "Obj Loaded: number of extracted indices :" << bulletObj->m_numOfIndices;
 	for (int i = 0; i < 4; i++)
 		bulletObj->m_scaling[i] = 1;

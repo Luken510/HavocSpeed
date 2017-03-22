@@ -2,11 +2,11 @@
 #include <gl.hpp>
 #include <GLFW/glfw3.h>
 #include <memory>
-
+#include "raceCar.h"
 #include "QuatCamera.h"
 
-//class RaceCar;
 
+// worth mentioning that this implementation won't work on multiple glfw windows
 namespace UTIL {
 	class EventHandler
 	{
@@ -23,12 +23,14 @@ namespace UTIL {
 		
 		void ScrollButtonCallBackImp(GLFWwindow *window, double x, double y);
 		
-		//static void KeyCallBack(GLFWwindow * window, int key, int cancode, int action, int mods);
+		static void KeyCallBack(GLFWwindow * window, int key, int cancode, int action, int mods);
 
-	//	void KeyCallBackImp(GLFWwindow * window, int key, int cancode, int action, int mods);
+		void KeyCallBackImp(GLFWwindow * window, int key, int cancode, int action, int mods);
 
 		void setCamera(std::shared_ptr<UTIL::QuatCamera> Camera);
-	//	void setCar(std::shared_ptr<RaceCar> car);
+		void setCar(std::shared_ptr<RaceCar> car);
+
+		bool getWireBool();
 		
 	private:
 		EventHandler();
@@ -37,8 +39,9 @@ namespace UTIL {
 		void operator=(EventHandler const&); // prevent assignments
 
 		std::shared_ptr<UTIL::QuatCamera> camera;
-	//	std::shared_ptr<RaceCar> m_car;
+		std::shared_ptr<RaceCar> m_car;
 		
+		bool m_boolForWireMode;
 		
 	};
 

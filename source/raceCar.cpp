@@ -13,7 +13,7 @@
 RaceCar::RaceCar() : m_enginePower(0)
 {
 
-	m_carModelMatrix = glm::translate(glm::vec3(45.0f, 1.0f, 0.0f)) * glm::scale(m_carScale); // default pos to draw 
+	m_carModelMatrix = glm::translate(glm::vec3(20.0f, 10.0f, 0.0f)) * glm::scale(glm::vec3(CAR_SCALE, CAR_SCALE, CAR_SCALE)); // default pos to draw 
 
 }
 
@@ -34,16 +34,18 @@ void RaceCar::Init()
 
 	m_carChasisComp = new btCompoundShape();
 
-	btScalar mass(1.0f);//
-	//starting Pos//
-	btTransform startingPos;//
-	startingPos.setIdentity();//
-	btVector3 Pos(45.0f, 1.0f, 0.0f); // change to set positions in car info struct or as a passed param in init
-	UpdateMatrix(glm::vec3(Pos.x(),Pos.y(), Pos.z()), m_carScale);
-	startingPos.setOrigin(Pos);
-	m_carChasisComp->addChildShape(startingPos, m_carChasis);
-	//PHYSICS::PhysicsController::getPhysicsInstance().AddModel(m_carChasisComp);
-	m_carChassisRigid = PHYSICS::PhysicsController::GetPhysicsInstance().CreateRigidbody(mass, startingPos, m_carChasisComp);
+	btTransform startingPos;
+	startingPos.setOrigin(btVector3(20.0f, 10.0f, 0.0f));
+
+	btTransform localTrans;//
+	localTrans.setIdentity();//
+	btVector3 Pos(0.0f, carConfig.m_wheelConnectionHeight, 0.0f); // change to set positions in car info struct or as a passed param in init
+	UpdateMatrix(glm::vec3(Pos.x(),Pos.y(), Pos.z()), glm::vec3(CAR_SCALE, CAR_SCALE, CAR_SCALE));
+	localTrans.setOrigin(Pos);
+	m_carChasisComp->addChildShape(localTrans, m_carChasis);
+
+
+	m_carChassisRigid = PHYSICS::PhysicsController::GetPhysicsInstance().CreateRigidbody(carConfig.m_mass, startingPos, m_carChasisComp);
 	m_carChassisRigid->setDamping(carConfig.m_dampingLinear, carConfig.m_dampingAngle);
 	PHYSICS::PhysicsController::GetPhysicsInstance().AddRigidBody(m_carChassisRigid);
 
@@ -95,8 +97,13 @@ void RaceCar::CreateCarBulletObjFromModel()
 {
 	//body/chasis
 	std::shared_ptr<GRAPHICS::ObjInstanceShape> glmesh = GRAPHICS::AssimpToBulletObj(m_car->GetMeshes());
-	const GRAPHICS::ObjInstanceVertex& vertices = glmesh->m_vertices->at(0);
-	m_carChasis = PHYSICS::PhysicsController::GetPhysicsInstance().CreateConvexHull(vertices, glmesh->m_numOfVertices, sizeof(GRAPHICS::ObjInstanceVertex), 0.1f, 1.0f);
+	btAlignedObjectArray<GRAPHICS::ObjInstanceVertex>* vertices = glmesh->m_vertices;
+
+	m_carChasis = PHYSICS::PhysicsController::GetPhysicsInstance().CreateConvexHull(vertices,
+																					glmesh->m_numOfVertices, 
+																					sizeof(GRAPHICS::ObjInstanceVertex), 
+																					CAR_SCALE, 
+																					carConfig.m_mass);
 	//rear Wheels
 
 
@@ -107,8 +114,8 @@ void RaceCar::CreateCarBulletObjFromModel()
 
 void RaceCar::Update(double deltaTime)
 {
-	if (std::abs(m_raycastCar->getCurrentSpeedKmHour()) < carConfig.m_maxSpeed)
-	m_enginePower = carConfig.m_maxEnginePower;
+	//if (std::abs(m_raycastCar->getCurrentSpeedKmHour()) < carConfig.m_maxSpeed)
+	//m_enginePower = carConfig.m_maxEnginePower;
 	
 
 	m_raycastCar->applyEngineForce(m_enginePower, 2); // WHEEL rearLEFt, - SET UP AN ENUM ( 0, 1, 2,3)
@@ -125,7 +132,7 @@ void RaceCar::Update(double deltaTime)
 
 	//do turning decrease/increase?;
 	
-	UTIL::LOG(UTIL::LOG::INFO) << " car Speed : " << m_raycastCar->getCurrentSpeedKmHour();
+//	UTIL::LOG(UTIL::LOG::INFO) << " car Speed : " << m_raycastCar->getCurrentSpeedKmHour();
 	//update car position for its model
 	UpdateMatrix(getWorldPos());
 }
@@ -152,7 +159,7 @@ void RaceCar::UpdateMatrix(glm::vec3 Pos, glm::vec3 scale, glm::vec3 rotateAxis,
 
 void RaceCar::UpdateMatrix(glm::mat4 matrix)
 {
-	m_carModelMatrix = matrix * glm::scale(m_carScale); // loses scale so re-adding
+	m_carModelMatrix = matrix * glm::scale(glm::vec3(CAR_SCALE, CAR_SCALE, CAR_SCALE)); // loses scale so re-adding
 }
 
 glm::mat4 RaceCar::GetCarMatrix()
@@ -170,6 +177,26 @@ glm::mat4 RaceCar::getWorldPos()
 	translateToWorld.getOpenGLMatrix(m);
 	
 	return glm::make_mat4(m);
+}
+
+void RaceCar::Drive()
+{
+}
+
+void RaceCar::Reverse()
+{
+}
+
+void RaceCar::TurnLeft()
+{
+}
+
+void RaceCar::TurnRight()
+{
+}
+
+void RaceCar::Brake()
+{
 }
 
 /*btRigidBody * RaceCar::LocalCreateRigidBody(btScalar mass, const btTransform & worldTransform, btCollisionShape * colShape)

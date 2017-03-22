@@ -30,14 +30,14 @@ namespace PHYSICS
 
 		void DrawDebugWorld();
 
-		btConvexHullShape* CreateConvexHull(const GRAPHICS::ObjInstanceVertex&  vertices, int numOfVerts, int Stride, float scale, btScalar mass);
+		btConvexHullShape* CreateConvexHull(btAlignedObjectArray<GRAPHICS::ObjInstanceVertex>* vertices, int numOfVerts, int Stride, float scale, btScalar mass);
+		
 		void AddModel(btCollisionShape* shape);
 		void AddModel(btConvexHullShape* shape);
 		void AddRigidBody(btRigidBody * body);
 		btRigidBody* CreateRigidbody(btScalar mass, const btTransform & transform, btCollisionShape* shape);
 		btRigidBody* CreateRigidbody(btScalar mass, const btTransform & transform, btConvexHullShape* shape);
 		btRigidBody* CreateRigidbody(btScalar mass, const btTransform & transform, btBoxShape* shape);
-		glm::mat4 btTransTo_glmMat4(const btTransform & transform);
 	//	std::shared_ptr<RaceCar> getCar();
 
 		btDynamicsWorld* GetDynamicWorld();
@@ -48,6 +48,7 @@ namespace PHYSICS
 		void addRocket(const btTransform & transform);
 		// maybe Add Weapon template instead, with it changing aka virtual
 		// somehow add a map to find certain points within the dynamic world
+		glm::mat4 btTransToGlmMat4(const btTransform & transform);
 
 	private:
 

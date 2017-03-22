@@ -36,7 +36,7 @@ namespace GAME {
 		
 		void resizeGL(std::shared_ptr<UTIL::QuatCamera> camera, int w, int h);
 
-		void update(float deltaTime, std::shared_ptr<UTIL::QuatCamera> camera);
+		void update(double deltaTime, std::shared_ptr<UTIL::QuatCamera> camera);
 
 		//To keep track of cursor location
 		double lastCursorPositionX, lastCursorPositionY, cursorPositionX, cursorPositionY;

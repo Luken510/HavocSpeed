@@ -121,7 +121,7 @@ class LOG {
 #ifdef _DEBUG
 		Type	minType = DEBUG; //!< Minimum type of message to display.
 #else
-		Type	minType = WARNING; //!< Minimum type of message to display.
+		Type	minType = INFO; //!< Minimum type of message to display.
 #endif
 		Type	currentType; //!< Current type of message.
 		std::fstream logFile; //!< File to output messages to.

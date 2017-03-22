@@ -408,6 +408,8 @@
     <None Include="ClassDiagram.cd" />
     <None Include="external\assets\Car\shaders\object.fs" />
     <None Include="external\assets\Car\shaders\object.vs" />
+    <None Include="external\assets\shaders\line.fs" />
+    <None Include="external\assets\shaders\line.vs" />
     <None Include="external\assets\shaders\map.fs" />
     <None Include="external\assets\shaders\map.vs" />
   </ItemGroup>
