@@ -7,7 +7,7 @@
 namespace GRAPHICS
 {
 	struct Line {
-		Line(glm::vec3 startLine, glm::vec3 finishLine, glm::vec3 colourLine) : start(startLine), finish(finishLine), colour(colour) {};
+		Line(glm::vec3 startLine, glm::vec3 finishLine, glm::vec3 colourLine) : start(startLine), finish(finishLine), colour(colourLine) {};
 
 		glm::vec3 start, finish, colour;		
 	};

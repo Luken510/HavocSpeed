@@ -22,6 +22,7 @@ class QuatCamera
 public:
 
 	QuatCamera();  //Constructor
+	QuatCamera(const glm::vec3& position);
 
 	const glm::vec3& position() const; //position getter method
 	void setPosition(const glm::vec3& position); //position setter method
@@ -77,6 +78,10 @@ private:
 	glm::mat4 _view;
 	glm::mat4 _projection;
 
+	//World coordinate System Axes
+	const glm::vec3 WORLDX = glm::vec3(1, 0, 0);
+	const glm::vec3 WORLDY = glm::vec3(0, 1, 0);
+	const glm::vec3 WORLDZ = glm::vec3(0, 0, 1);
 
 };
 

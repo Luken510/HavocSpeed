@@ -118,8 +118,19 @@ void PHYSICS::PhysicsController::DrawDebugWorld()
 btConvexHullShape*  PHYSICS::PhysicsController::CreateConvexHull(btAlignedObjectArray<GRAPHICS::ObjInstanceVertex>* vertices, int numOfVerts, 
 																	int Stride, float scale, btScalar mass)
 {
-	int i = Stride;
-	btConvexHullShape* shape = new btConvexHullShape((const btScalar*)(&(vertices->at(0).xyzw[0])), numOfVerts, Stride);
+	UTIL::LOG(UTIL::LOG::INFO) << " Size of array sent into convexHull : " << vertices->size();
+
+	btConvexHullShape* shape = new btConvexHullShape();
+
+	///It is easier to not pass any points in the constructor, and just add one point at a time, using addPoint.
+
+	for (int i = 0; i < (int)vertices->size(); i++)
+	{
+		btVector3 a = btVector3(vertices->at(i).xyz[0], vertices->at(i).xyz[1], vertices->at(i).xyz[2]);
+		shape->addPoint(a);
+	}
+
+
 	btVector3 localscaling(scale, scale, scale);
 	shape->setLocalScaling(localscaling);
 	shape->optimizeConvexHull();

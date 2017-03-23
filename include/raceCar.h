@@ -12,7 +12,9 @@
 #include "PhysicsController.h"
 #include "shader.h"
 
-#define CAR_SCALE 0.08f
+#define _USE_MATH_DEFINES
+
+#define CAR_SCALE 0.15f
 
 
 namespace CarConfig
@@ -108,6 +110,7 @@ public:
 	void UpdateMatrix(glm::mat4 matrix);
 	glm::mat4 GetCarMatrix();
 	glm::mat4 getWorldPos();
+	glm::mat4 getWheelWorldPos();
 
 	void Drive();
 	void Reverse();
@@ -115,8 +118,10 @@ public:
 	void TurnRight();
 	void Brake();
 	
+	btQuaternion getRotationQuatFromAngle(const btVector3& axis, btScalar angle);
+	
 	//btRigidBody* LocalCreateRigidBody(btScalar mass, const btTransform& worldTransform, btCollisionShape* colShape);
-	//
+	// 
 
 private:
 	std::shared_ptr<GRAPHICS::Model> m_car = nullptr;
@@ -137,6 +142,7 @@ private:
 	float m_enginePower;
 	float m_brakingPower;
 	float m_steeringPower;
+	bool m_turning;
 
 	glm::mat4 m_carModelMatrix;
 

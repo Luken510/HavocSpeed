@@ -19,44 +19,93 @@ std::shared_ptr<GRAPHICS::ObjInstanceShape> GRAPHICS::AssimpToBulletObj(const st
 			{
 				GRAPHICS::Mesh tempMesh = meshes[i];
 
-				int vertCount = tempMesh.m_vertices.size();
 
-				for (int v = 0; v < vertCount; v++)
+				int faceCount = tempMesh.m_indices.size();
+
+				for (int f = 0; f < faceCount; f+=3)
 				{
-					ObjInstanceVertex vertex0;
-					vertex0.xyzw[0] = tempMesh.m_vertices[v].m_position.x;
-					vertex0.xyzw[1] = tempMesh.m_vertices[v].m_position.y;
-					vertex0.xyzw[2] = tempMesh.m_vertices[v].m_position.z;
-					vertex0.xyzw[3] = 0.f;
+					
+					int vtxBaseIndex = tempMesh.m_vertices.size();
 
-					vertex0.normal[0] = tempMesh.m_vertices[v].m_normal.x;
-					vertex0.normal[1] = tempMesh.m_vertices[v].m_normal.y;
-					vertex0.normal[2] = tempMesh.m_vertices[v].m_normal.z;
+					if (f<0 && f>-(int)(tempMesh.m_indices.size()))
+					{
+						continue;
+					}
+					
+					ObjInstanceVertex vertex0;
+					vertex0.xyz[0] = tempMesh.m_vertices[f].m_position.x;
+					vertex0.xyz[1] = tempMesh.m_vertices[f].m_position.y;
+					vertex0.xyz[2] = tempMesh.m_vertices[f].m_position.z;
+					//vertex0.xyzw[3] = 0.f;
+
+					vertex0.normal[0] = tempMesh.m_vertices[f].m_normal.x;
+					vertex0.normal[1] = tempMesh.m_vertices[f].m_normal.y;
+					vertex0.normal[2] = tempMesh.m_vertices[f].m_normal.z;
 
 					if (tempMesh.m_vertices.at(0).m_textureCoords.x) // NEED TO CHECK THIS TO MAKE SURE
 					{
 						// has textures
-						vertex0.uv[0] = tempMesh.m_vertices[v].m_textureCoords.x;
-						vertex0.uv[1] = tempMesh.m_vertices[v].m_textureCoords.y;
+						vertex0.uv[0] = tempMesh.m_vertices[f].m_textureCoords.x;
+						vertex0.uv[1] = tempMesh.m_vertices[f].m_textureCoords.y;
 					}
 					else
 					{
-						vertex0.uv[0] = 1;
-						vertex0.uv[1] = 1;
+						vertex0.uv[0] = 0;
+						vertex0.uv[1] = 0;
+					}
+					
+					ObjInstanceVertex vertex1;
+					vertex1.xyz[0] = tempMesh.m_vertices[f].m_position.x;
+					vertex1.xyz[1] = tempMesh.m_vertices[f].m_position.y;
+					vertex1.xyz[2] = tempMesh.m_vertices[f].m_position.z;
+					//vertex0.xyzw[3] = 0.f;
+
+					vertex1.normal[0] = tempMesh.m_vertices[f].m_normal.x;
+					vertex1.normal[1] = tempMesh.m_vertices[f].m_normal.y;
+					vertex1.normal[2] = tempMesh.m_vertices[f].m_normal.z;
+
+					if (tempMesh.m_vertices.at(0).m_textureCoords.x) // NEED TO CHECK THIS TO MAKE SURE
+					{
+						// has textures
+						vertex1.uv[0] = tempMesh.m_vertices[f].m_textureCoords.x;
+						vertex1.uv[1] = tempMesh.m_vertices[f].m_textureCoords.y;
+					}
+					else
+					{
+						vertex1.uv[0] = 0;
+						vertex1.uv[1] = 0;
 					}
 
+					ObjInstanceVertex vertex2;
+					vertex2.xyz[0] = tempMesh.m_vertices[f].m_position.x;
+					vertex2.xyz[1] = tempMesh.m_vertices[f].m_position.y;
+					vertex2.xyz[2] = tempMesh.m_vertices[f].m_position.z;
+					//vertex0.xyzw[3] = 0.f;
 
+					vertex2.normal[0] = tempMesh.m_vertices[f].m_normal.x;
+					vertex2.normal[1] = tempMesh.m_vertices[f].m_normal.y;
+					vertex2.normal[2] = tempMesh.m_vertices[f].m_normal.z;
+
+					if (tempMesh.m_vertices.at(0).m_textureCoords.x) // NEED TO CHECK THIS TO MAKE SURE
+					{
+						// has textures
+						vertex2.uv[0] = tempMesh.m_vertices[f].m_textureCoords.x;
+						vertex2.uv[1] = tempMesh.m_vertices[f].m_textureCoords.y;
+					}
+					else
+					{
+						vertex2.uv[0] = 0;
+						vertex2.uv[1] = 0;
+					}
 
 					verticesPtr->push_back(vertex0);
+					verticesPtr->push_back(vertex1);
+					verticesPtr->push_back(vertex2);
+					indicesPtr->push_back(vtxBaseIndex);
+					indicesPtr->push_back(vtxBaseIndex+1);
+					indicesPtr->push_back(vtxBaseIndex+2);
+
 				}
-
-				int faceCount = tempMesh.m_indices.size();
-
-				for (int f = 0; f < faceCount; f++)
-				{
-					indicesPtr->push_back(tempMesh.m_indices[f]);
-				}
-
 			}
 		
 

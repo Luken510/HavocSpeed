@@ -2,3 +2,402 @@
 [INFO]  How many Mesh nodes there are : 1
 [INFO]  How many child nodes there are : 1
 [INFO]  How many Mesh nodes there are : 0
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 1
+[INFO]  How many Mesh nodes there are : 0
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 1
+[INFO]  How many Mesh nodes there are : 0
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 1
+[INFO]  How many Mesh nodes there are : 0
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 1
+[INFO]  How many Mesh nodes there are : 0
+[INFO] Obj Loaded: number of extracted Meshes :1
+[INFO] Obj Loaded: number of extracted vertices :117936
+[INFO] Obj Loaded: number of extracted indices :14742
+[INFO]  Size of array sent into convexHull : 14742
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 29
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 20
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 17
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 19
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 44
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 6
+[INFO]  How many Mesh nodes there are : 0
+[INFO]  How many child nodes there are : 1
+[INFO]  How many Mesh nodes there are : 0
+[INFO]  car Speed : 0
+[INFO]  car Speed : 0.588
+[INFO]  car Speed : 1.17319
+[INFO]  car Speed : 1.75558
+[INFO]  car Speed : 2.33518
+[INFO]  car Speed : 2.91201
+[INFO]  car Speed : 3.48608
+[INFO]  car Speed : 4.05741
+[INFO]  car Speed : 4.626
+[INFO]  car Speed : 5.19187
+[INFO]  car Speed : 5.75504
+[INFO]  car Speed : 6.31551
+[INFO]  car Speed : 6.8733
+[INFO]  car Speed : 7.42842
+[INFO]  car Speed : 7.85216
+[INFO]  car Speed : 8.40261
+[INFO]  car Speed : 8.95041
+[INFO]  car Speed : 9.4956
+[INFO]  car Speed : 10.0382
+[INFO]  car Speed : 10.5782
+[INFO]  car Speed : 11.1156
+[INFO]  car Speed : -3.21414
+[INFO]  car Speed : -0.469286
+[INFO]  car Speed : -0.391793
+[INFO]  car Speed : 0.190765
+[INFO]  car Speed : 0.949231
+[INFO]  car Speed : 1.15202
+[INFO]  car Speed : -0.819262
+[INFO]  car Speed : -0.518482
+[INFO]  car Speed : -0.260399
+[INFO]  car Speed : -0.0918883
+[INFO]  car Speed : -0.256793
+[INFO]  car Speed : -0.459384
+[INFO]  car Speed : -0.655568
+[INFO]  car Speed : -0.84526
+[INFO]  car Speed : 0.280025
+[INFO]  car Speed : -0.417296
+[INFO]  car Speed : 0.0979133
+[INFO]  car Speed : 0.315966
+[INFO]  car Speed : 0.049875
+[INFO]  car Speed : 0.0293195
+[INFO]  car Speed : -0.0822169
+[INFO]  car Speed : 0.0202889
+[INFO]  car Speed : 0.00972669
+[INFO]  car Speed : 0.0116091
+[INFO]  car Speed : 0.00538863
+[INFO]  car Speed : 0.0044832
+[INFO]  car Speed : 0.00716182
+[INFO]  car Speed : 0.00593199
+[INFO]  car Speed : 0.00475542
+[INFO]  car Speed : 0.00378682
+[INFO]  car Speed : 0.00319013
+[INFO]  car Speed : 0.0025588
+[INFO]  car Speed : 0.00204381
+[INFO]  car Speed : 0.00163079
+[INFO]  car Speed : 0.00129067
+[INFO]  car Speed : 0.00102558
+[INFO]  car Speed : 0.000823717
+[INFO]  car Speed : 0.00068392
+[INFO]  car Speed : 0.000609835
+[INFO]  car Speed : 0.000598793
+[INFO]  car Speed : 0.000637772
+[INFO]  car Speed : 0.00070996
+[INFO]  car Speed : 0.000800759
+[INFO]  car Speed : 0.000901449
+[INFO]  car Speed : 0.00100729
+[INFO]  car Speed : -0.000375361
+[INFO]  car Speed : 0.000453613
+[INFO]  car Speed : 0.000544348
+[INFO]  car Speed : 0.000639933
+[INFO]  car Speed : 0.00073748
+[INFO]  car Speed : 0.000838276
+[INFO]  car Speed : -0.000941767
+[INFO]  car Speed : -0.00104863
+[INFO]  car Speed : -0.000376092
+[INFO]  car Speed : -0.000478417
+[INFO]  car Speed : 0.000591491
+[INFO]  car Speed : -0.000706283
+[INFO]  car Speed : -0.000822988
+[INFO]  car Speed : -0.000942139
+[INFO]  car Speed : -0.00106427
+[INFO]  car Speed : -0.000374978
+[INFO]  car Speed : -0.000493477
+[INFO]  car Speed : 0.000622428
+[INFO]  car Speed : -0.000705342
+[INFO]  car Speed : -0.000789902
+[INFO]  car Speed : -0.000877192
+[INFO]  car Speed : -0.000967149
+[INFO]  car Speed : -0.00106032
+[INFO]  car Speed : -0.000377013
+[INFO]  car Speed : -0.000467089
+[INFO]  car Speed : 0.000566751
+[INFO]  car Speed : -0.000668371
+[INFO]  car Speed : -0.000772024
+[INFO]  car Speed : -0.000877984
+[INFO]  car Speed : -0.000986614
+[INFO]  car Speed : -0.000345003
+[INFO]  car Speed : -0.000474074
+[INFO]  car Speed : 0.000612646
+[INFO]  car Speed : -0.000752802
+[INFO]  car Speed : -0.0008949
+[INFO]  car Speed : -0.00106349
+[INFO]  car Speed : -0.000474759
+[INFO]  car Speed : 8.48512e-05
+[INFO]  car Speed : -0.000258279
+[INFO]  car Speed : -0.000433373
+[INFO]  car Speed : -0.000609313
+[INFO]  car Speed : -0.000786651
+[INFO]  car Speed : -0.000870223
+[INFO]  car Speed : -0.000956664
+[INFO]  car Speed : -0.00104605
+[INFO]  car Speed : -0.000374255
+[INFO]  car Speed : -0.000459926
+[INFO]  car Speed : 0.000555986
+[INFO]  car Speed : -0.000725267
+[INFO]  car Speed : -0.000838176
+[INFO]  car Speed : -0.000953529
+[INFO]  car Speed : -0.0010717
+[INFO]  car Speed : -0.000478888
+[INFO]  car Speed : 8.37119e-05
+[INFO]  car Speed : -0.00026557
+[INFO]  car Speed : -0.000390911
+[INFO]  car Speed : -0.000502923
+[INFO]  car Speed : -0.000616616
+[INFO]  car Speed : -0.000732003
+[INFO]  car Speed : -0.000849548
+[INFO]  car Speed : -0.000969611
+[INFO]  car Speed : -0.00109256
+[INFO]  car Speed : -0.000393947
+[INFO]  car Speed : -0.000512673
+[INFO]  car Speed : 0.000570592
+[INFO]  car Speed : -0.000654146
+[INFO]  car Speed : -0.000739658
+[INFO]  car Speed : -0.000827473
+[INFO]  car Speed : -0.000917853
+[INFO]  car Speed : -0.00101116
+[INFO]  car Speed : -0.000357978
+[INFO]  car Speed : -0.000447464
+[INFO]  car Speed : 0.000546946
+[INFO]  car Speed : -0.000647914
+[INFO]  car Speed : -0.000750733
+[INFO]  car Speed : -0.000841667
+[INFO]  car Speed : -0.000935248
+[INFO]  car Speed : -0.00103165
+[INFO]  car Speed : -0.000365809
+[INFO]  car Speed : -0.000496345
+[INFO]  car Speed : 0.000636682
+[INFO]  car Speed : -0.00077859
+[INFO]  car Speed : -0.000922618
+[INFO]  car Speed : -0.00106923
+[INFO]  car Speed : -0.000369941
+[INFO]  car Speed : -0.000512987
+[INFO]  car Speed : 0.000666223
+[INFO]  car Speed : -0.000773343
+[INFO]  car Speed : -0.000882846
+[INFO]  car Speed : -0.000994999
+[INFO]  car Speed : -0.000339543
+[INFO]  car Speed : -0.000448417
+[INFO]  car Speed : 0.000566663
+[INFO]  car Speed : -0.000686397
+[INFO]  car Speed : -0.00083199
+[INFO]  car Speed : -0.000979871
+[INFO]  car Speed : -0.00033127
+[INFO]  car Speed : -0.000378618
+[INFO]  car Speed : 0.000436594
+[INFO]  car Speed : -0.000495978
+[INFO]  car Speed : -0.00055685
+[INFO]  car Speed : -0.000619486
+[INFO]  car Speed : -0.000684062
+[INFO]  car Speed : -0.000750851
+[INFO]  car Speed : -0.000819935
+[INFO]  car Speed : -0.000891675
+[INFO]  car Speed : -0.000966249
+[INFO]  car Speed : -0.00104401
+[INFO]  car Speed : 0.00180681
+[INFO]  car Speed : -0.0018289
+[INFO]  car Speed : -0.00172299
+[INFO]  car Speed : 0.00152459
+[INFO]  car Speed : -0.00302715
+[INFO]  car Speed : -0.000320605
+[INFO]  car Speed : 0.000128179
+[INFO]  car Speed : -0.000260175
+[INFO]  car Speed : -0.000391547
+[INFO]  car Speed : -0.00052229
+[INFO]  car Speed : -0.000652409
+[INFO]  car Speed : -0.000781906
+[INFO]  car Speed : -0.000910782
+[INFO]  car Speed : -0.00103904
+[INFO]  car Speed : -0.000377845
+[INFO]  car Speed : -0.000499412
+[INFO]  car Speed : -0.00062964
+[INFO]  car Speed : -0.000759245
+[INFO]  car Speed : -0.00088823
+[INFO]  car Speed : -0.000985603
+[INFO]  car Speed : -0.000342011
+[INFO]  car Speed : -0.00043606
+[INFO]  car Speed : 0.000539611
+[INFO]  car Speed : -0.000644627
+[INFO]  car Speed : -0.000704041
+[INFO]  car Speed : -0.000765229
+[INFO]  car Speed : -0.000829022
+[INFO]  car Speed : -0.000895493
+[INFO]  car Speed : -0.000964807
+[INFO]  car Speed : -0.00103735
+[INFO]  car Speed : -0.000373886
+[INFO]  car Speed : -0.000442742
+[INFO]  car Speed : 0.000521983
+[INFO]  car Speed : -0.000602619
+[INFO]  car Speed : -0.000685111
+[INFO]  car Speed : -0.000769729
+[INFO]  car Speed : -0.000856651
+[INFO]  car Speed : -0.000946332
+[INFO]  car Speed : -0.00103904
+[INFO]  car Speed : -0.000373226
+[INFO]  car Speed : -0.000462267
+[INFO]  car Speed : 0.000561674
+[INFO]  car Speed : -0.000662665
+[INFO]  car Speed : -0.0007656
+[INFO]  car Speed : -0.000870844
+[INFO]  car Speed : -0.00102639
+[INFO]  car Speed : -0.000450649
+[INFO]  car Speed : 5.85057e-05
+[INFO]  car Speed : -0.00021891
+[INFO]  car Speed : -0.000380369
+[INFO]  car Speed : -0.000542457
+[INFO]  car Speed : -0.000705733
+[INFO]  car Speed : -0.000870658
+[INFO]  car Speed : -0.00103806
+[INFO]  car Speed : -0.000456271
+[INFO]  car Speed : -0.00296837
+[INFO]  car Speed : -0.00241051
+[INFO]  car Speed : -0.00199982
+[INFO]  car Speed : -0.00177306
+[INFO]  car Speed : 0.00164868
+[INFO]  car Speed : 0.00136235
+[INFO]  car Speed : 0.0102761
+[INFO]  car Speed : 0.00214663
+[INFO]  car Speed : -0.00174055
+[INFO]  car Speed : -0.00145531
+[INFO]  car Speed : -0.00126307
+[INFO]  car Speed : -0.00115561
+[INFO]  car Speed : -0.00111975
+[INFO]  car Speed : -0.00113921
+[INFO]  car Speed : -0.00119637
+[INFO]  car Speed : -0.000561318
+[INFO]  car Speed : -0.000612066
+[INFO]  car Speed : -0.000698478
+[INFO]  car Speed : -0.000798454
+[INFO]  car Speed : -0.000905567
+[INFO]  car Speed : -0.00101688
+[INFO]  car Speed : -0.000371163
+[INFO]  car Speed : -0.000475224
+[INFO]  car Speed : -0.000590432
+[INFO]  car Speed : -0.000706504
+[INFO]  car Speed : -0.000822777
+[INFO]  car Speed : -0.000938843
+[INFO]  car Speed : -0.00102017
+[INFO]  car Speed : -0.0008365
+[INFO]  car Speed : 0.000636524
+[INFO]  car Speed : 0.000563516
+[INFO]  car Speed : -0.000330221
+[INFO]  car Speed : -0.00080829
+[INFO]  car Speed : -0.000921112
+[INFO]  car Speed : 0.00114072
+[INFO]  car Speed : -0.000405027
+[INFO]  car Speed : 0.000491297
+[INFO]  car Speed : 0.000701218
+[INFO]  car Speed : 0.000957238
+[INFO]  car Speed : -0.000162064
+[INFO]  car Speed : 0.000337223
+[INFO]  car Speed : 0.000609203
+[INFO]  car Speed : 0.000891162
+[INFO]  car Speed : -6.53382e-05
+[INFO]  car Speed : 0.000297615
+[INFO]  car Speed : 0.000586761
+[INFO]  car Speed : 0.000879217
+[INFO]  car Speed : -3.35981e-05
+[INFO]  car Speed : 0.000289444
+[INFO]  car Speed : 0.000587759
+[INFO]  car Speed : 0.000886732
+[INFO]  car Speed : -2.39383e-05
+[INFO]  car Speed : 0.000290116
+[INFO]  car Speed : 0.000594704
+[INFO]  car Speed : 0.000900023
+[INFO]  car Speed : -2.30659e-05
+[INFO]  car Speed : 0.00029692
+[INFO]  car Speed : -0.000606552
+[INFO]  car Speed : -0.000914745
+[INFO]  car Speed : 7.4835e-05
+[INFO]  car Speed : 0.000325553
+[INFO]  car Speed : 0.000653424
+[INFO]  car Speed : 0.000979742
+[INFO]  car Speed : -1.33014e-05
+[INFO]  car Speed : 0.000321427
+[INFO]  car Speed : 0.000649325
+[INFO]  car Speed : 0.000975663
+[INFO]  car Speed : -1.39027e-05
+[INFO]  car Speed : 0.000320945
+[INFO]  car Speed : 0.000648849
+[INFO]  car Speed : 0.000975187
+[INFO]  car Speed : -1.38414e-05
+[INFO]  car Speed : 0.00032112
+[INFO]  car Speed : 0.000649024
+[INFO]  car Speed : 0.000975362
+[INFO]  car Speed : -1.36119e-05
+[INFO]  car Speed : 0.000321605
+[INFO]  car Speed : 0.000649507
+[INFO]  car Speed : 0.00097584
+[INFO]  car Speed : -1.37226e-05
+[INFO]  car Speed : 0.000321202
+[INFO]  car Speed : 0.000649102
+[INFO]  car Speed : 0.000975438
+[INFO]  car Speed : -1.34903e-05
+[INFO]  car Speed : 0.00032124
+[INFO]  car Speed : 0.000649134
+[INFO]  car Speed : 0.000975471
+[INFO]  car Speed : -1.42821e-05
+[INFO]  car Speed : 0.000320695
+[INFO]  car Speed : 0.000648602
+[INFO]  car Speed : 0.000974938
+[INFO]  car Speed : -1.37723e-05
+[INFO]  car Speed : 0.000321168
+[INFO]  car Speed : 0.00064907
+[INFO]  car Speed : 0.000975409
+[INFO]  car Speed : -1.38349e-05
+[INFO]  car Speed : 0.000321061
+[INFO]  car Speed : 0.000648963
+[INFO]  car Speed : 0.000975302
+[INFO]  car Speed : -1.37123e-05
+[INFO]  car Speed : 0.000321251
+[INFO]  car Speed : 0.000649153
+[INFO]  car Speed : 0.000975486
+[INFO]  car Speed : -1.37933e-05
+[INFO]  car Speed : 0.000321144
+[INFO]  car Speed : 0.000649046
+[INFO]  car Speed : 0.000975386
+[INFO]  car Speed : -1.36386e-05
+[INFO]  car Speed : 0.000321341
+[INFO]  car Speed : 0.000649233
+[INFO]  car Speed : 0.000975568
+[INFO]  car Speed : 7.13209e-06
+[INFO]  car Speed : 0.000252758
+[INFO]  car Speed : 0.000465869
+[INFO]  car Speed : 0.00109123
+[INFO]  car Speed : 0.00126596
+[INFO]  car Speed : 0.00145128
+[INFO]  car Speed : 0.000149854
+[INFO]  car Speed : 0.00026185
+[INFO]  car Speed : 0.000385975
+[INFO]  car Speed : 0.000487113
+[INFO]  car Speed : 0.000565828
+[INFO]  car Speed : 0.000625827
+[INFO]  car Speed : 0.000671998
+[INFO]  car Speed : 0.000707888
+[INFO]  car Speed : 0.000736784
+[INFO]  car Speed : 2.2694e-05
+[INFO]  car Speed : 3.4369e-05
+[INFO]  car Speed : 4.3453e-05
+[INFO]  car Speed : 4.681e-05
+[INFO]  car Speed : 4.6183e-05
+[INFO]  car Speed : 4.10352e-05
+[INFO]  car Speed : 3.24217e-05
+[INFO]  car Speed : 0.000743385

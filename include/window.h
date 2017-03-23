@@ -8,7 +8,7 @@
 
 #define WIN_WIDTH 1280
 #define WIN_HEIGHT 720
-#define MOVE_VELOCITY 0.005f
+#define MOVE_VELOCITY 0.05f
 #define ROTATE_VELOCITY 0.001f
 
 namespace GAME {

@@ -12,7 +12,7 @@ namespace GRAPHICS {
 
 	struct ObjInstanceVertex
 	{
-		float xyzw[4];
+		float xyz[3];
 		float normal[3]; //add if needed
 		float uv[2];
 	};

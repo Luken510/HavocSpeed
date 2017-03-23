@@ -58,6 +58,7 @@ void GAME::Game::Init()
 	m_map = std::make_shared<GRAPHICS::Model>("./external/assets/map/track/racetrack3d.3ds");
 
 	UTIL::EventHandler::getInstance().setCamera(m_camera);
+	UTIL::EventHandler::getInstance().setCar(m_player1Car);
 	glfwSetScrollCallback(m_window.GetWindow(), &UTIL::EventHandler::getInstance().ScrollButtonCallBack);
 	glfwSetMouseButtonCallback(m_window.GetWindow(), &UTIL::EventHandler::getInstance().MouseButtonCallback);
 	glfwSetKeyCallback(m_window.GetWindow(), &UTIL::EventHandler::getInstance().KeyCallBack);
@@ -66,13 +67,13 @@ void GAME::Game::Init()
 
 	//move to map class??
 
-	btBoxShape* groundShape = new btBoxShape(btVector3(btScalar(50.0), btScalar(1.0), btScalar(50.0)));
+	btBoxShape* groundShape = new btBoxShape(btVector3(btScalar(500.0), btScalar(10.0), btScalar(500.0)));
 
 	PHYSICS::PhysicsController::GetPhysicsInstance().AddModel(groundShape);
 
 	btTransform groundTransform;
 	groundTransform.setIdentity();
-	groundTransform.setOrigin(btVector3(0, -1, 0));
+	groundTransform.setOrigin(btVector3(0, -10, 0));
 
 	
 	PHYSICS::PhysicsController::GetPhysicsInstance().AddRigidBody(PHYSICS::PhysicsController::GetPhysicsInstance().CreateRigidbody(0, groundTransform, groundShape));
@@ -144,7 +145,7 @@ void GAME::Game::Render(double Interpolate)
 		m_player1Car->Render(m_objShader);
 
 		m_MapShader->Use();
-		m_setModel = glm::mat4(1.0f) * glm::translate(glm::vec3(0.0f, -8.0f, 0.0f)) * glm::rotate(glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)) * glm::scale(glm::vec3(0.005f, 0.005f, 0.005f));
+		m_setModel = glm::mat4(1.0f) * glm::translate(glm::vec3(0.0f, -100.0f, 0.0f)) * glm::rotate(glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)) * glm::scale(glm::vec3(0.05f, 0.05f, 0.05f));
 		setmatricies(m_MapShader);
 		m_map->Render(m_MapShader);
 	//}
@@ -157,9 +158,7 @@ void GAME::Game::Render(double Interpolate)
 
 void GAME::Game::setmatricies(std::shared_ptr<GRAPHICS::Shader> Shader)
 {
-	
-	
-	//move to set up matricies
+
 	Shader->SetUniform("model", m_setModel);
 	Shader->SetUniform("view", m_camera->view());
 	Shader->SetUniform("projection", m_camera->projection());
@@ -168,7 +167,6 @@ void GAME::Game::setmatricies(std::shared_ptr<GRAPHICS::Shader> Shader)
 
 void GAME::Game::WireFrameMode(std::vector<GRAPHICS::Line> & lines)
 {
-
 	std::vector<GLfloat> vertices;
 	std::vector<GLuint> indices;
 	unsigned int index = 0;
@@ -192,12 +190,18 @@ void GAME::Game::WireFrameMode(std::vector<GRAPHICS::Line> & lines)
 		index += 2;
 	}
 
+	//gl::GenVertexArrays(1, &m_wireVaoHandle);
 	gl::BindVertexArray(m_wireVaoHandle);
+
 	gl::GenBuffers(2, m_wireVboHandle);
+
 	gl::BindBuffer(gl::ARRAY_BUFFER, m_wireVboHandle[0]);
-	gl::BufferData(gl::ARRAY_BUFFER, vertices.size(), (void*)&(vertices.at(0)), gl::STATIC_DRAW);
+	gl::BufferData(gl::ARRAY_BUFFER, vertices.size() * sizeof(GLfloat), (void*)&(vertices.at(0)), gl::STATIC_DRAW);
+
 	gl::EnableVertexAttribArray(0);
 	gl::VertexAttribPointer(0, 3, gl::FLOAT, FALSE, 0, NULL);
+
+
 	gl::DrawElements(gl::LINES, indices.size(), gl::UNSIGNED_INT, (void*)&(indices.at(0)));
 
 	PHYSICS::PhysicsController::GetPhysicsInstance().GetDebugDrawer()->ClearLines();

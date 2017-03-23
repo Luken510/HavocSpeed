@@ -65,7 +65,7 @@ void UTIL::EventHandler::ScrollButtonCallBack(GLFWwindow * window, double x, dou
 void UTIL::EventHandler::ScrollButtonCallBackImp(GLFWwindow * window, double x, double y)
 {
 	
-	camera->zoom((float)y*0.5f);
+	camera->zoom((float)y*1.5f);
 	
 }
 
