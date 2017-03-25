@@ -76,49 +76,7 @@ void UTIL::EventHandler::KeyCallBack(GLFWwindow * window, int key, int cancode, 
 
 void UTIL::EventHandler::KeyCallBackImp(GLFWwindow * window, int key, int cancode, int action, int mods)
 {
-	if (key == 'W' &&  action == GLFW_PRESS)
-	{
-		m_car->Drive();
-		UTIL::LOG(UTIL::LOG::INFO) << "Key Pressed = 'W'";
-	}
-	if (key == 'S' && action == GLFW_PRESS)
-	{
-		m_car->Reverse();
-		UTIL::LOG(UTIL::LOG::INFO) << "Key Pressed = 'S'";
-	}
-	if (key == 'A' && action == GLFW_PRESS)
-	{
-		m_car->TurnLeft();
-		UTIL::LOG(UTIL::LOG::INFO) << "Key Pressed = 'A'";
-	}
-	if (key == 'D' && action == GLFW_PRESS)
-	{
-		m_car->TurnRight();
-		UTIL::LOG(UTIL::LOG::INFO) << "Key Pressed = 'D'";
-	}
-
-	// test which works better, press or release, add brake, make it work to test car physics.
-
-	if (key == GLFW_KEY_UP && action == GLFW_RELEASE)
-	{
-		m_car->Drive();
-		UTIL::LOG(UTIL::LOG::INFO) << " Key Pressed = 'UP'" ;
-	}
-	if (key == GLFW_KEY_DOWN && action == GLFW_RELEASE)
-	{
-		m_car->Reverse();
-		UTIL::LOG(UTIL::LOG::INFO) << " Key Pressed = 'DOWN'";
-	}
-	if (key == GLFW_KEY_LEFT && action == GLFW_RELEASE)
-	{
-		m_car->TurnLeft();
-		UTIL::LOG(UTIL::LOG::INFO) << " Key Pressed = 'LEFT'";
-	}
-	if (key == GLFW_KEY_RIGHT && action == GLFW_RELEASE)
-	{
-		m_car->TurnRight();
-		UTIL::LOG(UTIL::LOG::INFO) << " Key Pressed = 'RIGHT'";
-	}
+	
 	if (key == 'V' && action == GLFW_RELEASE)
 	{
 		
@@ -126,7 +84,7 @@ void UTIL::EventHandler::KeyCallBackImp(GLFWwindow * window, int key, int cancod
 			m_boolForWireMode = true;
 		else
 			m_boolForWireMode = false;
-		UTIL::LOG(UTIL::LOG::INFO) << " Key Pressed = 'V'";;
+		UTIL::LOG(UTIL::LOG::INFO) << " Key Pressed = 'V'";
 	}
 }
 
@@ -140,6 +98,20 @@ void UTIL::EventHandler::setCamera(std::shared_ptr<UTIL::QuatCamera> Camera)
 void UTIL::EventHandler::setCar(std::shared_ptr<RaceCar> car)
 {
 	m_car = car;
+}
+
+void UTIL::EventHandler::PollKeyEvents(GLFWwindow * window)
+{
+	if (glfwGetKey(window, 'W'))
+		m_car->Drive();
+	if (glfwGetKey(window, 'S'))
+		m_car->Reverse();
+	if (glfwGetKey(window, 'A'))
+		m_car->TurnLeft();
+	if (glfwGetKey(window, 'D'))
+		m_car->TurnRight();
+	if (glfwGetKey(window, GLFW_KEY_SPACE))
+		m_car->Brake();
 }
 
 bool UTIL::EventHandler::getWireBool()

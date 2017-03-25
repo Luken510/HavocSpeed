@@ -47,6 +47,7 @@ namespace GAME {
 		*/
 		void setmatricies(std::shared_ptr<GRAPHICS::Shader> Shader);
 		void WireFrameMode(std::vector<GRAPHICS::Line> & lines);
+		void PollKeyEvents();
 	
 	private:
 		GAME::Window m_window; //!< Window Object to render the game

@@ -30,6 +30,8 @@ namespace UTIL {
 		void setCamera(std::shared_ptr<UTIL::QuatCamera> Camera);
 		void setCar(std::shared_ptr<RaceCar> car);
 
+		void PollKeyEvents(GLFWwindow * window);
+
 		bool getWireBool();
 		
 	private:

@@ -61,7 +61,7 @@ void GAME::Game::Init()
 	UTIL::EventHandler::getInstance().setCar(m_player1Car);
 	glfwSetScrollCallback(m_window.GetWindow(), &UTIL::EventHandler::getInstance().ScrollButtonCallBack);
 	glfwSetMouseButtonCallback(m_window.GetWindow(), &UTIL::EventHandler::getInstance().MouseButtonCallback);
-	glfwSetKeyCallback(m_window.GetWindow(), &UTIL::EventHandler::getInstance().KeyCallBack);
+//	glfwSetKeyCallback(m_window.GetWindow(), &UTIL::EventHandler::getInstance().KeyCallBack);
 
 	
 
@@ -98,6 +98,7 @@ void GAME::Game::RunGame()
 
 		
 		glfwPollEvents();
+		PollKeyEvents();
 		
 		m_DrawDebugBool = UTIL::EventHandler::getInstance().getWireBool();
 
@@ -206,4 +207,9 @@ void GAME::Game::WireFrameMode(std::vector<GRAPHICS::Line> & lines)
 
 	PHYSICS::PhysicsController::GetPhysicsInstance().GetDebugDrawer()->ClearLines();
 	
+}
+
+void GAME::Game::PollKeyEvents()
+{
+	UTIL::EventHandler::getInstance().PollKeyEvents(m_window.GetWindow());
 }

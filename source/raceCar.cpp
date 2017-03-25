@@ -13,7 +13,7 @@
 RaceCar::RaceCar() : m_enginePower(0),m_turning(0), m_brakingPower(0), m_steeringPower(0)
 {
 
-	m_carModelMatrix = glm::translate(glm::vec3(5.0f, 0.4f, 0.0f))* glm::rotate((float)(90.0f * (M_PI / 180.0f)), glm::vec3(0.0f, 1.0f, 0.0f)) * glm::scale(glm::vec3(CAR_SCALE, CAR_SCALE, CAR_SCALE)); // default pos to draw 
+	m_carModelMatrix = glm::translate(glm::vec3(5.0f, 5.4f, 0.0f))* glm::scale(glm::vec3(CAR_SCALE)); // default pos to draw 
 }
 
 RaceCar::~RaceCar()
@@ -34,12 +34,12 @@ void RaceCar::Init()
 	m_carChasisComp = new btCompoundShape();
 
 	btTransform startingPos;
-	startingPos.setOrigin(btVector3(5.0f, 0.4f, 0.0f));
-	startingPos.setRotation(getRotationQuatFromAngle(btVector3(0.0f, 1.0f, 0.0f), 90.0f)); // changes the direction it faces
+	startingPos.setOrigin(btVector3(5.0f, 5.4f, 0.0f));
+	startingPos.setRotation(GetRotationQuatFromAngle(btVector3(0.0f, 1.0f, 0.0f), 180.0)); // changes the direction it faces
 
 	btTransform localTrans;//
 	localTrans.setIdentity();//
-	btVector3 Pos(0.0f, carConfig.m_wheelConnectionHeight, 0.0f); // change to set positions in car info struct or as a passed param in init
+	btVector3 Pos(0.0f, carConfig.m_bodyToChasisHeight, 0.0f); // change to set positions in car info struct or as a passed param in init
 	UpdateMatrix(glm::vec3(Pos.x(),Pos.y(), Pos.z()), glm::vec3(CAR_SCALE));
 	localTrans.setOrigin(Pos);
 	m_carChasisComp->addChildShape(localTrans, m_carChasis);
@@ -63,7 +63,7 @@ void RaceCar::Init()
 	//add wheels
 	btVector3 WheelConnectionsParams;
 	
-	//MESS WITH THESE VALUES TO GET THE WHEEL CORRECT..........
+	
 	//front left wheel
 	WheelConnectionsParams = btVector3(carConfig.m_wheelConnectionWidth, carConfig.m_wheelConnectionHeight, carConfig.m_wheelConnectionLength);
 	m_raycastCar->addWheel(WheelConnectionsParams, carConfig.m_wheelDirection, carConfig.wheelAxel, carConfig.m_suspensionMaxLength, carConfig.m_wheelRadius, m_tuning, true);
@@ -115,6 +115,7 @@ void RaceCar::CreateCarBulletObjFromModel()
 void RaceCar::Update(double deltaTime)
 {
 	
+	
 	m_raycastCar->applyEngineForce(m_enginePower, 2); // WHEEL rearLEFt, - SET UP AN ENUM ( 0, 1, 2,3)
 	m_raycastCar->applyEngineForce(m_enginePower, 3); // WHEEL rearRIGHT
 
@@ -148,36 +149,36 @@ void RaceCar::Update(double deltaTime)
 	
 	UTIL::LOG(UTIL::LOG::INFO) << " car Speed : " << m_raycastCar->getCurrentSpeedKmHour();
 	//update car position for its model
-	UpdateMatrix(getWorldPos());
+	UpdateMatrix(GetWorldPos());
 }
 
 void RaceCar::Render(std::shared_ptr<GRAPHICS::Shader> shader)
 {
 	m_car->Render(shader);
-
-	glm::mat4 setWheelModel = glm::mat4(1.0f) * glm::scale(
-		PHYSICS::PhysicsController::GetPhysicsInstance().btTransToGlmMat4(m_raycastCar->getWheelInfo(0).m_worldTransform),
+	glm::mat4 setWheelModel;
+	setWheelModel = glm::mat4(1.0f) * glm::scale(
+		PHYSICS::PhysicsController::GetPhysicsInstance().btTransToGlmMat4(m_raycastCar->getWheelInfo(FRONTLEFT).m_worldTransform),
 		glm::vec3(CAR_SCALE)); // 
 	shader->SetUniform("model", setWheelModel);
-	m_carFrontL->Render(shader); // front left ENUM BOY
+	m_carFrontL->Render(shader); 
 	
 	setWheelModel = glm::mat4(1.0f) * glm::scale(
-		PHYSICS::PhysicsController::GetPhysicsInstance().btTransToGlmMat4(m_raycastCar->getWheelInfo(1).m_worldTransform),
+		PHYSICS::PhysicsController::GetPhysicsInstance().btTransToGlmMat4(m_raycastCar->getWheelInfo(FRONTRIGHT).m_worldTransform),
 		glm::vec3(CAR_SCALE)); // 
 	shader->SetUniform("model", setWheelModel);
-	m_carFrontR->Render(shader); // front RIGHT
+	m_carFrontR->Render(shader);
 
 	setWheelModel = glm::mat4(1.0f) * glm::scale(
-		PHYSICS::PhysicsController::GetPhysicsInstance().btTransToGlmMat4(m_raycastCar->getWheelInfo(2).m_worldTransform),
+		PHYSICS::PhysicsController::GetPhysicsInstance().btTransToGlmMat4(m_raycastCar->getWheelInfo(REARLEFT).m_worldTransform),
 		glm::vec3(CAR_SCALE)); // 
 	shader->SetUniform("model", setWheelModel);
-	m_carRearL->Render(shader); // REAR LEFT
+	m_carRearL->Render(shader);
 
 	setWheelModel = glm::mat4(1.0f) * glm::scale(
-		PHYSICS::PhysicsController::GetPhysicsInstance().btTransToGlmMat4(m_raycastCar->getWheelInfo(3).m_worldTransform),
+		PHYSICS::PhysicsController::GetPhysicsInstance().btTransToGlmMat4(m_raycastCar->getWheelInfo(REARRIGHT).m_worldTransform),
 		glm::vec3(CAR_SCALE)); // 
 	shader->SetUniform("model", setWheelModel);
-	m_carRearR->Render(shader); // REAR RIGHT
+	m_carRearR->Render(shader); 
 	
 }
 
@@ -201,7 +202,7 @@ glm::mat4 RaceCar::GetCarMatrix()
 	return m_carModelMatrix;
 }
 
-glm::mat4 RaceCar::getWorldPos()
+glm::mat4 RaceCar::GetWorldPos()
 {
 	btTransform translateToWorld;
 	m_raycastCar->getRigidBody()->getMotionState()->getWorldTransform(translateToWorld);
@@ -213,7 +214,6 @@ glm::mat4 RaceCar::getWorldPos()
 	return glm::make_mat4(m);
 }
 
-
 void RaceCar::Drive()
 {
 	if (std::abs(m_raycastCar->getCurrentSpeedKmHour()) < carConfig.m_maxSpeed)
@@ -224,6 +224,7 @@ void RaceCar::Drive()
 
 void RaceCar::Reverse()
 {
+
 	if (std::abs(m_raycastCar->getCurrentSpeedKmHour()) < carConfig.m_maxSpeed)
 		m_enginePower = -carConfig.m_maxEnginePower;
 
@@ -232,6 +233,7 @@ void RaceCar::Reverse()
 
 void RaceCar::TurnLeft()
 {
+
 	if (m_steeringPower < 0)
 		m_steeringPower += carConfig.m_turningDecrement;
 	else
@@ -241,10 +243,12 @@ void RaceCar::TurnLeft()
 		m_steeringPower = carConfig.m_turningLimits;
 
 	m_turning = true;
+	
 }
 
 void RaceCar::TurnRight()
 {
+	
 	if (m_steeringPower > 0)
 		m_steeringPower -= carConfig.m_turningDecrement;
 	else
@@ -254,15 +258,17 @@ void RaceCar::TurnRight()
 		m_steeringPower = -carConfig.m_turningLimits;
 
 	m_turning = true;
+	
 }
 
 void RaceCar::Brake()
 {
-	m_brakingPower = carConfig.m_maxBreakingPower;
-	m_enginePower = 0.0f;
+	
+		m_brakingPower = carConfig.m_maxBreakingPower;
+		m_enginePower = 0.0f;
 }
 
-btQuaternion RaceCar::getRotationQuatFromAngle(const btVector3& axis, btScalar angle)
+btQuaternion RaceCar::GetRotationQuatFromAngle(const btVector3& axis, btScalar angle)
 {
 
 	btQuaternion rotation;

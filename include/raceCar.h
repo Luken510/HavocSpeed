@@ -52,31 +52,31 @@ namespace CarConfig
 			m_mass(5.0f),
 			m_dampingLinear(0.25f),
 			m_dampingAngle(0.0f),
-			m_maxEnginePower(22.5f),
+			m_maxEnginePower(-22.5f), //direction of movement
 			m_maxBreakingPower(0.5f),
 			m_maxSpeed(60.0f),
 			m_turningIncrement(0.025f),
 			m_turningDecrement(0.1f),
 			m_turningLimits(0.50f),
 			m_wheelFriction(2.5f),
-			m_wheelRadius(0.302f),
-			m_wheelWidth(0.215f),
-			m_wheelConnectionHeight(0.200f),
-			m_wheelConnectionWidth(0.725f),
-			m_wheelConnectionLength(1.325f),
+			m_wheelRadius(5.800f),
+			m_wheelWidth(20.15f),
+			m_wheelConnectionHeight(3.0f),
+			m_wheelConnectionWidth(7.55f),
+			m_wheelConnectionLength(11.325f),
 			m_suspensionStiffness(160.f),
-			m_suspensionDampRelaxtion(11.7f),
+			m_suspensionDampRelaxtion(12.7f),
 			m_suspensionDampCompression(10.7f),
 			m_suspensionMaxLength(0.06f),
 			m_suspensionMaxTravel(12.0f),
 			m_rollInfluence(0.0f),
-			m_wheelDirection(0.0f, -1.0f, -0.0f),
-			wheelAxel(-1.0f, -0.0f, 0.0f),
+			m_wheelDirection(0.0f, -1.0f, 0.0f),
+			wheelAxel(-1.0f, 0.0f, 0.0f),
 			m_bodyToChasisHeight(0.6f)
 		{
 			m_wheelRadius *= CAR_SCALE;
 			m_wheelWidth *= CAR_SCALE;
-			m_wheelConnectionHeight *= CAR_SCALE - 0.2f;  
+			m_wheelConnectionHeight *= CAR_SCALE;  
 			m_wheelConnectionWidth *= CAR_SCALE;
 			m_wheelConnectionLength *= CAR_SCALE;
 			m_bodyToChasisHeight *= CAR_SCALE; 
@@ -84,7 +84,7 @@ namespace CarConfig
 	}; 
 }
 
-
+enum Wheels{FRONTLEFT, FRONTRIGHT, REARLEFT, REARRIGHT};
 
 class RaceCar {
 
@@ -109,8 +109,8 @@ public:
 	void UpdateMatrix(glm::vec3 Pos, glm::vec3 scale, glm::vec3 rotateAxis, float angle);
 	void UpdateMatrix(glm::mat4 matrix);
 	glm::mat4 GetCarMatrix();
-	glm::mat4 getWorldPos();
-	glm::mat4 getWheelWorldPos();
+	glm::mat4 GetWorldPos();
+	//glm::mat4 getWheelWorldPos();
 
 	void Drive();
 	void Reverse();
@@ -118,7 +118,7 @@ public:
 	void TurnRight();
 	void Brake();
 	
-	btQuaternion getRotationQuatFromAngle(const btVector3& axis, btScalar angle);
+	btQuaternion GetRotationQuatFromAngle(const btVector3& axis, btScalar angle);
 	
 	//btRigidBody* LocalCreateRigidBody(btScalar mass, const btTransform& worldTransform, btCollisionShape* colShape);
 	// 
@@ -145,6 +145,8 @@ private:
 	bool m_turning;
 
 	glm::mat4 m_carModelMatrix;
+
+	Wheels m_carWheelsEnum;
 
 	int m_wheelInstances[4];
 };

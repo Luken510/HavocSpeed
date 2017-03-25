@@ -133,7 +133,7 @@ btConvexHullShape*  PHYSICS::PhysicsController::CreateConvexHull(btAlignedObject
 
 	btVector3 localscaling(scale, scale, scale);
 	shape->setLocalScaling(localscaling);
-	shape->optimizeConvexHull();
+	//shape->optimizeConvexHull();
 
 	return shape;
 }
