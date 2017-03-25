@@ -30,8 +30,10 @@ namespace PHYSICS
 
 		void DrawDebugWorld();
 
-		btConvexHullShape* CreateConvexHull(btAlignedObjectArray<GRAPHICS::ObjInstanceVertex>* vertices, int numOfVerts, int Stride, float scale, btScalar mass);
-		
+		btConvexHullShape* CreateConvexHull(btAlignedObjectArray<GRAPHICS::ObjInstanceVertex>* vertices, int numOfVerts, int Stride, float scale, btScalar mass, bool optimise);
+		btCollisionShape* CreateCollisionShape(btAlignedObjectArray<GRAPHICS::ObjInstanceVertex>* vertices, int numOfVerts, int VertStride, float scale,
+																btScalar mass, btAlignedObjectArray<int>* indices, int numOfIndices, int indicesStride);
+
 		void AddModel(btCollisionShape* shape);
 		void AddModel(btConvexHullShape* shape);
 		void AddRigidBody(btRigidBody * body);

@@ -10,10 +10,10 @@
 
 
 
-RaceCar::RaceCar() : m_enginePower(0),m_turning(0), m_brakingPower(0), m_steeringPower(0)
+RaceCar::RaceCar() : m_enginePower(0),m_turning(0), m_brakingPower(0), m_steeringPower(0), m_carModelMatrix(1.0f)
 {
 
-	m_carModelMatrix = glm::translate(glm::vec3(5.0f, 5.4f, 0.0f))* glm::scale(glm::vec3(CAR_SCALE)); // default pos to draw 
+	
 }
 
 RaceCar::~RaceCar()
@@ -34,7 +34,7 @@ void RaceCar::Init()
 	m_carChasisComp = new btCompoundShape();
 
 	btTransform startingPos;
-	startingPos.setOrigin(btVector3(5.0f, 5.4f, 0.0f));
+	startingPos.setOrigin(btVector3(40.0f, 100.4f, -55.0f));
 	startingPos.setRotation(GetRotationQuatFromAngle(btVector3(0.0f, 1.0f, 0.0f), 180.0)); // changes the direction it faces
 
 	btTransform localTrans;//
@@ -103,13 +103,8 @@ void RaceCar::CreateCarBulletObjFromModel()
 																					glmesh->m_numOfVertices, 
 																					sizeof(GRAPHICS::ObjInstanceVertex), 
 																					CAR_SCALE, 
-																					carConfig.m_mass);
-	//rear Wheels
-
-
-	//Front Right Wheel
-	//Front Left Wheel
-
+																					carConfig.m_mass,
+																					false);
 }
 
 void RaceCar::Update(double deltaTime)
@@ -147,33 +142,38 @@ void RaceCar::Update(double deltaTime)
 
 	m_turning = false;
 	
-	UTIL::LOG(UTIL::LOG::INFO) << " car Speed : " << m_raycastCar->getCurrentSpeedKmHour();
+	//UTIL::LOG(UTIL::LOG::INFO) << " car Speed : " << m_raycastCar->getCurrentSpeedKmHour();
 	//update car position for its model
-	UpdateMatrix(GetWorldPos());
+	UpdateMatrix(GetWorldPos(), glm::vec3(CAR_SCALE));
 }
 
 void RaceCar::Render(std::shared_ptr<GRAPHICS::Shader> shader)
 {
 	m_car->Render(shader);
 	glm::mat4 setWheelModel;
+
+	m_raycastCar->updateWheelTransform(FRONTLEFT, true);
 	setWheelModel = glm::mat4(1.0f) * glm::scale(
 		PHYSICS::PhysicsController::GetPhysicsInstance().btTransToGlmMat4(m_raycastCar->getWheelInfo(FRONTLEFT).m_worldTransform),
 		glm::vec3(CAR_SCALE)); // 
 	shader->SetUniform("model", setWheelModel);
 	m_carFrontL->Render(shader); 
 	
+	m_raycastCar->updateWheelTransform(FRONTRIGHT, true);
 	setWheelModel = glm::mat4(1.0f) * glm::scale(
 		PHYSICS::PhysicsController::GetPhysicsInstance().btTransToGlmMat4(m_raycastCar->getWheelInfo(FRONTRIGHT).m_worldTransform),
 		glm::vec3(CAR_SCALE)); // 
 	shader->SetUniform("model", setWheelModel);
 	m_carFrontR->Render(shader);
 
+	m_raycastCar->updateWheelTransform(REARLEFT, true);
 	setWheelModel = glm::mat4(1.0f) * glm::scale(
 		PHYSICS::PhysicsController::GetPhysicsInstance().btTransToGlmMat4(m_raycastCar->getWheelInfo(REARLEFT).m_worldTransform),
 		glm::vec3(CAR_SCALE)); // 
 	shader->SetUniform("model", setWheelModel);
 	m_carRearL->Render(shader);
 
+	m_raycastCar->updateWheelTransform(REARRIGHT, true);
 	setWheelModel = glm::mat4(1.0f) * glm::scale(
 		PHYSICS::PhysicsController::GetPhysicsInstance().btTransToGlmMat4(m_raycastCar->getWheelInfo(REARRIGHT).m_worldTransform),
 		glm::vec3(CAR_SCALE)); // 
@@ -192,9 +192,9 @@ void RaceCar::UpdateMatrix(glm::vec3 Pos, glm::vec3 scale, glm::vec3 rotateAxis,
 	m_carModelMatrix = glm::translate(Pos) * glm::rotate(glm::radians(angle), rotateAxis) * glm::scale(scale);
 }
 
-void RaceCar::UpdateMatrix(glm::mat4 matrix)
+void RaceCar::UpdateMatrix(glm::mat4 matrix, glm::vec3 scale)
 {
-	m_carModelMatrix = matrix * glm::scale(glm::vec3(CAR_SCALE)); // loses scale so re-adding
+	m_carModelMatrix = matrix * glm::scale(scale); // loses scale so re-adding
 }
 
 glm::mat4 RaceCar::GetCarMatrix()
@@ -208,10 +208,10 @@ glm::mat4 RaceCar::GetWorldPos()
 	m_raycastCar->getRigidBody()->getMotionState()->getWorldTransform(translateToWorld);
 	btCompoundShape* compoundShape = static_cast<btCompoundShape*>(m_raycastCar->getRigidBody()->getCollisionShape());
 	translateToWorld = translateToWorld * compoundShape->getChildTransform(0);
-	btScalar* m = new btScalar[16];
-	translateToWorld.getOpenGLMatrix(m);
+	btScalar* OpenGLMatrix = new btScalar[16];
+	translateToWorld.getOpenGLMatrix(OpenGLMatrix);
 	
-	return glm::make_mat4(m);
+	return glm::make_mat4(OpenGLMatrix);
 }
 
 void RaceCar::Drive()

@@ -116,7 +116,7 @@ void PHYSICS::PhysicsController::DrawDebugWorld()
 }
 
 btConvexHullShape*  PHYSICS::PhysicsController::CreateConvexHull(btAlignedObjectArray<GRAPHICS::ObjInstanceVertex>* vertices, int numOfVerts, 
-																	int Stride, float scale, btScalar mass)
+																	int Stride, float scale, btScalar mass, bool optimise)
 {
 	UTIL::LOG(UTIL::LOG::INFO) << " Size of array sent into convexHull : " << vertices->size();
 
@@ -133,7 +133,11 @@ btConvexHullShape*  PHYSICS::PhysicsController::CreateConvexHull(btAlignedObject
 
 	btVector3 localscaling(scale, scale, scale);
 	shape->setLocalScaling(localscaling);
-	//shape->optimizeConvexHull();
+
+	if (optimise)
+	{
+		shape->optimizeConvexHull();
+	}
 
 	return shape;
 }
@@ -185,4 +189,18 @@ glm::mat4 PHYSICS::PhysicsController::btTransToGlmMat4(const btTransform & trans
 					  rotate[0].y(), rotate[1].y(), rotate[2].y(), 0,
 					  rotate[0].z(), rotate[1].z(), rotate[2].z(), 0,
 					  translate.x(), translate.y(), translate.z(), 1);
+}
+
+
+btCollisionShape * PHYSICS::PhysicsController::CreateCollisionShape(btAlignedObjectArray<GRAPHICS::ObjInstanceVertex>* vertices, int numOfVerts, int vertStride, float scale,
+	btScalar mass, btAlignedObjectArray<int>* indices, int numOfIndices, int indicesStride)
+{
+
+	btTriangleIndexVertexArray* triShape = new btTriangleIndexVertexArray(numOfIndices, (int*)&(indices->at(0)), indicesStride,
+		numOfVerts*3, (btScalar*)&(vertices->at(0).xyz[0]), vertStride);
+
+	btBvhTriangleMeshShape *shape = new btBvhTriangleMeshShape(triShape, true);
+	shape->setLocalScaling(btVector3(scale, scale, scale));
+
+	return shape;
 }

@@ -540,6 +540,9 @@
     <ClCompile Include="source\physicsDebugDrawer.cpp">
       <Filter>Source Files\Draw Framework</Filter>
     </ClCompile>
+    <ClCompile Include="source\map.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\main.cpp">
@@ -1233,6 +1236,9 @@
     </ClInclude>
     <ClInclude Include="include\physicsDebugDrawer.h">
       <Filter>Header Files\Draw Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="include\map.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

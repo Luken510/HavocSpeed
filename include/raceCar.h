@@ -46,8 +46,10 @@ namespace CarConfig
 
 		btVector3 m_wheelDirection, //!< the direction of the ray cast in chasis space
 				  wheelAxel; //!< the axis that the wheels rotate around
-
-		
+		////////////////////////////////////
+		/////////////// TO DO :maybe the model wheels isn#t aligned to the origin, hence the displacement
+		///////////////////////: FIGURE OUT HOW TO DO TRIANGLE MESH INSTANCE TO BETTER IMPROVE THE TRACK.
+		/////////////////////
 		Config() :
 			m_mass(5.0f),
 			m_dampingLinear(0.25f),
@@ -59,17 +61,17 @@ namespace CarConfig
 			m_turningDecrement(0.1f),
 			m_turningLimits(0.50f),
 			m_wheelFriction(2.5f),
-			m_wheelRadius(5.800f),
-			m_wheelWidth(20.15f),
-			m_wheelConnectionHeight(3.0f),
-			m_wheelConnectionWidth(7.55f),
-			m_wheelConnectionLength(11.325f),
+			m_wheelRadius(3.302f),
+			m_wheelWidth(2.215f),
+			m_wheelConnectionHeight(3.9f), //3
+			m_wheelConnectionWidth(6.200f), //6
+			m_wheelConnectionLength(8.325f), //5.325
 			m_suspensionStiffness(160.f),
 			m_suspensionDampRelaxtion(12.7f),
 			m_suspensionDampCompression(10.7f),
 			m_suspensionMaxLength(0.06f),
 			m_suspensionMaxTravel(12.0f),
-			m_rollInfluence(0.0f),
+			m_rollInfluence(0.2f),
 			m_wheelDirection(0.0f, -1.0f, 0.0f),
 			wheelAxel(-1.0f, 0.0f, 0.0f),
 			m_bodyToChasisHeight(0.6f)
@@ -107,7 +109,7 @@ public:
 
 	void UpdateMatrix(glm::vec3 Pos, glm::vec3 scale);
 	void UpdateMatrix(glm::vec3 Pos, glm::vec3 scale, glm::vec3 rotateAxis, float angle);
-	void UpdateMatrix(glm::mat4 matrix);
+	void UpdateMatrix(glm::mat4 matrix, glm::vec3 scale);
 	glm::mat4 GetCarMatrix();
 	glm::mat4 GetWorldPos();
 	//glm::mat4 getWheelWorldPos();

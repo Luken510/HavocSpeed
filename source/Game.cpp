@@ -55,29 +55,13 @@ void GAME::Game::Init()
 	m_player1Car->Init();
 	
 	//track
-	m_map = std::make_shared<GRAPHICS::Model>("./external/assets/map/track/racetrack3d.3ds");
+	m_map = std::make_shared<Map>();
+	m_map->Init();
 
 	UTIL::EventHandler::getInstance().setCamera(m_camera);
 	UTIL::EventHandler::getInstance().setCar(m_player1Car);
 	glfwSetScrollCallback(m_window.GetWindow(), &UTIL::EventHandler::getInstance().ScrollButtonCallBack);
 	glfwSetMouseButtonCallback(m_window.GetWindow(), &UTIL::EventHandler::getInstance().MouseButtonCallback);
-//	glfwSetKeyCallback(m_window.GetWindow(), &UTIL::EventHandler::getInstance().KeyCallBack);
-
-	
-
-	//move to map class??
-
-	btBoxShape* groundShape = new btBoxShape(btVector3(btScalar(500.0), btScalar(10.0), btScalar(500.0)));
-
-	PHYSICS::PhysicsController::GetPhysicsInstance().AddModel(groundShape);
-
-	btTransform groundTransform;
-	groundTransform.setIdentity();
-	groundTransform.setOrigin(btVector3(0, -10, 0));
-
-	
-	PHYSICS::PhysicsController::GetPhysicsInstance().AddRigidBody(PHYSICS::PhysicsController::GetPhysicsInstance().CreateRigidbody(0, groundTransform, groundShape));
-	
 
 	RunGame();
 
@@ -117,6 +101,7 @@ void GAME::Game::Update(double deltaTime)
 {
 	m_window.update(deltaTime, m_camera);
 	m_player1Car->Update(deltaTime);
+	m_map->Update(deltaTime);
 	PHYSICS::PhysicsController::GetPhysicsInstance().StepSimulation(deltaTime);
 	
 }
@@ -138,7 +123,7 @@ void GAME::Game::Render(double Interpolate)
 
 		WireFrameMode(PHYSICS::PhysicsController::GetPhysicsInstance().GetDebugDrawer()->GetLines());
 	//}
-	//else {
+//	else {
 		m_objShader->Use();
 		//need to create the car class to enable it to move/set its position elsewhere from here.
 		m_setModel = glm::mat4(1.0f) * m_player1Car->GetCarMatrix();
@@ -146,7 +131,7 @@ void GAME::Game::Render(double Interpolate)
 		m_player1Car->Render(m_objShader);
 
 		m_MapShader->Use();
-		m_setModel = glm::mat4(1.0f) * glm::translate(glm::vec3(0.0f, -100.0f, 0.0f)) * glm::rotate(glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)) * glm::scale(glm::vec3(0.05f, 0.05f, 0.05f));
+		m_setModel = glm::mat4(1.0f) * m_map->GetTrackMatrix();
 		setmatricies(m_MapShader);
 		m_map->Render(m_MapShader);
 	//}
