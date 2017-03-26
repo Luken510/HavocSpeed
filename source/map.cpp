@@ -98,8 +98,10 @@ glm::mat4 GAME::Map::GetWorldPos()
 {
 	btTransform translateToWorld;
 	m_staticTrack->getMotionState()->getWorldTransform(translateToWorld);
-	btScalar* OpenGLMatrix = new btScalar[16];
+	btScalar Temp[16];
+	btScalar* OpenGLMatrix = Temp;
 	translateToWorld.getOpenGLMatrix(OpenGLMatrix);
 
-	return glm::make_mat4(OpenGLMatrix);
+	// had a memory leak, show in testing
+	return glm::make_mat4(Temp);
 }

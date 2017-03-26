@@ -65,7 +65,7 @@ void UTIL::EventHandler::ScrollButtonCallBack(GLFWwindow * window, double x, dou
 void UTIL::EventHandler::ScrollButtonCallBackImp(GLFWwindow * window, double x, double y)
 {
 	
-	camera->zoom((float)y*1.5f);
+	m_camera->zoom((float)y*1.5f);
 	
 }
 
@@ -86,12 +86,30 @@ void UTIL::EventHandler::KeyCallBackImp(GLFWwindow * window, int key, int cancod
 			m_boolForWireMode = false;
 		UTIL::LOG(UTIL::LOG::INFO) << " Key Pressed = 'V'";
 	}
+
+	if (key == GLFW_KEY_TAB && action == GLFW_RELEASE)
+	{
+
+		if (m_cameraStateController < 0 && m_cameraStateController >= NUM_OF_CAMERAS)
+		{			
+			UTIL::LOG(UTIL::LOG::FAULT) << " Camerastate out of scope, resetting to default.'";
+			m_cameraStateController = 0;
+		}
+
+		if (m_cameraStateController == NUM_OF_CAMERAS - 1)
+			m_cameraStateController = 0;
+		else
+			m_cameraStateController += 1;
+		UTIL::LOG(UTIL::LOG::INFO) << " Key Pressed = 'TAB'";
+	}
+
+
 }
 
 void UTIL::EventHandler::setCamera(std::shared_ptr<UTIL::QuatCamera> Camera)
 {
 	
-	camera = Camera;
+	m_camera = Camera;
 	
 }
 
@@ -103,15 +121,29 @@ void UTIL::EventHandler::setCar(std::shared_ptr<RaceCar> car)
 void UTIL::EventHandler::PollKeyEvents(GLFWwindow * window)
 {
 	if (glfwGetKey(window, 'W'))
+	{
 		m_car->Drive();
+		m_camera->CarDriving();
+	}
 	if (glfwGetKey(window, 'S'))
+	{
 		m_car->Reverse();
+		m_camera->CarReversing();
+	}
 	if (glfwGetKey(window, 'A'))
+	{
 		m_car->TurnLeft();
+		m_camera->CarTurnLeft();
+	}
 	if (glfwGetKey(window, 'D'))
+	{
 		m_car->TurnRight();
+		m_camera->CarTurnRight();
+	}
 	if (glfwGetKey(window, GLFW_KEY_SPACE))
+	{
 		m_car->Brake();
+	}
 }
 
 bool UTIL::EventHandler::getWireBool()
@@ -119,7 +151,14 @@ bool UTIL::EventHandler::getWireBool()
 	return m_boolForWireMode;
 }
 
-UTIL::EventHandler::EventHandler() : m_boolForWireMode(false)
+int UTIL::EventHandler::getCameraState()
+{
+	return m_cameraStateController;
+}
+
+
+
+UTIL::EventHandler::EventHandler() : m_boolForWireMode(false), m_cameraStateController(3)
 {
 
 }

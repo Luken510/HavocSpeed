@@ -12,6 +12,9 @@
 
 
 #define MS_PER_UPDATE (float)0.0166666666666667
+#define CAR_TURN_SPEED 0.025f
+
+enum CameraStates{STANDARD_VIEW = 0, FIRST_PERSON_VIEW = 1, REAR_VIEW = 2, FREE_ROAM = 3};
 
 namespace GAME {
 
@@ -46,13 +49,18 @@ namespace GAME {
 		/*!
 		\brief Set up the lighting parameters
 		*/
-		void setmatricies(std::shared_ptr<GRAPHICS::Shader> Shader);
+		void SetViewMatricies(std::shared_ptr<GRAPHICS::Shader> Shader, glm::mat4 model);
 		void WireFrameMode(std::vector<GRAPHICS::Line> & lines);
 		void PollKeyEvents();
+		void CurrentCamera();
 	
 	private:
 		GAME::Window m_window; //!< Window Object to render the game		
-		std::shared_ptr<UTIL::QuatCamera> m_camera = std::make_shared<UTIL::QuatCamera>(glm::vec3(0.0f,30.0f,100.0f));
+		std::shared_ptr<UTIL::QuatCamera> m_freeRoamCamera = std::make_shared<UTIL::QuatCamera>(glm::vec3(0.0f, 30.0f, 100.0f));
+		std::shared_ptr<UTIL::QuatCamera> m_standardCamera = std::make_shared<UTIL::QuatCamera>(glm::vec3(0.0f,30.0f, 100.0f));
+		std::shared_ptr<UTIL::QuatCamera> m_rearViewCamera = std::make_shared<UTIL::QuatCamera>(glm::vec3(0.0f, 30.0f, 100.0f));
+		std::shared_ptr<UTIL::QuatCamera> m_firstPersonCamera = std::make_shared<UTIL::QuatCamera>(glm::vec3(0.0f, 30.0f, 100.0f));
+		std::shared_ptr<UTIL::QuatCamera> m_CameraController;
 		std::shared_ptr<GRAPHICS::Shader> m_objShader = std::make_shared<GRAPHICS::Shader>();
 		std::shared_ptr<GRAPHICS::Shader> m_MapShader = std::make_shared<GRAPHICS::Shader>();
 		std::shared_ptr<GRAPHICS::Shader> m_debugDrawerShader = std::make_shared<GRAPHICS::Shader>();
@@ -63,6 +71,7 @@ namespace GAME {
 		double m_PreviousTime; //!< previous time when updated
 		glm::mat4 m_setModel;		
 		bool m_DrawDebugBool;
+		CameraStates m_cameraStates;
 
 		GLuint m_wireVaoHandle;
 		GLuint m_wireVboHandle[2];

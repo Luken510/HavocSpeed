@@ -637,7 +637,7 @@ void	btRaycastVehicle::updateFriction(btScalar	timeStep)
 				btScalar maximpSquared = maximp * maximpSide;
 			
 
-				m_forwardImpulse[wheel] = rollingFriction;//wheelInfo.m_engineForce* timeStep;
+				m_forwardImpulse[wheel] = rollingFriction;//wheelInfo.m_engineForce* timeStep; 
 
 				btScalar x = (m_forwardImpulse[wheel] ) * fwdFactor;
 				btScalar y = (m_sideImpulse[wheel] ) * sideFactor;
