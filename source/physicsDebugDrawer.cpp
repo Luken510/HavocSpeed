@@ -46,7 +46,7 @@ void GRAPHICS::PhysicsDebugDrawer::reportErrorWarning(const char * warningString
 void GRAPHICS::PhysicsDebugDrawer::draw3dText(const btVector3 & location, const char * textString)
 {
 }
-std::vector<GRAPHICS::Line>& GRAPHICS::PhysicsDebugDrawer::GetLines()
+std::vector<GRAPHICS::Line> GRAPHICS::PhysicsDebugDrawer::GetLines()
 {
 	return m_lines;
 }

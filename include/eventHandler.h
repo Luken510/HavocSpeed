@@ -5,8 +5,6 @@
 #include "raceCar.h"
 #include "QuatCamera.h"
 
-#define NUM_OF_CAMERAS 4
-
 
 // worth mentioning that this implementation won't work on multiple glfw windows
 namespace UTIL {
@@ -35,20 +33,17 @@ namespace UTIL {
 		void PollKeyEvents(GLFWwindow * window);
 
 		bool getWireBool();
-		int getCameraState();
-
+		
 	private:
 		EventHandler();
 		 // private constructor necessary to allow only 1 instance
 		EventHandler(EventHandler const&); // prevent copies
 		void operator=(EventHandler const&); // prevent assignments
 
-		std::shared_ptr<UTIL::QuatCamera> m_camera;
+		std::shared_ptr<UTIL::QuatCamera> camera;
 		std::shared_ptr<RaceCar> m_car;
 		
 		bool m_boolForWireMode;
-		int m_cameraStateController;
-	
 		
 	};
 

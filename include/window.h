@@ -5,7 +5,6 @@
 #include <GLFW/glfw3.h>
 
 #include "QuatCamera.h"
-#include "eventHandler.h"
 
 #define WIN_WIDTH 1280
 #define WIN_HEIGHT 720

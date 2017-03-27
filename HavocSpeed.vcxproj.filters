@@ -525,6 +525,9 @@
     <ClCompile Include="source\raceCar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\QuatCamera.cpp">
+      <Filter>Source Files\UTIL</Filter>
+    </ClCompile>
     <ClCompile Include="source\eventHandler.cpp">
       <Filter>Source Files\UTIL</Filter>
     </ClCompile>
@@ -539,9 +542,6 @@
     </ClCompile>
     <ClCompile Include="source\map.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\QuatCamera.cpp">
-      <Filter>Source Files\UTIL</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
