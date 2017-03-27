@@ -65,7 +65,7 @@ namespace CarConfig
 			m_wheelWidth(2.215f),
 			m_wheelConnectionHeight(3.9f), //3
 			m_wheelConnectionWidth(6.200f), //6
-			m_wheelConnectionLength(8.325f), //5.325
+			m_wheelConnectionLength(12.725f), //5.325
 			m_suspensionStiffness(160.f),
 			m_suspensionDampRelaxtion(12.7f),
 			m_suspensionDampCompression(10.7f),
@@ -127,10 +127,8 @@ public:
 
 private:
 	std::shared_ptr<GRAPHICS::Model> m_car = nullptr;
-	std::shared_ptr<GRAPHICS::Model> m_carFrontR = nullptr;
-	std::shared_ptr<GRAPHICS::Model> m_carFrontL = nullptr;
-	std::shared_ptr<GRAPHICS::Model> m_carRearR = nullptr;
-	std::shared_ptr<GRAPHICS::Model> m_carRearL = nullptr;
+	std::shared_ptr<GRAPHICS::Model> m_carWheels = nullptr;
+	std::vector<std::shared_ptr<GRAPHICS::Model>> m_carWheelsPtr;
 	std::shared_ptr<GRAPHICS::Model> m_map = nullptr;
 
 	CarConfig::Config carConfig;

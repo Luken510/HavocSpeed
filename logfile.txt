@@ -6,18 +6,6 @@
 [INFO]  How many Mesh nodes there are : 1
 [INFO]  How many child nodes there are : 1
 [INFO]  How many Mesh nodes there are : 0
-[INFO]  How many child nodes there are : 0
-[INFO]  How many Mesh nodes there are : 1
-[INFO]  How many child nodes there are : 1
-[INFO]  How many Mesh nodes there are : 0
-[INFO]  How many child nodes there are : 0
-[INFO]  How many Mesh nodes there are : 1
-[INFO]  How many child nodes there are : 1
-[INFO]  How many Mesh nodes there are : 0
-[INFO]  How many child nodes there are : 0
-[INFO]  How many Mesh nodes there are : 1
-[INFO]  How many child nodes there are : 1
-[INFO]  How many Mesh nodes there are : 0
 [INFO] Obj Loaded: number of extracted Meshes :1
 [INFO] Obj Loaded: number of extracted vertices :117936
 [INFO] Obj Loaded: number of extracted indices :14742

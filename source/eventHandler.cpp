@@ -123,22 +123,22 @@ void UTIL::EventHandler::PollKeyEvents(GLFWwindow * window)
 	if (glfwGetKey(window, 'W'))
 	{
 		m_car->Drive();
-		m_camera->CarDriving();
+		//m_camera->CarDriving();
 	}
 	if (glfwGetKey(window, 'S'))
 	{
 		m_car->Reverse();
-		m_camera->CarReversing();
+		//m_camera->CarReversing();
 	}
 	if (glfwGetKey(window, 'A'))
 	{
 		m_car->TurnLeft();
-		m_camera->CarTurnLeft();
+		//m_camera->CarTurnLeft();
 	}
 	if (glfwGetKey(window, 'D'))
 	{
 		m_car->TurnRight();
-		m_camera->CarTurnRight();
+		//m_camera->CarTurnRight();
 	}
 	if (glfwGetKey(window, GLFW_KEY_SPACE))
 	{

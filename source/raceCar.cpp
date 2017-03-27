@@ -24,10 +24,7 @@ void RaceCar::Init()
 {
 	
 	m_car = std::make_shared<GRAPHICS::Model>("./external/assets/car/CarChasis.obj");
-	m_carRearR = std::make_shared<GRAPHICS::Model>("./external/assets/car/rearRightWheel.obj");;
-	m_carRearL = std::make_shared<GRAPHICS::Model>("./external/assets/car/rearLeftWheel.obj");;
-	m_carFrontR = std::make_shared<GRAPHICS::Model>("./external/assets/car/frontRightWheel.obj");
-	m_carFrontL = std::make_shared<GRAPHICS::Model>("./external/assets/car/frontLeftWheel.obj"); 
+	m_carWheels = std::make_shared<GRAPHICS::Model>("./external/assets/car/carWheels.obj");
 
 	CreateCarBulletObjFromModel();
 
@@ -35,7 +32,7 @@ void RaceCar::Init()
 
 	btTransform startingPos;
 	startingPos.setOrigin(btVector3(40.0f, 100.4f, -55.0f));
-	//startingPos.setRotation(GetRotationQuatFromAngle(btVector3(0.0f, 1.0f, 0.0f), 180.0)); // changes the direction it faces
+	startingPos.setRotation(GetRotationQuatFromAngle(btVector3(0.0f, 1.0f, 0.0f), 0.0)); // changes the direction it faces  WHY DOES THIS BREAK IT, PLS CHECK TY.
 
 	btTransform localTrans;//
 	localTrans.setIdentity();//
@@ -64,20 +61,20 @@ void RaceCar::Init()
 	btVector3 WheelConnectionsParams;
 	
 	
-	//front left wheel
+	//rear left wheel
 	WheelConnectionsParams = btVector3(carConfig.m_wheelConnectionWidth, carConfig.m_wheelConnectionHeight, carConfig.m_wheelConnectionLength);
 	m_raycastCar->addWheel(WheelConnectionsParams, carConfig.m_wheelDirection, carConfig.wheelAxel, carConfig.m_suspensionMaxLength, carConfig.m_wheelRadius, m_tuning, true);
 
-	//front right wheel
+	//rear right wheel
 	WheelConnectionsParams = btVector3(-carConfig.m_wheelConnectionWidth, carConfig.m_wheelConnectionHeight, carConfig.m_wheelConnectionLength);
 	m_raycastCar->addWheel(WheelConnectionsParams, carConfig.m_wheelDirection, carConfig.wheelAxel, carConfig.m_suspensionMaxLength, carConfig.m_wheelRadius, m_tuning, true);
 
-	//rear left wheel
-	WheelConnectionsParams = btVector3(carConfig.m_wheelConnectionWidth, carConfig.m_wheelConnectionHeight, -carConfig.m_wheelConnectionLength);
+	//front left wheel
+	WheelConnectionsParams = btVector3(carConfig.m_wheelConnectionWidth, carConfig.m_wheelConnectionHeight, -carConfig.m_wheelConnectionLength + 0.3f);
 	m_raycastCar->addWheel(WheelConnectionsParams, carConfig.m_wheelDirection, carConfig.wheelAxel, carConfig.m_suspensionMaxLength, carConfig.m_wheelRadius, m_tuning, false);
 
-	//rear right wheel
-	WheelConnectionsParams = btVector3(-carConfig.m_wheelConnectionWidth, carConfig.m_wheelConnectionHeight, -carConfig.m_wheelConnectionLength);
+	//front right wheel
+	WheelConnectionsParams = btVector3(-carConfig.m_wheelConnectionWidth, carConfig.m_wheelConnectionHeight, -carConfig.m_wheelConnectionLength + 0.3f);
 	m_raycastCar->addWheel(WheelConnectionsParams, carConfig.m_wheelDirection, carConfig.wheelAxel, carConfig.m_suspensionMaxLength, carConfig.m_wheelRadius, m_tuning, false);
 
 	for (int i = 0; i < m_raycastCar->getNumWheels(); i++)
@@ -90,6 +87,7 @@ void RaceCar::Init()
 		wheelInfo.m_frictionSlip = carConfig.m_wheelFriction;
 		wheelInfo.m_rollInfluence = carConfig.m_rollInfluence;
 		wheelInfo.m_maxSuspensionTravelCm = carConfig.m_suspensionMaxTravel;
+		m_carWheelsPtr.push_back(m_carWheels);
 	}
 }
 
@@ -150,35 +148,21 @@ void RaceCar::Update(double deltaTime)
 void RaceCar::Render(std::shared_ptr<GRAPHICS::Shader> shader)
 {
 	m_car->Render(shader);
-	glm::mat4 setWheelModel;
-
-	m_raycastCar->updateWheelTransform(FRONTLEFT, true);
-	setWheelModel = glm::mat4(1.0f) * glm::scale(
-		PHYSICS::PhysicsController::GetPhysicsInstance().btTransToGlmMat4(m_raycastCar->getWheelInfo(FRONTLEFT).m_worldTransform),
-		glm::vec3(CAR_SCALE)); // 
-	shader->SetUniform("model", setWheelModel);
-	m_carFrontL->Render(shader); 
 	
-	m_raycastCar->updateWheelTransform(FRONTRIGHT, true);
-	setWheelModel = glm::mat4(1.0f) * glm::scale(
-		PHYSICS::PhysicsController::GetPhysicsInstance().btTransToGlmMat4(m_raycastCar->getWheelInfo(FRONTRIGHT).m_worldTransform),
-		glm::vec3(CAR_SCALE)); // 
-	shader->SetUniform("model", setWheelModel);
-	m_carFrontR->Render(shader);
 
-	m_raycastCar->updateWheelTransform(REARLEFT, true);
-	setWheelModel = glm::mat4(1.0f) * glm::scale(
-		PHYSICS::PhysicsController::GetPhysicsInstance().btTransToGlmMat4(m_raycastCar->getWheelInfo(REARLEFT).m_worldTransform),
-		glm::vec3(CAR_SCALE)); // 
-	shader->SetUniform("model", setWheelModel);
-	m_carRearL->Render(shader);
+	for (int i = 0; i < m_raycastCar->getNumWheels(); i++)
+	{
+		m_raycastCar->updateWheelTransform(i, true);
+		glm::mat4 setWheelModel = glm::mat4(1.0f) * glm::scale(
+			PHYSICS::PhysicsController::GetPhysicsInstance().btTransToGlmMat4(m_raycastCar->getWheelInfo(i).m_worldTransform),
+			glm::vec3(CAR_SCALE)); // 
 
-	m_raycastCar->updateWheelTransform(REARRIGHT, true);
-	setWheelModel = glm::mat4(1.0f) * glm::scale(
-		PHYSICS::PhysicsController::GetPhysicsInstance().btTransToGlmMat4(m_raycastCar->getWheelInfo(REARRIGHT).m_worldTransform),
-		glm::vec3(CAR_SCALE)); // 
-	shader->SetUniform("model", setWheelModel);
-	m_carRearR->Render(shader); 
+		if (i == FRONTLEFT || i == REARLEFT)
+			setWheelModel = glm::rotate(setWheelModel, 180.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+
+		shader->SetUniform("model", setWheelModel);
+		m_carWheelsPtr[i]->Render(shader);
+	}
 	
 }
 
