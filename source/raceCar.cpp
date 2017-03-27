@@ -35,7 +35,7 @@ void RaceCar::Init()
 
 	btTransform startingPos;
 	startingPos.setOrigin(btVector3(40.0f, 100.4f, -55.0f));
-	startingPos.setRotation(GetRotationQuatFromAngle(btVector3(0.0f, 1.0f, 0.0f), 180.0)); // changes the direction it faces
+	//startingPos.setRotation(GetRotationQuatFromAngle(btVector3(0.0f, 1.0f, 0.0f), 180.0)); // changes the direction it faces
 
 	btTransform localTrans;//
 	localTrans.setIdentity();//
@@ -208,16 +208,18 @@ glm::mat4 RaceCar::GetWorldPos()
 	m_raycastCar->getRigidBody()->getMotionState()->getWorldTransform(translateToWorld);
 	btCompoundShape* compoundShape = static_cast<btCompoundShape*>(m_raycastCar->getRigidBody()->getCollisionShape());
 	translateToWorld = translateToWorld * compoundShape->getChildTransform(0);
-	btScalar* OpenGLMatrix = new btScalar[16];
+	btScalar Test1[16];
+	btScalar* OpenGLMatrix = Test1;
 	translateToWorld.getOpenGLMatrix(OpenGLMatrix);
-	
-	return glm::make_mat4(OpenGLMatrix);
+	// had a memory leak, show in testing
+	return glm::make_mat4(Test1);
 }
 
 void RaceCar::Drive()
 {
 	if (std::abs(m_raycastCar->getCurrentSpeedKmHour()) < carConfig.m_maxSpeed)
 		m_enginePower = carConfig.m_maxEnginePower;
+
 
 	m_brakingPower = 0.0f;
 }

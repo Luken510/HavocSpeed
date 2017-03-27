@@ -7,6 +7,11 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <glm/gtc/quaternion.hpp>
+#include <glm/gtx/quaternion.hpp>
+#include <glm/gtx/euler_angles.hpp>
+#include <glm/gtx/norm.hpp>
+#include "logger.h"
 
 #define PI 3.141592653589793
 #define TWOPI 6.2831853071795862
@@ -45,19 +50,21 @@ public:
 
 
 	void updateView();  //Update the camera
+	void update(glm::mat4 target);
 
 	void reset(void); //Reset the camera
 
 	glm::mat4 view(); //Get the View matrix
 
 	glm::mat4 projection(); //Get the Projection matrix
-	
-	int iCurrentCamera;
 
-	void toggleCamera(int x);
-
-	int getCurrentCam();
-	
+	void Follow(glm::mat4 target, float angle);
+	glm::quat RotationBetweenVectors(glm::vec3 start, glm::vec3 dest);
+	glm::quat LookAt(glm::vec3 direction, glm::vec3 desiredUp);
+	void CarTurnRight();
+	void CarTurnLeft();
+	void CarDriving();
+	void CarReversing();
 
 private:
 
@@ -74,6 +81,7 @@ private:
 	//Camera position vector and Quaternoin to represent camera orientation
 	glm::vec3 _position;
 	glm::quat _orientation;
+	glm::quat _orientationTemp;
 
 	glm::mat4 _view;
 	glm::mat4 _projection;
@@ -83,7 +91,12 @@ private:
 	const glm::vec3 WORLDY = glm::vec3(0, 1, 0);
 	const glm::vec3 WORLDZ = glm::vec3(0, 0, 1);
 
+	bool m_follow;
+	bool m_turning;
+	glm::vec3 m_carPos;
 };
 
 }
 #endif
+
+

@@ -91,21 +91,24 @@ void GAME::Window::update(double deltaTime, std::shared_ptr<UTIL::QuatCamera> ca
 
 	}
 
-	//Using a different way (i.e. instead of callback) to check for RIGHT mouse button
-	if (glfwGetMouseButton(m_window, GLFW_MOUSE_BUTTON_RIGHT))
-	{
+	//if (UTIL::EventHandler::getInstance().getCameraState() == 3)
+//	{
 
-		//Rotate the camera. The 0.01f is a velocity mofifier to make the speed sensible
-		camera->pan(deltaX*MOVE_VELOCITY, deltaY*MOVE_VELOCITY);
+		//Using a different way (i.e. instead of callback) to check for RIGHT mouse button
+		if (glfwGetMouseButton(m_window, GLFW_MOUSE_BUTTON_RIGHT))
+		{
 
-	}
-	//To adjust Roll with MIDDLE mouse button
-	if (glfwGetMouseButton(m_window, GLFW_MOUSE_BUTTON_MIDDLE))
-	{
+			//Rotate the camera. The 0.01f is a velocity mofifier to make the speed sensible
+			camera->pan(deltaX*MOVE_VELOCITY, deltaY*MOVE_VELOCITY);
 
-		camera->roll(deltaX*ROTATE_VELOCITY);
-	}
+		}
+		//To adjust Roll with MIDDLE mouse button
+		if (glfwGetMouseButton(m_window, GLFW_MOUSE_BUTTON_MIDDLE))
+		{
 
+			camera->roll(deltaX*ROTATE_VELOCITY);
+		}
+//	}
 	//Store the current cursor position
 	lastCursorPositionX = cursorPositionX;
 	lastCursorPositionY = cursorPositionY;

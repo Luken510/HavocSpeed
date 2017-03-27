@@ -28,7 +28,7 @@ namespace GRAPHICS
 		void reportErrorWarning(const char * warningString);
 		virtual void draw3dText(const btVector3& location, const char* textString);
 	
-		std::vector<GRAPHICS::Line> GetLines();
+		std::vector<GRAPHICS::Line>& GetLines();
 		void ClearLines();
 
 	private:

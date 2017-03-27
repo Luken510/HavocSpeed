@@ -1,5 +1,6 @@
 #include "game.h"
 
+#include <iostream>
 #include <gl.hpp>
 #include <GLFW/glfw3.h>
 #include <btBulletDynamicsCommon.h>
@@ -37,8 +38,9 @@ GAME::Game::~Game()
 
 void GAME::Game::Init()
 {
+	m_CameraController = m_freeRoamCamera;
 	//init camera
-	m_window.resizeGL(m_camera, 1280, 720);
+	m_window.resizeGL(m_CameraController, 1280, 720);
 	gl::Enable(gl::DEPTH_TEST);
 	
 	//link shaders
@@ -50,19 +52,23 @@ void GAME::Game::Init()
 	//Event Handler
 	UTIL::EventHandler::getInstance();
 
+	//set camera
+	CurrentCamera();
 	//car
 	m_player1Car = std::make_shared<RaceCar>();
 	m_player1Car->Init();
+	//
+	m_freeRoamCamera->Follow(m_player1Car->GetCarMatrix(), 90.0f);
 	
 	//track
 	m_map = std::make_shared<Map>();
 	m_map->Init();
 
-	UTIL::EventHandler::getInstance().setCamera(m_camera);
+	UTIL::EventHandler::getInstance().setCamera(m_CameraController);
 	UTIL::EventHandler::getInstance().setCar(m_player1Car);
 	glfwSetScrollCallback(m_window.GetWindow(), &UTIL::EventHandler::getInstance().ScrollButtonCallBack);
 	glfwSetMouseButtonCallback(m_window.GetWindow(), &UTIL::EventHandler::getInstance().MouseButtonCallback);
-
+	glfwSetKeyCallback(m_window.GetWindow(), &UTIL::EventHandler::getInstance().KeyCallBack);
 	RunGame();
 
 }
@@ -79,10 +85,10 @@ void GAME::Game::RunGame()
 		double elaspedTime = m_CurrentTime - m_PreviousTime; //m_CurrentTime - m_PreviousTime;
 		m_PreviousTime = m_CurrentTime;
 		m_timeSinceLastUpdate += elaspedTime;
-
-		
+	
 		glfwPollEvents();
 		PollKeyEvents();
+		CurrentCamera();
 		
 		m_DrawDebugBool = UTIL::EventHandler::getInstance().getWireBool();
 
@@ -99,9 +105,12 @@ void GAME::Game::RunGame()
 
 void GAME::Game::Update(double deltaTime)
 {
-	m_window.update(deltaTime, m_camera);
+	m_window.update(deltaTime, m_CameraController);
 	m_player1Car->Update(deltaTime);
 	m_map->Update(deltaTime);
+	m_CameraController->update(m_player1Car->GetCarMatrix());
+	
+
 	PHYSICS::PhysicsController::GetPhysicsInstance().StepSimulation(deltaTime);
 	
 }
@@ -117,7 +126,7 @@ void GAME::Game::Render(double Interpolate)
 	//{
 		m_debugDrawerShader->Use();
 		m_setModel = glm::mat4(1.0f);
-		setmatricies(m_debugDrawerShader);
+		SetViewMatricies(m_debugDrawerShader, m_setModel);
 
 		PHYSICS::PhysicsController::GetPhysicsInstance().DrawDebugWorld();
 
@@ -125,14 +134,13 @@ void GAME::Game::Render(double Interpolate)
 	//}
 //	else {
 		m_objShader->Use();
-		//need to create the car class to enable it to move/set its position elsewhere from here.
 		m_setModel = glm::mat4(1.0f) * m_player1Car->GetCarMatrix();
-		setmatricies(m_objShader);
+		SetViewMatricies(m_objShader, m_setModel);
 		m_player1Car->Render(m_objShader);
 
 		m_MapShader->Use();
 		m_setModel = glm::mat4(1.0f) * m_map->GetTrackMatrix();
-		setmatricies(m_MapShader);
+		SetViewMatricies(m_MapShader, m_setModel);
 		m_map->Render(m_MapShader);
 	//}
 	
@@ -142,12 +150,12 @@ void GAME::Game::Render(double Interpolate)
 	
 }
 
-void GAME::Game::setmatricies(std::shared_ptr<GRAPHICS::Shader> Shader)
+void GAME::Game::SetViewMatricies(std::shared_ptr<GRAPHICS::Shader> Shader, glm::mat4 model)
 {
 
-	Shader->SetUniform("model", m_setModel);
-	Shader->SetUniform("view", m_camera->view());
-	Shader->SetUniform("projection", m_camera->projection());
+	Shader->SetUniform("model", model);
+	Shader->SetUniform("view", m_CameraController->view());
+	Shader->SetUniform("projection", m_CameraController->projection());
 
 }
 
@@ -176,7 +184,6 @@ void GAME::Game::WireFrameMode(std::vector<GRAPHICS::Line> & lines)
 		index += 2;
 	}
 
-	//gl::GenVertexArrays(1, &m_wireVaoHandle);
 	gl::BindVertexArray(m_wireVaoHandle);
 
 	gl::GenBuffers(2, m_wireVboHandle);
@@ -190,11 +197,43 @@ void GAME::Game::WireFrameMode(std::vector<GRAPHICS::Line> & lines)
 
 	gl::DrawElements(gl::LINES, indices.size(), gl::UNSIGNED_INT, (void*)&(indices.at(0)));
 
-	PHYSICS::PhysicsController::GetPhysicsInstance().GetDebugDrawer()->ClearLines();
+	lines.clear();
+	vertices.clear();
+	indices.clear();
+	//PHYSICS::PhysicsController::GetPhysicsInstance().GetDebugDrawer()->ClearLines();
 	
 }
 
 void GAME::Game::PollKeyEvents()
 {
 	UTIL::EventHandler::getInstance().PollKeyEvents(m_window.GetWindow());
+}
+
+void GAME::Game::CurrentCamera()
+{
+	m_cameraStates = static_cast<CameraStates>(UTIL::EventHandler::getInstance().getCameraState());
+	
+	switch (m_cameraStates)
+	{
+	case STANDARD_VIEW:
+		m_CameraController = m_standardCamera;
+	//	UTIL::LOG(UTIL::LOG::INFO) << " Camera = Standard Camera";
+		break;
+	case FIRST_PERSON_VIEW:
+		m_CameraController = m_firstPersonCamera;
+	//	UTIL::LOG(UTIL::LOG::INFO) << " Camera = FirstPerson Camera";
+		break;
+	case REAR_VIEW:
+		m_CameraController = m_rearViewCamera;
+	//	UTIL::LOG(UTIL::LOG::INFO) << " Camera = RearView Camera";
+		break;
+	case FREE_ROAM:
+		m_CameraController = m_freeRoamCamera;	
+	//	UTIL::LOG(UTIL::LOG::INFO) << " Camera = FreeRoam Camera";
+		break;
+	default:
+		break;
+	}
+	
+	UTIL::EventHandler::getInstance().setCamera(m_CameraController);
 }
