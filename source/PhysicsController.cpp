@@ -1,4 +1,5 @@
 #include <btBulletDynamicsCommon.h>
+#include <bullet\BulletCollision\CollisionShapes\btConcaveShape.h>
 #include <BulletCollision\Gimpact\btGImpactCollisionAlgorithm.h>
 
 #include "PhysicsController.h"
@@ -7,7 +8,6 @@
 
 PHYSICS::PhysicsController::PhysicsController()
 {
-	std::cout << "Hello World!" << std::endl;
 	//build the broadphase
 	m_broadphase =	new btDbvtBroadphase(); // make sure way of init works.
 
@@ -32,7 +32,7 @@ PHYSICS::PhysicsController::PhysicsController()
 PHYSICS::PhysicsController::~PhysicsController()
 {
 	// Clean up, LIFO system
-
+	delete m_debugDrawer;
 	delete m_dynamicWorld;
 	delete m_constraintSolver;
 	delete m_dispatcher;
@@ -57,6 +57,17 @@ void PHYSICS::PhysicsController::AddRigidBody(btRigidBody * body)
 {
 	
 	m_dynamicWorld->addRigidBody(body);
+}
+
+void PHYSICS::PhysicsController::AddStaticRigidBody(btCollisionShape* shape, const btTransform & trans, const btVector3 & scale)
+{
+
+	btRigidBody* TempRigidBody;
+
+	TempRigidBody = CreateRigidbody(0, trans, shape);
+
+	m_dynamicWorld->addRigidBody(TempRigidBody);
+
 }
 
 
@@ -130,7 +141,6 @@ btConvexHullShape*  PHYSICS::PhysicsController::CreateConvexHull(btAlignedObject
 		shape->addPoint(a);
 	}
 
-
 	btVector3 localscaling(scale, scale, scale);
 	shape->setLocalScaling(localscaling);
 
@@ -138,6 +148,170 @@ btConvexHullShape*  PHYSICS::PhysicsController::CreateConvexHull(btAlignedObject
 	{
 		shape->optimizeConvexHull();
 	}
+
+	return shape;
+}
+
+std::vector<btConvexHullShape *> PHYSICS::PhysicsController::CreateConvexHull(std::shared_ptr<GRAPHICS::Model> model, float scale, btScalar mass, bool optimise)
+{
+
+	std::vector<btConvexHullShape*> shape;
+
+	for (unsigned int i = 0; i < model->GetMeshes().size(); i++)
+	{
+		btConvexHullShape* meshShape = new btConvexHullShape((btScalar*)(&model->GetMeshes()[i].m_vertices.at(0)), model->GetMeshes()[i].m_vertices.size(), sizeof(GRAPHICS::Vertex));
+
+		if (meshShape)
+			shape.push_back(meshShape);
+	}
+
+	for (unsigned int y = 0; y < shape.size(); y++)
+	{
+		btVector3 localscaling(scale, scale, scale);
+		shape[y]->setLocalScaling(localscaling);
+		if (optimise)
+		{
+			shape[y]->optimizeConvexHull();
+		}
+	}
+
+	return shape;
+}
+
+std::vector<btCollisionShape*> PHYSICS::PhysicsController::CreateMultiCollisionShapes(GRAPHICS::Model * model, const btVector3 & scale)
+{
+	std::vector<btCollisionShape*> ModelShape;
+
+	std::shared_ptr<GRAPHICS::ObjInstanceShape> glmesh = GRAPHICS::AssimpToBulletObj(model->GetMeshes());
+
+		
+		btCollisionShape* MeshShape = CreateCollisionShape(glmesh, scale);
+
+		if (MeshShape)
+			ModelShape.push_back(MeshShape);
+
+
+	return ModelShape;
+}
+
+std::vector<btCollisionShape*> PHYSICS::PhysicsController::CreateMultiCollisionShapes(std::shared_ptr<GRAPHICS::Model> model, const btVector3 & scale)
+{
+	
+	std::vector<btCollisionShape*> ModelShape;
+	
+	
+	//std::shared_ptr<GRAPHICS::ObjInstanceShape> ModelObj = GRAPHICS::AssimpToBulletObj(model->GetMeshes());
+
+	for (unsigned int i = 0; i < model->GetMeshes().size(); i++)
+	{
+		btCollisionShape* MeshShape = CreateCollisionShape(model->GetMeshes()[i], scale);
+
+		if (MeshShape)
+			ModelShape.push_back(MeshShape);
+
+	}
+
+	return ModelShape;
+	
+}
+
+btCollisionShape * PHYSICS::PhysicsController::CreateCollisionShape(std::shared_ptr<GRAPHICS::ObjInstanceShape> model, const btVector3 & scale)
+{
+
+	int triangles = model->m_numOfIndices;
+	int numVertices = model->m_numOfVertices;
+
+	if (triangles < 1 || numVertices < 3)
+		return NULL;
+	
+	
+	btIndexedMesh test;
+	std::vector<float> xyz;
+	xyz.clear();
+	std::vector<int> idxCount;
+	idxCount.clear();
+
+	for (int i = 0; i < numVertices; i++)
+	{
+		xyz.push_back((model->m_vertices->at(i).xyz[0]));
+		xyz.push_back((model->m_vertices->at(i).xyz[1]));
+		xyz.push_back((model->m_vertices->at(i).xyz[2]));
+	}
+
+	for (int y = 0; y <triangles; y++)
+	{
+		idxCount.push_back(model->m_indices->at(y));
+	}
+
+	btTriangleIndexVertexArray* triShape = new btTriangleIndexVertexArray();
+		test.m_vertexBase = (const unsigned char*)(&xyz.at(0));
+		test.m_vertexStride = sizeof(GRAPHICS::ObjInstanceVertex);
+		test.m_numVertices = (xyz.size()) - 3;
+		test.m_numTriangles = (idxCount.size()) - 3;
+		test.m_triangleIndexBase = (const unsigned char*)(&idxCount.at(0));
+		test.m_triangleIndexStride = sizeof(int);
+		test.m_vertexType = PHY_FLOAT;
+		test.m_indexType = PHY_INTEGER;
+
+		//triShape->setScaling(scale);
+		triShape->addIndexedMesh(test);
+
+		btBvhTriangleMeshShape *shape = new btBvhTriangleMeshShape(triShape, true);
+		shape->setLocalScaling(scale);
+		UTIL::LOG(UTIL::LOG::INFO) << "Created Tri Mesh";
+
+		return shape;
+}
+
+btCollisionShape * PHYSICS::PhysicsController::CreateCollisionShape(GRAPHICS::ObjInstanceShape * model, const btVector3 & scale)
+{
+
+	btTriangleIndexVertexArray* triShape = new btTriangleIndexVertexArray();
+	btIndexedMesh test;
+
+	test.m_vertexBase = (const unsigned char*)(&model->m_vertices->at(0));
+	test.m_vertexStride = sizeof(GRAPHICS::ObjInstanceVertex);
+	test.m_numVertices = model->m_numOfVertices;
+	test.m_numTriangles = model->m_numOfIndices;
+	test.m_triangleIndexBase = (const unsigned char*)(&model->m_indices->at(0));
+	test.m_triangleIndexStride = sizeof(int);
+	test.m_indexType = PHY_INTEGER;
+
+	triShape->addIndexedMesh(test);
+
+	btBvhTriangleMeshShape *shape = new btBvhTriangleMeshShape(triShape, true);
+	shape->setLocalScaling(scale);
+
+	return shape;
+}
+
+btCollisionShape * PHYSICS::PhysicsController::CreateCollisionShape(const GRAPHICS::Mesh mesh, const btVector3 & scale)
+{
+	std::vector<float> xyz;
+	
+	for (int i = 0; i < mesh.m_vertices.size(); i++)
+	{
+		xyz.push_back(mesh.m_vertices.at(i).m_position.x);
+		xyz.push_back(mesh.m_vertices.at(i).m_position.y);
+		xyz.push_back(mesh.m_vertices.at(i).m_position.z);
+	}
+	
+	
+	btTriangleIndexVertexArray* triShape = new btTriangleIndexVertexArray();
+	btIndexedMesh idxMesh;
+	idxMesh.m_vertexBase = (const unsigned char*)(&xyz.at(0));
+	idxMesh.m_vertexStride = sizeof(float);
+	idxMesh.m_vertexType = PHY_FLOAT;
+	idxMesh.m_numVertices = mesh.m_vertices.size();
+	idxMesh.m_numTriangles = mesh.m_indices.size() / 3;
+	idxMesh.m_triangleIndexBase = (const unsigned char*)(&mesh.m_indices.at(0));
+	idxMesh.m_triangleIndexStride = sizeof(unsigned int) * 3;
+	idxMesh.m_indexType = PHY_INTEGER;
+
+	triShape->addIndexedMesh(idxMesh);
+
+	btBvhTriangleMeshShape *shape = new btBvhTriangleMeshShape(triShape, true);
+	shape->setLocalScaling(scale);
 
 	return shape;
 }
@@ -191,16 +365,3 @@ glm::mat4 PHYSICS::PhysicsController::btTransToGlmMat4(const btTransform & trans
 					  translate.x(), translate.y(), translate.z(), 1);
 }
 
-
-btCollisionShape * PHYSICS::PhysicsController::CreateCollisionShape(btAlignedObjectArray<GRAPHICS::ObjInstanceVertex>* vertices, int numOfVerts, int vertStride, float scale,
-	btScalar mass, btAlignedObjectArray<int>* indices, int numOfIndices, int indicesStride)
-{
-
-	btTriangleIndexVertexArray* triShape = new btTriangleIndexVertexArray(numOfIndices, (int*)&(indices->at(0)), indicesStride,
-		numOfVerts*3, (btScalar*)&(vertices->at(0).xyz[0]), vertStride);
-
-	btBvhTriangleMeshShape *shape = new btBvhTriangleMeshShape(triShape, true);
-	shape->setLocalScaling(btVector3(scale, scale, scale));
-
-	return shape;
-}

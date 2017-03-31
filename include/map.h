@@ -11,7 +11,7 @@
 #include "PhysicsController.h"
 #include "shader.h"
 
-#define MAP_SCALE 0.1f 
+#define MAP_SCALE 0.05f 
 namespace GAME {
 
 	class Map {
@@ -35,7 +35,8 @@ namespace GAME {
 		std::shared_ptr<GRAPHICS::Model> m_background = nullptr;
 		std::shared_ptr<GRAPHICS::Model> m_track = nullptr;
 
-		btCollisionShape* m_carTrackMesh = nullptr;
+		std::vector<btCollisionShape*> m_carTrackModel;
+		std::vector<btConvexHullShape*> m_carTrackMesh;
 		btCollisionShape* m_carBGMesh = nullptr;
 		btRigidBody* m_staticTrack = nullptr;
 

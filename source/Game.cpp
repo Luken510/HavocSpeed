@@ -122,8 +122,8 @@ void GAME::Game::Render(double Interpolate)
 	gl::Clear(gl::COLOR_BUFFER_BIT | gl::DEPTH_BUFFER_BIT);
 
 	
-	//if (m_DrawDebugBool)
-	//{
+	if (m_DrawDebugBool)
+	{
 		m_debugDrawerShader->Use();
 		m_setModel = glm::mat4(1.0f);
 		SetViewMatricies(m_debugDrawerShader, m_setModel);
@@ -131,8 +131,8 @@ void GAME::Game::Render(double Interpolate)
 		PHYSICS::PhysicsController::GetPhysicsInstance().DrawDebugWorld();
 
 		WireFrameMode(PHYSICS::PhysicsController::GetPhysicsInstance().GetDebugDrawer()->GetLines());
-	//}
-//	else {
+	}
+	else {
 		m_objShader->Use();
 		m_setModel = glm::mat4(1.0f) * m_player1Car->GetCarMatrix();
 		SetViewMatricies(m_objShader, m_setModel);
@@ -142,7 +142,7 @@ void GAME::Game::Render(double Interpolate)
 		m_setModel = glm::mat4(1.0f) * m_map->GetTrackMatrix();
 		SetViewMatricies(m_MapShader, m_setModel);
 		m_map->Render(m_MapShader);
-	//}
+	}
 	
 
 	m_window.Display();
@@ -162,7 +162,9 @@ void GAME::Game::SetViewMatricies(std::shared_ptr<GRAPHICS::Shader> Shader, glm:
 void GAME::Game::WireFrameMode(std::vector<GRAPHICS::Line> & lines)
 {
 	std::vector<GLfloat> vertices;
+	//vertices.reserve(100000);
 	std::vector<GLuint> indices;
+	//indices.reserve(100000);
 	unsigned int index = 0;
 
 
@@ -184,6 +186,12 @@ void GAME::Game::WireFrameMode(std::vector<GRAPHICS::Line> & lines)
 		index += 2;
 	}
 
+	UTIL::LOG(UTIL::LOG::INFO) << "Number of Vertices being draw : " << vertices.size();
+	UTIL::LOG(UTIL::LOG::INFO) << " ";
+	UTIL::LOG(UTIL::LOG::INFO) << "Number of Indices being draw : " << vertices.size();
+	UTIL::LOG(UTIL::LOG::INFO) << " ";
+	UTIL::LOG(UTIL::LOG::INFO) << "Size of Debug Lines :" << lines.size();
+
 	gl::BindVertexArray(m_wireVaoHandle);
 
 	gl::GenBuffers(2, m_wireVboHandle);
@@ -200,7 +208,7 @@ void GAME::Game::WireFrameMode(std::vector<GRAPHICS::Line> & lines)
 	lines.clear();
 	vertices.clear();
 	indices.clear();
-	//PHYSICS::PhysicsController::GetPhysicsInstance().GetDebugDrawer()->ClearLines();
+	PHYSICS::PhysicsController::GetPhysicsInstance().GetDebugDrawer()->ClearLines();
 	
 }
 
