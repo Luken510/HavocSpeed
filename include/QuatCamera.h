@@ -59,12 +59,7 @@ public:
 	glm::mat4 projection(); //Get the Projection matrix
 
 	void Follow(glm::mat4 target, float angle);
-	glm::quat RotationBetweenVectors(glm::vec3 start, glm::vec3 dest);
-	glm::quat LookAt(glm::vec3 direction, glm::vec3 desiredUp);
-	void CarTurnRight();
-	void CarTurnLeft();
-	void CarDriving();
-	void CarReversing();
+
 
 private:
 

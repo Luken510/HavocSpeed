@@ -54,18 +54,20 @@ namespace CarConfig
 			m_mass(5.0f),
 			m_dampingLinear(0.25f),
 			m_dampingAngle(0.0f),
-			m_maxEnginePower(-22.5f), //direction of movement
+			m_maxEnginePower(-45.5f), //direction of movement
 			m_maxBreakingPower(0.5f),
-			m_maxSpeed(60.0f),
+			m_maxSpeed(120.0f),
 			m_turningIncrement(0.025f),
 			m_turningDecrement(0.1f),
 			m_turningLimits(0.50f),
 			m_wheelFriction(2.5f),
+
 			m_wheelRadius(3.302f),
 			m_wheelWidth(2.215f),
-			m_wheelConnectionHeight(3.9f), //3
-			m_wheelConnectionWidth(6.200f), //6
-			m_wheelConnectionLength(12.725f), //5.325
+			m_wheelConnectionHeight(3.9f), //x
+			m_wheelConnectionWidth(6.200f), //y
+			m_wheelConnectionLength(12.725f), //z
+
 			m_suspensionStiffness(160.f),
 			m_suspensionDampRelaxtion(12.7f),
 			m_suspensionDampCompression(10.7f),
@@ -112,6 +114,7 @@ public:
 	void UpdateMatrix(glm::mat4 matrix, glm::vec3 scale);
 	glm::mat4 GetCarMatrix();
 	glm::mat4 GetWorldPos();
+	glm::vec3 GetVelocity();
 	//glm::mat4 getWheelWorldPos();
 
 	void Drive();

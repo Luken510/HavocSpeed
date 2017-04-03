@@ -29,6 +29,10 @@ namespace UTIL {
 
 		void KeyCallBackImp(GLFWwindow * window, int key, int cancode, int action, int mods);
 
+		static void ResizeCallBack(GLFWwindow * window, int width, int height);
+
+		void ResizeCallBackImp(GLFWwindow * window, int width, int height);
+
 		void setCamera(std::shared_ptr<UTIL::QuatCamera> Camera);
 		void setCar(std::shared_ptr<RaceCar> car);
 

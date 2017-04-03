@@ -106,6 +106,18 @@ void UTIL::EventHandler::KeyCallBackImp(GLFWwindow * window, int key, int cancod
 
 }
 
+void UTIL::EventHandler::ResizeCallBack(GLFWwindow * window, int width, int height)
+{
+	getInstance().ResizeCallBackImp(window, width, height);
+}
+
+void UTIL::EventHandler::ResizeCallBackImp(GLFWwindow * window, int width, int height)
+{
+	//gl::Viewport(0, 0, width, height);
+	//	m_camera->SetAspectRatio((float)width / height);
+
+}
+
 void UTIL::EventHandler::setCamera(std::shared_ptr<UTIL::QuatCamera> Camera)
 {
 	

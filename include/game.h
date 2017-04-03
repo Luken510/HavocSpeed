@@ -10,7 +10,8 @@
 #include "raceCar.h"
 #include "map.h"
 
-
+#define WIN_WIDTH 1280
+#define WIN_HEIGHT 720
 #define MS_PER_UPDATE (float)0.0166666666666667
 #define CAR_TURN_SPEED 0.025f
 

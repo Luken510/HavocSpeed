@@ -7,7 +7,7 @@
 [INFO]  How many child nodes there are : 1
 [INFO]  How many Mesh nodes there are : 0
 [INFO] Obj Loaded: number of extracted Meshes :1
-[INFO] Obj Loaded: number of extracted vertices :117936
+[INFO] Obj Loaded: number of extracted vertices :14742
 [INFO] Obj Loaded: number of extracted indices :14742
 [INFO]  Size of array sent into convexHull : 14742
 [INFO]  How many child nodes there are : 0
@@ -19,10 +19,1238 @@
 [INFO]  How many child nodes there are : 1
 [INFO]  How many Mesh nodes there are : 0
 [INFO]  How many child nodes there are : 0
-[INFO]  How many Mesh nodes there are : 15
-[INFO]  How many child nodes there are : 1
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 0
+[INFO]  How many Mesh nodes there are : 1
+[INFO]  How many child nodes there are : 501
 [INFO]  How many Mesh nodes there are : 0
-[INFO] Obj Loaded: number of extracted Meshes :15
-[INFO] Obj Loaded: number of extracted vertices :225768
-[INFO] Obj Loaded: number of extracted indices :28221
-[INFO]  Size of array sent into convexHull : 28221
+[INFO] Obj Loaded: number of extracted Meshes :501
+[INFO] Obj Loaded: number of extracted vertices :11238
+[INFO] Obj Loaded: number of extracted indices :11238
+[INFO]  Key Pressed = 'TAB'
+[INFO]  Key Pressed = 'TAB'
+[INFO]  Key Pressed = 'V'
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO] Number of Vertices being draw : 155928
+[INFO]  
+[INFO] Number of Indices being draw : 155928
+[INFO]  
+[INFO] Size of Debug Lines :25988
+[INFO]  Key Pressed = 'V'
