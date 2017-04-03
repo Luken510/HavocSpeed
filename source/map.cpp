@@ -7,18 +7,21 @@
 #include <math.h>
 #include "logger.h"
 
-GAME::Map::Map() : m_trackModelMatrix(1.0f)
+GAME::Map::Map() 
 {
 
-	
+	m_trackModelMatrix = glm::mat4(1.0f) * glm::translate(glm::vec3(0.0f, -10.f, 0.0f))  * glm::scale(glm::vec3(MAP_SCALE));
+	m_backgroundModelMatrix = glm::mat4(1.0f) * glm::translate(glm::vec3(0.0f, -10.f, 0.0f)) * glm::rotate(-89.55f,glm::vec3(1.0f,0.0f,0.0f)) * glm::scale(glm::vec3(MAP_SCALE));
 }
 
 void GAME::Map::Init()
 {
-	m_background = std::make_shared<GRAPHICS::Model>("./external/assets/map/racetrack/racetrackwithBG.3ds");
-	m_track = std::make_shared<GRAPHICS::Model>("./external/assets/map/racetrack/racetrackwobg.3ds");
+	m_background = std::make_shared<GRAPHICS::Model>("./external/assets/map/obj/racetrack/racetrackwithBG.3ds");
+	m_track = std::make_shared<GRAPHICS::Model>("./external/assets/map/obj/myracetracknoarrows.obj"); 
 
 	CreateMapObjects();
+
+	
 }
 
 GAME::Map GAME::Map::GetCurrentMap()
@@ -32,46 +35,61 @@ void GAME::Map::SetMap()
 
 void GAME::Map::Update(double deltaTime)
 {
-	UpdateMatrix(GetWorldPos(), glm::vec3(MAP_SCALE));
+	//UpdateMatrix(GetWorldPos(), glm::vec3(MAP_SCALE));
 }
 
 void GAME::Map::Render(std::shared_ptr<GRAPHICS::Shader> shader)
-{
-	m_background->Render(shader);
+{	
+	
 	m_track->Render(shader);
+
+	shader->SetUniform("model", m_backgroundModelMatrix);
+	m_background->Render(shader);
 }
 
 
 void GAME::Map::CreateMapObjects()
 {
+
+
+	//m_carTrackModel = PHYSICS::PhysicsController::GetPhysicsInstance().CreateMultiCollisionShapes(m_track, btVector3(MAP_SCALE, MAP_SCALE, MAP_SCALE));
+
+
+	//btTransform trackTransform;
+	//trackTransform.setIdentity();
+	//trackTransform.setOrigin(btVector3(0.0f, -100.0f, 0.0f));
+	//btQuaternion trackRotate;
+	//trackRotate.setRotation(btVector3(1.0f, 0.0f, 0.0f), -89.55f);
+	//trackTransform.setRotation(trackRotate);
+
+	//m_staticTrack = PHYSICS::PhysicsController::GetPhysicsInstance().CreateRigidbody(0, trackTransform, m_carTrackMesh);
+	/*for (int i = 0; i < m_carTrackModel.size(); i++)
+	{
+		PHYSICS::PhysicsController::GetPhysicsInstance().AddStaticRigidBody(m_carTrackModel[i], trackTransform, btVector3(MAP_SCALE, MAP_SCALE, MAP_SCALE));
+	}*/
 	//track imported into bullet for physics;
 	std::shared_ptr<GRAPHICS::ObjInstanceShape> glmesh = GRAPHICS::AssimpToBulletObj(m_track->GetMeshes());
 	btAlignedObjectArray<GRAPHICS::ObjInstanceVertex>* vertices = glmesh->m_vertices;
-	btAlignedObjectArray<int>* indices = glmesh->m_indices;
+	btAlignedObjectArray<unsigned int>* indices = glmesh->m_indices;
 
-	m_carTrackMesh = PHYSICS::PhysicsController::GetPhysicsInstance().CreateConvexHull(
-		vertices,
-		glmesh->m_numOfVertices,
-		sizeof(GRAPHICS::ObjInstanceVertex),
-		MAP_SCALE,
-		0,
-		true
-		);
+	m_carTrackMesh = PHYSICS::PhysicsController::GetPhysicsInstance().CreateConvexHull(m_track, MAP_SCALE, 0, false);
 
-	PHYSICS::PhysicsController::GetPhysicsInstance().AddModel(m_carTrackMesh);
 	btTransform trackTransform;
 	trackTransform.setIdentity();
-	trackTransform.setOrigin(btVector3(0.0f, -100.0f, 0.0f));
-	btQuaternion trackRotate;
-	trackRotate.setRotation(btVector3(1.0f, 0.0f, 0.0f), -89.55f);
-	trackTransform.setRotation(trackRotate);
+	trackTransform.setOrigin(btVector3(0.0f, -10.0f, 0.0f));
+	//btQuaternion trackRotate;
+	//trackRotate.setRotation(btVector3(1.0f, 0.0f, 0.0f), 0.55f);
+	//trackTransform.setRotation(trackRotate);
 
-	m_staticTrack = PHYSICS::PhysicsController::GetPhysicsInstance().CreateRigidbody(0, trackTransform, m_carTrackMesh);
-	PHYSICS::PhysicsController::GetPhysicsInstance().AddRigidBody(m_staticTrack);
+	for (unsigned int i = 0; i < m_carTrackMesh.size(); i++)
+	{
+		PHYSICS::PhysicsController::GetPhysicsInstance().AddModel(m_carTrackMesh[i]);
+		m_staticTrack = PHYSICS::PhysicsController::GetPhysicsInstance().CreateRigidbody(0, trackTransform, m_carTrackMesh[i]);
+		PHYSICS::PhysicsController::GetPhysicsInstance().AddRigidBody(m_staticTrack);
+	}
 
-
-
-
+	
+	
 }
 
 void GAME::Map::UpdateMatrix(glm::vec3 Pos, glm::vec3 scale)
@@ -96,12 +114,13 @@ glm::mat4 GAME::Map::GetTrackMatrix()
 
 glm::mat4 GAME::Map::GetWorldPos()
 {
-	btTransform translateToWorld;
-	m_staticTrack->getMotionState()->getWorldTransform(translateToWorld);
+	/*btTransform translateToWorld;
+	translateToWorld = m_staticTrack->getWorldTransform();
 	btScalar Temp[16];
 	btScalar* OpenGLMatrix = Temp;
 	translateToWorld.getOpenGLMatrix(OpenGLMatrix);
 
 	// had a memory leak, show in testing
-	return glm::make_mat4(Temp);
+	return glm::make_mat4(Temp);*/
+	return glm::mat4(1.0f);
 }

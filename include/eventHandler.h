@@ -3,6 +3,7 @@
 #include <GLFW/glfw3.h>
 #include <memory>
 #include "raceCar.h"
+#include "cameraBase.h"
 #include "QuatCamera.h"
 
 #define NUM_OF_CAMERAS 4
@@ -29,7 +30,14 @@ namespace UTIL {
 
 		void KeyCallBackImp(GLFWwindow * window, int key, int cancode, int action, int mods);
 
-		void setCamera(std::shared_ptr<UTIL::QuatCamera> Camera);
+		static void ResizeCallBack(GLFWwindow * window, int width, int height);
+
+		void ResizeCallBackImp(GLFWwindow * window, int width, int height);
+
+
+
+		void setCamera(std::shared_ptr<UTIL::CAMERA::CameraBase> Camera);
+		void setCamera(std::shared_ptr<UTIL::CAMERA::QuatCamera> Camera);
 		void setCar(std::shared_ptr<RaceCar> car);
 
 		void PollKeyEvents(GLFWwindow * window);
@@ -43,7 +51,8 @@ namespace UTIL {
 		EventHandler(EventHandler const&); // prevent copies
 		void operator=(EventHandler const&); // prevent assignments
 
-		std::shared_ptr<UTIL::QuatCamera> m_camera;
+		std::shared_ptr<UTIL::CAMERA::CameraBase> m_camera;
+		std::shared_ptr<UTIL::CAMERA::QuatCamera> m_quatCamera;
 		std::shared_ptr<RaceCar> m_car;
 		
 		bool m_boolForWireMode;

@@ -64,11 +64,11 @@ void	btStridingMeshInterface::InternalProcessAllTriangles(btInternalTriangleInde
 					 {
 						 unsigned int* tri_indices= (unsigned int*)(indexbase+gfxindex*indexstride);
 						 graphicsbase = (float*)(vertexbase+tri_indices[0]*stride);
-						 triangle[0].setValue(graphicsbase[0]*meshScaling.getX(),graphicsbase[1]*meshScaling.getY(),graphicsbase[2]*meshScaling.getZ());
+						 triangle[0].setValue(graphicsbase[0]*meshScaling.getX(),	graphicsbase[1]*meshScaling.getY(),	graphicsbase[2]*meshScaling.getZ());
 						 graphicsbase = (float*)(vertexbase+tri_indices[1]*stride);
-						 triangle[1].setValue(graphicsbase[0]*meshScaling.getX(),graphicsbase[1]*meshScaling.getY(),	graphicsbase[2]*meshScaling.getZ());
+						 triangle[1].setValue(graphicsbase[0]*meshScaling.getX(),	graphicsbase[1]*meshScaling.getY(),	graphicsbase[2]*meshScaling.getZ());
 						 graphicsbase = (float*)(vertexbase+tri_indices[2]*stride);
-						 triangle[2].setValue(graphicsbase[0]*meshScaling.getX(),graphicsbase[1]*meshScaling.getY(),	graphicsbase[2]*meshScaling.getZ());
+						 triangle[2].setValue(graphicsbase[0]*meshScaling.getX(),	graphicsbase[1]*meshScaling.getY(),	graphicsbase[2]*meshScaling.getZ());
 						 callback->internalProcessTriangleIndex(triangle,part,gfxindex);
 					 }
 					 break;

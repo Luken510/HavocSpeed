@@ -24,6 +24,7 @@ std::vector<GRAPHICS::Mesh> GRAPHICS::Model::GetMeshes()
 	return m_meshes;
 }
 
+
 void GRAPHICS::Model::LoadModel(std::string path) {
 	Assimp::Importer import;
 	const aiScene* scene = import.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs);
@@ -53,8 +54,8 @@ void GRAPHICS::Model::ProcessNode(aiNode* node, const aiScene* scene) {
 	{
 		this->ProcessNode(node->mChildren[i], scene);
 	}
-	UTIL::LOG(UTIL::LOG::INFO) << " How many child nodes there are : " << node->mNumChildren;
-	UTIL::LOG(UTIL::LOG::INFO) << " How many Mesh nodes there are : " << hilol;
+	//UTIL::LOG(UTIL::LOG::INFO) << " How many child nodes there are : " << node->mNumChildren;
+	//UTIL::LOG(UTIL::LOG::INFO) << " How many Mesh nodes there are : " << hilol;
 }
 
 GRAPHICS::Mesh GRAPHICS::Model::ProcessMesh(aiMesh* mesh, const aiScene* scene) {
@@ -162,7 +163,6 @@ GLint GRAPHICS::TextureFromFile(const char * path, std::string directory)
 	std::string filename = std::string(path);
 
 	filename = directory + '/' + filename;
-	std::cout << filename << std::endl;
 	GLuint textureID;
 
 	gl::GenTextures(1, &textureID);

@@ -79,6 +79,12 @@
     <Filter Include="Source Files\PHYSICS">
       <UniqueIdentifier>{8f9bc453-d398-4de0-8785-6ca350bc0f2c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\UTIL\Cameras">
+      <UniqueIdentifier>{4a114890-8eb3-41a5-b004-83e232f58883}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UTIL\Cameras">
+      <UniqueIdentifier>{8ee4ca1e-2cbf-4008-b669-0cb853995e8d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\main.cpp">
@@ -541,7 +547,16 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\QuatCamera.cpp">
-      <Filter>Source Files\UTIL</Filter>
+      <Filter>Source Files\UTIL\Cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="source\basicCamera.cpp">
+      <Filter>Source Files\UTIL\Cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="source\firstPersonCamera.cpp">
+      <Filter>Source Files\UTIL\Cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="source\rearCamera.cpp">
+      <Filter>Source Files\UTIL\Cameras</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1222,9 +1237,6 @@
     <ClInclude Include="include\raceCar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\QuatCamera.h">
-      <Filter>Header Files\UTIL</Filter>
-    </ClInclude>
     <ClInclude Include="include\eventHandler.h">
       <Filter>Header Files\UTIL</Filter>
     </ClInclude>
@@ -1239,6 +1251,21 @@
     </ClInclude>
     <ClInclude Include="include\map.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\basicCamera.h">
+      <Filter>Header Files\UTIL\Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="include\QuatCamera.h">
+      <Filter>Header Files\UTIL\Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="include\firstPersonCamera.h">
+      <Filter>Header Files\UTIL\Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="include\rearCamera.h">
+      <Filter>Header Files\UTIL\Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="include\cameraBase.h">
+      <Filter>Header Files\UTIL\Cameras</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

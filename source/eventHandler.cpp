@@ -64,8 +64,8 @@ void UTIL::EventHandler::ScrollButtonCallBack(GLFWwindow * window, double x, dou
 
 void UTIL::EventHandler::ScrollButtonCallBackImp(GLFWwindow * window, double x, double y)
 {
-	
-	m_camera->zoom((float)y*1.5f);
+	if (m_cameraStateController == 3)
+		m_quatCamera->zoom((float)y*1.5f);
 	
 }
 
@@ -101,16 +101,54 @@ void UTIL::EventHandler::KeyCallBackImp(GLFWwindow * window, int key, int cancod
 		else
 			m_cameraStateController += 1;
 		UTIL::LOG(UTIL::LOG::INFO) << " Key Pressed = 'TAB'";
+
+		switch (m_cameraStateController)
+		{
+		case(0):
+				UTIL::LOG(UTIL::LOG::INFO) << " Camera = Standard Camera";
+				break;
+		case(1):
+				UTIL::LOG(UTIL::LOG::INFO) << " Camera = First Person Camera";
+				break;
+		case(2):
+				UTIL::LOG(UTIL::LOG::INFO) << " Camera = Rear View Camera";
+				break;
+		case(3):
+				UTIL::LOG(UTIL::LOG::INFO) << " Camera = Free Roam Camera";
+				break;
+		default:
+			break;
+		}
 	}
 
 
 }
 
-void UTIL::EventHandler::setCamera(std::shared_ptr<UTIL::QuatCamera> Camera)
+void UTIL::EventHandler::ResizeCallBack(GLFWwindow * window, int width, int height)
+{
+	getInstance().ResizeCallBackImp(window, width, height);
+}
+
+void UTIL::EventHandler::ResizeCallBackImp(GLFWwindow * window, int width, int height)
+{
+	gl::Viewport(0, 0, width, height);
+	m_camera->SetAspectRatio((float)width / height);
+	m_quatCamera->SetAspectRatio((float)width / height);
+
+}
+
+void UTIL::EventHandler::setCamera(std::shared_ptr<UTIL::CAMERA::CameraBase> Camera)
 {
 	
 	m_camera = Camera;
 	
+}
+
+void UTIL::EventHandler::setCamera(std::shared_ptr<UTIL::CAMERA::QuatCamera> Camera)
+{
+
+	m_quatCamera = Camera;
+
 }
 
 void UTIL::EventHandler::setCar(std::shared_ptr<RaceCar> car)
@@ -123,22 +161,21 @@ void UTIL::EventHandler::PollKeyEvents(GLFWwindow * window)
 	if (glfwGetKey(window, 'W'))
 	{
 		m_car->Drive();
-		//m_camera->CarDriving();
+		
 	}
 	if (glfwGetKey(window, 'S'))
 	{
 		m_car->Reverse();
-		//m_camera->CarReversing();
+		
 	}
 	if (glfwGetKey(window, 'A'))
 	{
 		m_car->TurnLeft();
-		//m_camera->CarTurnLeft();
+		
 	}
 	if (glfwGetKey(window, 'D'))
 	{
 		m_car->TurnRight();
-		//m_camera->CarTurnRight();
 	}
 	if (glfwGetKey(window, GLFW_KEY_SPACE))
 	{

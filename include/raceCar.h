@@ -21,51 +21,50 @@ namespace CarConfig
 {
 	struct Config
 	{
-		btScalar m_mass, //!< mass of the car
-			m_dampingLinear,  //!< Linear Damping of the chasis
-			m_dampingAngle,  //!< Angular Damping of the chasis
-			m_maxEnginePower,  //!< Max amount of torque applied to the wheels
-			m_maxBreakingPower, //!< Max amount of breaking torque applied to the wheels
-			m_maxSpeed, //!< max speed the car can achieve (km/h) - km cause of bullet
-			m_turningIncrement, //!< how fast the car turns
-			m_turningDecrement, //!< how fast the car resets
-			m_turningLimits, //!< max angle the car can turn
-			m_wheelFriction,  //!< friction between the tyre and ground
-			m_wheelRadius,  //!< wheel radius
-			m_wheelWidth, //!< wheel width
-			m_wheelConnectionHeight,  //!< starting point of the ray in chasis space (y)
-			m_wheelConnectionWidth,  //!< starting point of the ray in chasis space (x)
-			m_wheelConnectionLength, //!< starting point of the ray in chasis space (z)
-			m_suspensionStiffness, //!< stiffness constant for suspension. 10 - off road, 50 - sports car, 200 - f1 car
-			m_suspensionDampRelaxtion, //!< damping coefficient for when the suspension is expanding
-			m_suspensionDampCompression,//!< damping coefficient for when the suspension is compressed
-			m_suspensionMaxLength, //!< the max length of the suspension (metres)
-			m_suspensionMaxTravel, //!< the maximum distance the suspension can be compressed
-			m_rollInfluence, //!< reduces the rolling torque applied from the wheel that cause the vehicle to roll over - a slight hack
-			m_bodyToChasisHeight;
+		btScalar	m_mass; //!< mass of the car
+		btScalar	m_dampingLinear;  //!< Linear Damping of the chasis
+		btScalar	m_dampingAngle;  //!< Angular Damping of the chasis
+		btScalar	m_maxEnginePower;  //!< Max amount of torque applied to the wheels
+		btScalar	m_maxBreakingPower; //!< Max amount of breaking torque applied to the wheels
+		btScalar	m_maxSpeed; //!< max speed the car can achieve (km/h) - km cause of bullet
+		btScalar	m_turningIncrement; //!< how fast the car turns
+		btScalar	m_turningDecrement; //!< how fast the car resets
+		btScalar	m_turningLimits; //!< max angle the car can turn
+		btScalar	m_wheelFriction;  //!< friction between the tyre and ground
+		btScalar	m_wheelRadius;  //!< wheel radius
+		btScalar	m_wheelWidth; //!< wheel width
+		btScalar	m_wheelConnectionHeight; //!< starting point of the ray in chasis space (y)
+		btScalar	m_wheelConnectionWidth; //!< starting point of the ray in chasis space (x)
+		btScalar	m_wheelConnectionLength; //!< starting point of the ray in chasis space (z)
+		btScalar	m_suspensionStiffness; //!< stiffness constant for suspension. 10 - off road, 50 - sports car, 200 - f1 car
+		btScalar	m_suspensionDampRelaxtion; //!< damping coefficient for when the suspension is expanding
+		btScalar	m_suspensionDampCompression;//!< damping coefficient for when the suspension is compressed
+		btScalar	m_suspensionMaxLength; //!< the max length of the suspension (metres)
+		btScalar	m_suspensionMaxTravel; //!< the maximum distance the suspension can be compressed
+		btScalar	m_rollInfluence; //!< reduces the rolling torque applied from the wheel that cause the vehicle to roll over - a slight hack
+		btScalar	m_bodyToChasisHeight;
 
-		btVector3 m_wheelDirection, //!< the direction of the ray cast in chasis space
-				  wheelAxel; //!< the axis that the wheels rotate around
-		////////////////////////////////////
-		/////////////// TO DO :maybe the model wheels isn#t aligned to the origin, hence the displacement
-		///////////////////////: FIGURE OUT HOW TO DO TRIANGLE MESH INSTANCE TO BETTER IMPROVE THE TRACK.
-		/////////////////////
+		btVector3 m_wheelDirection; //!< the direction of the ray cast in chasis space
+		btVector3  wheelAxel; //!< the axis that the wheels rotate around
+
 		Config() :
 			m_mass(5.0f),
 			m_dampingLinear(0.25f),
 			m_dampingAngle(0.0f),
-			m_maxEnginePower(-22.5f), //direction of movement
+			m_maxEnginePower(-45.0f), //direction of movement
 			m_maxBreakingPower(0.5f),
-			m_maxSpeed(60.0f),
+			m_maxSpeed(120.0f),
 			m_turningIncrement(0.025f),
 			m_turningDecrement(0.1f),
 			m_turningLimits(0.50f),
 			m_wheelFriction(2.5f),
+
 			m_wheelRadius(3.302f),
 			m_wheelWidth(2.215f),
-			m_wheelConnectionHeight(3.9f), //3
-			m_wheelConnectionWidth(6.200f), //6
-			m_wheelConnectionLength(12.725f), //5.325
+			m_wheelConnectionHeight(3.9f), //x
+			m_wheelConnectionWidth(6.200f), //y
+			m_wheelConnectionLength(12.725f), //z
+
 			m_suspensionStiffness(160.f),
 			m_suspensionDampRelaxtion(12.7f),
 			m_suspensionDampCompression(10.7f),
@@ -112,6 +111,7 @@ public:
 	void UpdateMatrix(glm::mat4 matrix, glm::vec3 scale);
 	glm::mat4 GetCarMatrix();
 	glm::mat4 GetWorldPos();
+	glm::vec3 GetVelocity();
 	//glm::mat4 getWheelWorldPos();
 
 	void Drive();
@@ -119,6 +119,7 @@ public:
 	void TurnLeft();
 	void TurnRight();
 	void Brake();
+
 	
 	btQuaternion GetRotationQuatFromAngle(const btVector3& axis, btScalar angle);
 	

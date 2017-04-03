@@ -29,14 +29,22 @@ namespace PHYSICS
 
 
 		void DrawDebugWorld();
-
+	
 		btConvexHullShape* CreateConvexHull(btAlignedObjectArray<GRAPHICS::ObjInstanceVertex>* vertices, int numOfVerts, int Stride, float scale, btScalar mass, bool optimise);
-		btCollisionShape* CreateCollisionShape(btAlignedObjectArray<GRAPHICS::ObjInstanceVertex>* vertices, int numOfVerts, int VertStride, float scale,
-																btScalar mass, btAlignedObjectArray<int>* indices, int numOfIndices, int indicesStride);
+		std::vector<btConvexHullShape*> CreateConvexHull(std::shared_ptr<GRAPHICS::Model> model, float scale, btScalar mass, bool optimise);
+		std::vector<btCollisionShape*> CreateMultiCollisionShapes(GRAPHICS::Model* model, const btVector3 &scale);
+		std::vector<btCollisionShape*> CreateMultiCollisionShapes(std::shared_ptr<GRAPHICS::Model> model, const btVector3 &scale);
+		btCollisionShape* CreateCollisionShape(std::shared_ptr<GRAPHICS::ObjInstanceShape> model, const btVector3 & scale);
+		btCollisionShape* CreateCollisionShape(GRAPHICS::ObjInstanceShape * model, const btVector3 & scale);
+		btCollisionShape* CreateCollisionShape( const GRAPHICS::Mesh mesh, const btVector3 & scale);
+
 
 		void AddModel(btCollisionShape* shape);
 		void AddModel(btConvexHullShape* shape);
+
 		void AddRigidBody(btRigidBody * body);
+		void AddStaticRigidBody(btCollisionShape* shapes, const btTransform& trans, const btVector3 & scale);
+
 		btRigidBody* CreateRigidbody(btScalar mass, const btTransform & transform, btCollisionShape* shape);
 		btRigidBody* CreateRigidbody(btScalar mass, const btTransform & transform, btConvexHullShape* shape);
 		btRigidBody* CreateRigidbody(btScalar mass, const btTransform & transform, btBoxShape* shape);

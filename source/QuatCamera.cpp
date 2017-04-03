@@ -1,6 +1,6 @@
 
-#include <cmath>
 #include "QuatCamera.h"
+#include <cmath>
 #include <btBulletDynamicsCommon.h>
 
 #include <iostream>
@@ -10,68 +10,67 @@
 
 
 
-	UTIL::QuatCamera::QuatCamera() : m_follow(false), m_turning(false)
+	UTIL::CAMERA::QuatCamera::QuatCamera() : m_follow(false), m_turning(false)
 	{
 		reset();
 	}
 
-	UTIL::QuatCamera::QuatCamera(const glm::vec3& position) : m_follow(false), m_turning(false)
+	UTIL::CAMERA::QuatCamera::QuatCamera(const glm::vec3& position) : m_follow(false), m_turning(false)
 	{
+		//_projection = glm::mat4(1.0f);
 		reset();
 		_position = position;
 	}
 
 
-	const glm::vec3& UTIL::QuatCamera::position() const
+	const glm::vec3& UTIL::CAMERA::QuatCamera::position() const
 	{
 		return _position;
 	}
 
-	void UTIL::QuatCamera::setPosition(const glm::vec3& position)
+	void UTIL::CAMERA::QuatCamera::setPosition(const glm::vec3& position)
 	{
 		_position = position;
 	}
 
-
-
-	float UTIL::QuatCamera::fieldOfView() const
+	float UTIL::CAMERA::QuatCamera::fieldOfView() const
 	{
 		return _fieldOfView;
 	}
 
 
-	void UTIL::QuatCamera::setFieldOfView(float fieldOfView)
+	void UTIL::CAMERA::QuatCamera::setFieldOfView(float fieldOfView)
 	{
 		assert(fieldOfView>0.0f && fieldOfView <180.0f);
 		_fieldOfView = fieldOfView;
 	}
 
 
-	float UTIL::QuatCamera::aspectRatio() const
+	float UTIL::CAMERA::QuatCamera::aspectRatio() const
 	{
 		return _aspectRatio;
 	}
 
-	void UTIL::QuatCamera::setAspectRatio(float aspectRatio)
+	void UTIL::CAMERA::QuatCamera::SetAspectRatio(float aspectRatio)
 	{
 		assert(aspectRatio >0.0f);
 		_aspectRatio = aspectRatio;
 	}
 
 
-	float UTIL::QuatCamera::nearPlane() const
+	float UTIL::CAMERA::QuatCamera::nearPlane() const
 	{
 		return _nearPlane;
 	}
 
-	float UTIL::QuatCamera::farPlane() const
+	float UTIL::CAMERA::QuatCamera::farPlane() const
 	{
 		return _farPlane;
 	}
 
 	
 
-	void UTIL::QuatCamera::setNearAndFarPlanes(float nearPlane, float farPlane)
+	void UTIL::CAMERA::QuatCamera::setNearAndFarPlanes(float nearPlane, float farPlane)
 	{
 		assert(nearPlane > 0.0f);
 		assert(farPlane > nearPlane);
@@ -102,7 +101,7 @@
 //Rotate the camera
 //Orient according to required pitch and yaw
 /////////////////////////////////////////////////////////////////////////////////////////////
-	void UTIL::QuatCamera::rotate(const float yaw, const float pitch)
+	void UTIL::CAMERA::QuatCamera::rotate(const float yaw, const float pitch)
 	{
 
 		glm::quat qyPitch = fromAxisAngle(WORLDX, pitch);
@@ -120,7 +119,7 @@
 	}
 
 	
-	void UTIL::QuatCamera::pan(const float x, const float y)
+	void UTIL::CAMERA::QuatCamera::pan(const float x, const float y)
 	{
 		
 		_position += _xaxis * x;
@@ -130,7 +129,7 @@
 		updateView();
 	}
 
-	void UTIL::QuatCamera::zoom(const float z)
+	void UTIL::CAMERA::QuatCamera::zoom(const float z)
 	{
 
 		_position += _zaxis * z;
@@ -141,9 +140,8 @@
 	}
 
 
-	void UTIL::QuatCamera::updateView()
+	void UTIL::CAMERA::QuatCamera::updateView()
 	{
-	
 		//Construct the view matrix from orientation quaternion and position vector
 
 		//First get the matrix from the 'orientaation' Quaternion
@@ -163,7 +161,7 @@
 		
 	}
 
-	void UTIL::QuatCamera::update(glm::mat4 target)
+	void UTIL::CAMERA::QuatCamera::Update(double deltaTime, glm::mat4 target)
 	{
 		if (m_follow == true)
 		{
@@ -180,8 +178,13 @@
 		}
 	}
 
+	void UTIL::CAMERA::QuatCamera::Follow(double deltaTime, glm::vec3 carVelocity, glm::mat4 target, float angle)
+	{
+		
+	}
 
-	void UTIL::QuatCamera::roll(const float z)
+
+	void UTIL::CAMERA::QuatCamera::roll(const float z)
 	{
 
 		glm::quat qzRoll = fromAxisAngle(WORLDZ, z);
@@ -196,7 +199,7 @@
 
 	}
 
-	void UTIL::QuatCamera::reset(void)
+	void UTIL::CAMERA::QuatCamera::reset(void)
 	{
 		//Initialise camera axes
 		_xaxis = WORLDX;
@@ -215,191 +218,24 @@
 		_farPlane = 1000.0f;
 		_aspectRatio = 4.0f/3.0f;
 
-		_projection = glm::perspective(_fieldOfView,_aspectRatio,_nearPlane,_farPlane);
+        _projection = glm::perspective(_fieldOfView, _aspectRatio, _nearPlane, _farPlane);
 
 		updateView();
 
 	}
 
 
-	glm::mat4 UTIL::QuatCamera::view()
+	glm::mat4 UTIL::CAMERA::QuatCamera::View()
 	{
 	
 		this->updateView();
 		return _view;
 	}
 
-	glm::mat4 UTIL::QuatCamera::projection()
+	glm::mat4 UTIL::CAMERA::QuatCamera::Projection()
 	{
 
 		return _projection;
 		
 	}
 
-	void UTIL::QuatCamera::Follow(glm::mat4 target, float angle)
-	{
-		glm::vec3 targetv3;
-		targetv3.x = target[3][0];
-		targetv3.y = target[3][1];
-		targetv3.z = target[3][2];
-
-		
-		_orientationTemp = glm::quat_cast(target);
-
-	//	setFieldOfView(angle);
-		_position.x = targetv3.x;
-		_position.y = targetv3.y + 100;
-		_position.z = targetv3.z + 20;
-		m_carPos = _position;
-
-
-	//	_projection = glm::perspective(_fieldOfView, _aspectRatio, _nearPlane, _farPlane);
-
-		m_follow = true;
-
-		updateView();
-	}
-
-	void UTIL::QuatCamera::CarTurnLeft()
-	{
-		float cameraAngle = glm::angle(_orientation);
-		float angle = glm::angle(_orientationTemp);
-		UTIL::LOG(UTIL::LOG::INFO) << "Current angle turning for the camera = " << angle;
-		UTIL::LOG(UTIL::LOG::INFO) << "Current angle of the camera = " << cameraAngle;
-
-		if (cameraAngle < 1.0f)
-		{
-			cameraAngle = 1.0f;
-		}
-		if (cameraAngle > 3.0f)
-		{
-			cameraAngle = 3.0f;
-		}
-
-		glm::quat cameraRotationToCarY = fromAxisAngle(WORLDY, -angle*0.01f);
-
-		glm::quat cameraRotationOutput = cameraRotationToCarY * _orientation;
-
-		glm::normalize(cameraRotationOutput);
-
-		_orientation.x = cameraRotationOutput.x;
-		_orientation.y = cameraRotationOutput.y;
-		_orientation.z = cameraRotationOutput.z;
-		_orientation.w = cameraRotationOutput.w;
-	}
-
-	void UTIL::QuatCamera::CarDriving()
-	{
-		_position.x += _position.x - m_carPos.x * 0.001f;
-		_position.y += _position.x - m_carPos.x * 0.001f;
-		_position.z += _position.x - m_carPos.x * 0.001f;
-		updateView();
-	}
-
-	void UTIL::QuatCamera::CarReversing()
-	{
-		_position.x += _position.x - m_carPos.x * 0.001f;
-		_position.y += _position.y - m_carPos.y * 0.001f;
-		_position.z += _position.z - m_carPos.z * 0.001f;
-
-		updateView();
-	}
-
-
-	/*// Returns a quaternion such that q*start = dest
-	glm::quat  UTIL::QuatCamera::RotationBetweenVectors(glm::vec3 start, glm::vec3 dest) {
-		start = glm::normalize(start);
-		dest = glm::normalize(dest);
-
-		float cosTheta = glm::dot(start, dest);
-		glm::vec3 rotationAxis;
-
-		if (cosTheta < -1 + 0.001f) {
-			// special case when vectors in opposite directions :
-			// there is no "ideal" rotation axis
-			// So guess one; any will do as long as it's perpendicular to start
-			// This implementation favors a rotation around the Up axis,
-			// since it's often what you want to do.
-			rotationAxis = glm::cross(glm::vec3(0.0f, 0.0f, 1.0f), start);
-			if (glm::length2(rotationAxis) < 0.01) // bad luck, they were parallel, try again!
-				rotationAxis = glm::cross(glm::vec3(1.0f, 0.0f, 0.0f), start);
-
-			rotationAxis = glm::normalize(rotationAxis);
-			return glm::angleAxis(180.0f, rotationAxis);
-		}
-
-		// Implementation from Stan Melax's Game Programming Gems 1 article
-		rotationAxis = glm::cross(start, dest);
-
-		float s = sqrt((1 + cosTheta) * 2);
-		float invs = 1 / s;
-
-		return glm::quat(
-			s * 0.5f,
-			rotationAxis.x * invs,
-			rotationAxis.y * invs,
-			rotationAxis.z * invs
-		);
-
-
-	}
-
-
-
-	// Returns a quaternion that will make your object looking towards 'direction'.
-	// Similar to RotationBetweenVectors, but also controls the vertical orientation.
-	// This assumes that at rest, the object faces +Z.
-	// Beware, the first parameter is a direction, not the target point !
-	glm::quat  UTIL::QuatCamera::LookAt(glm::vec3 direction, glm::vec3 desiredUp) {
-
-		if (glm::length2(direction) < 0.0001f)
-			return glm::quat();
-
-		// Recompute desiredUp so that it's perpendicular to the direction
-		// You can skip that part if you really want to force desiredUp
-		glm::vec3 right = glm::cross(direction, desiredUp);
-		desiredUp = glm::cross(right, direction);
-
-		// Find the rotation between the front of the object (that we assume towards +Z,
-		// but this depends on your model) and the desired direction
-		glm::quat rot1 = RotationBetweenVectors(glm::vec3(0.0f, 0.0f, 1.0f), direction);
-		// Because of the 1rst rotation, the up is probably completely screwed up. 
-		// Find the rotation between the "up" of the rotated object, and the desired up
-		glm::vec3 newUp = rot1 * glm::vec3(0.0f, 1.0f, 0.0f);
-		glm::quat rot2 = RotationBetweenVectors(newUp, desiredUp);
-
-		// Apply them
-		return rot2 * rot1; // remember, in reverse order.
-	}*/
-
-	void UTIL::QuatCamera::CarTurnRight()
-	{		
-		float cameraAngle = glm::angle(_orientation);
-		float angle = glm::angle(_orientationTemp);
-		UTIL::LOG(UTIL::LOG::INFO) << "Current angle turning for the camera = " << angle;
-		UTIL::LOG(UTIL::LOG::INFO) << "Current angle of the camera = " << cameraAngle;
-
-		if (cameraAngle < 1.0f)
-		{
-			cameraAngle = 1.0f;
-		}
-		if (cameraAngle > 3.0f)
-		{
-			cameraAngle = 3.0f;
-		}
-		
-			glm::quat cameraRotationToCarY = fromAxisAngle(WORLDY, angle*0.01f);
-
-			glm::quat cameraRotationOutput = cameraRotationToCarY * _orientation;
-
-			glm::normalize(cameraRotationOutput);
-
-			_orientation.x = cameraRotationOutput.x;
-			_orientation.y = cameraRotationOutput.y;
-			_orientation.z = cameraRotationOutput.z;
-			_orientation.w = cameraRotationOutput.w;
-		
-			
-
-		
-	}

@@ -20,7 +20,7 @@ namespace GRAPHICS {
 	{
 		btAlignedObjectArray<ObjInstanceVertex>* m_vertices = nullptr; //obj array used to replace vector
 		int m_numOfVertices;
-		btAlignedObjectArray<int>* m_indices = nullptr;
+		btAlignedObjectArray<unsigned int>* m_indices = nullptr;
 		int m_numOfIndices;
 		float m_scaling[4];
 
@@ -30,11 +30,11 @@ namespace GRAPHICS {
 		
 		}
 
-		/*virtual ~ObjInstanceShape()
+		virtual ~ObjInstanceShape()
 		{
 			delete m_vertices;
 			delete m_indices; 
-		}*/
+		}
 	};
 
 

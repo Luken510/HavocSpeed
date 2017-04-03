@@ -160,7 +160,9 @@
     <ClCompile Include="external\include\bullet\LinearMath\btThreads.cpp" />
     <ClCompile Include="external\include\bullet\LinearMath\btVector3.cpp" />
     <ClCompile Include="source\assimpToBulletObj.cpp" />
+    <ClCompile Include="source\basicCamera.cpp" />
     <ClCompile Include="source\eventHandler.cpp" />
+    <ClCompile Include="source\firstPersonCamera.cpp" />
     <ClCompile Include="source\Game.cpp" />
     <ClCompile Include="source\gl.cpp" />
     <ClCompile Include="source\main.cpp" />
@@ -171,6 +173,7 @@
     <ClCompile Include="source\physicsDebugDrawer.cpp" />
     <ClCompile Include="source\QuatCamera.cpp" />
     <ClCompile Include="source\raceCar.cpp" />
+    <ClCompile Include="source\rearCamera.cpp" />
     <ClCompile Include="source\shader.cpp" />
     <ClCompile Include="source\window.cpp" />
   </ItemGroup>
@@ -392,7 +395,10 @@
     <ClInclude Include="external\include\bullet\LinearMath\btTransformUtil.h" />
     <ClInclude Include="external\include\bullet\LinearMath\btVector3.h" />
     <ClInclude Include="include\assimpToBulletObj.h" />
+    <ClInclude Include="include\basicCamera.h" />
+    <ClInclude Include="include\cameraBase.h" />
     <ClInclude Include="include\eventHandler.h" />
+    <ClInclude Include="include\firstPersonCamera.h" />
     <ClInclude Include="include\game.h" />
     <ClInclude Include="include\gl.hpp" />
     <ClInclude Include="include\logger.h" />
@@ -403,6 +409,7 @@
     <ClInclude Include="include\physicsDebugDrawer.h" />
     <ClInclude Include="include\QuatCamera.h" />
     <ClInclude Include="include\raceCar.h" />
+    <ClInclude Include="include\rearCamera.h" />
     <ClInclude Include="include\shader.h" />
     <ClInclude Include="include\window.h" />
   </ItemGroup>

@@ -1,28 +1,8 @@
-[INFO]  How many child nodes there are : 0
-[INFO]  How many Mesh nodes there are : 1
-[INFO]  How many child nodes there are : 1
-[INFO]  How many Mesh nodes there are : 0
-[INFO]  How many child nodes there are : 0
-[INFO]  How many Mesh nodes there are : 1
-[INFO]  How many child nodes there are : 1
-[INFO]  How many Mesh nodes there are : 0
-[INFO] Obj Loaded: number of extracted Meshes :1
-[INFO] Obj Loaded: number of extracted vertices :117936
-[INFO] Obj Loaded: number of extracted indices :14742
-[INFO]  Size of array sent into convexHull : 14742
-[INFO]  How many child nodes there are : 0
-[INFO]  How many Mesh nodes there are : 37
-[INFO]  How many child nodes there are : 0
-[INFO]  How many Mesh nodes there are : 45
-[INFO]  How many child nodes there are : 2
-[INFO]  How many Mesh nodes there are : 0
-[INFO]  How many child nodes there are : 1
-[INFO]  How many Mesh nodes there are : 0
-[INFO]  How many child nodes there are : 0
-[INFO]  How many Mesh nodes there are : 15
-[INFO]  How many child nodes there are : 1
-[INFO]  How many Mesh nodes there are : 0
-[INFO] Obj Loaded: number of extracted Meshes :15
-[INFO] Obj Loaded: number of extracted vertices :225768
-[INFO] Obj Loaded: number of extracted indices :28221
-[INFO]  Size of array sent into convexHull : 28221
+[INFO]  Key Pressed = 'TAB'
+[INFO]  Camera = Standard Camera
+[INFO]  Key Pressed = 'TAB'
+[INFO]  Camera = First Person Camera
+[INFO]  Key Pressed = 'TAB'
+[INFO]  Camera = Rear View Camera
+[INFO]  Key Pressed = 'TAB'
+[INFO]  Camera = Free Roam Camera

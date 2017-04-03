@@ -13,7 +13,7 @@
 RaceCar::RaceCar() : m_enginePower(0),m_turning(0), m_brakingPower(0), m_steeringPower(0), m_carModelMatrix(1.0f)
 {
 
-	
+	m_carModelMatrix = glm::scale(glm::vec3(CAR_SCALE));
 }
 
 RaceCar::~RaceCar()
@@ -32,7 +32,7 @@ void RaceCar::Init()
 
 	btTransform startingPos;
 	startingPos.setOrigin(btVector3(40.0f, 100.4f, -55.0f));
-	startingPos.setRotation(GetRotationQuatFromAngle(btVector3(0.0f, 1.0f, 0.0f), 0.0)); // changes the direction it faces  WHY DOES THIS BREAK IT, PLS CHECK TY.
+	startingPos.setRotation(GetRotationQuatFromAngle(btVector3(1.0f, 0.0f, 0.0f), 90.0)); // changes the direction it faces  WHY DOES THIS BREAK IT, PLS CHECK TY.
 
 	btTransform localTrans;//
 	localTrans.setIdentity();//
@@ -197,6 +197,13 @@ glm::mat4 RaceCar::GetWorldPos()
 	translateToWorld.getOpenGLMatrix(OpenGLMatrix);
 	// had a memory leak, show in testing
 	return glm::make_mat4(Test1);
+}
+
+glm::vec3 RaceCar::GetVelocity()
+{
+	btVector3 velocity = m_raycastCar->getRigidBody()->getLinearVelocity();
+	
+	return glm::vec3(velocity.x(), velocity.y(), velocity.z());
 }
 
 void RaceCar::Drive()

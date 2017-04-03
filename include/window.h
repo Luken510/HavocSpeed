@@ -6,7 +6,7 @@
 
 #include "QuatCamera.h"
 #include "eventHandler.h"
-
+#define GLM_FORCE_RADIANS
 #define WIN_WIDTH 1280
 #define WIN_HEIGHT 720
 #define MOVE_VELOCITY 0.05f
@@ -34,10 +34,10 @@ namespace GAME {
 		\brief get a pointer to the window
 		*/
 		GLFWwindow* GetWindow();
-		
-		void resizeGL(std::shared_ptr<UTIL::QuatCamera> camera, int w, int h);
 
-		void update(double deltaTime, std::shared_ptr<UTIL::QuatCamera> camera);
+		void resizeGL(int w, int h);
+
+		void update(double deltaTime, std::shared_ptr<UTIL::CAMERA::QuatCamera> camera);
 
 		//To keep track of cursor location
 		double lastCursorPositionX, lastCursorPositionY, cursorPositionX, cursorPositionY;

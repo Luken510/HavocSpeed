@@ -48,6 +48,7 @@ GAME::Window::Window() : lastCursorPositionX(0), lastCursorPositionY(0), cursorP
 	
 	gl::Enable(gl::MULTISAMPLE);
 	gl::ClearColor(0.3f, 0.3f, 0.3f, 1.0f);
+
 	
 }
 
@@ -66,15 +67,15 @@ GLFWwindow* GAME::Window::GetWindow()
 	return m_window;
 }
 
-void GAME::Window::resizeGL(std::shared_ptr<UTIL::QuatCamera> camera, int w, int h)
+void GAME::Window::resizeGL(int w, int h)
 {
 	gl::Viewport(0, 0, w, h);
 	m_height = h;
 	m_width = w;
-	camera->setAspectRatio((float)w / h);
 }
 
-void GAME::Window::update(double deltaTime, std::shared_ptr<UTIL::QuatCamera> camera)
+
+void GAME::Window::update(double deltaTime, std::shared_ptr<UTIL::CAMERA::QuatCamera> camera)
 {
 	//Get the current cursor position
 	glfwGetCursorPos(m_window, &cursorPositionX, &cursorPositionY);
