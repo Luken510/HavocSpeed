@@ -109,19 +109,18 @@ void RaceCar::Update(double deltaTime)
 {
 	
 	
-	m_raycastCar->applyEngineForce(m_enginePower, 2); // WHEEL rearLEFt, - SET UP AN ENUM ( 0, 1, 2,3)
-	m_raycastCar->applyEngineForce(m_enginePower, 3); // WHEEL rearRIGHT
+	m_raycastCar->applyEngineForce(m_enginePower, REARLEFT); 
+	m_raycastCar->applyEngineForce(m_enginePower, REARRIGHT); 
 
-	m_raycastCar->setBrake(m_brakingPower, 2);
-	m_raycastCar->setBrake(m_brakingPower, 3);
+	m_raycastCar->setBrake(m_brakingPower, REARLEFT);
+	m_raycastCar->setBrake(m_brakingPower, REARRIGHT);
 
-	m_raycastCar->setSteeringValue(m_steeringPower, 2);
-	m_raycastCar->setSteeringValue(m_steeringPower, 3);
+	m_raycastCar->setSteeringValue(m_steeringPower, REARLEFT);
+	m_raycastCar->setSteeringValue(m_steeringPower, REARRIGHT);
 
 	m_enginePower = 0.0f; // reset the power to be set again with the key input
 	m_brakingPower = 0.0f;
 
-	//do turning decrease/increase?;
 	if (!m_turning)
 	{
 		if (m_steeringPower > 0.f)
@@ -140,7 +139,6 @@ void RaceCar::Update(double deltaTime)
 
 	m_turning = false;
 	
-	//UTIL::LOG(UTIL::LOG::INFO) << " car Speed : " << m_raycastCar->getCurrentSpeedKmHour();
 	//update car position for its model
 	UpdateMatrix(GetWorldPos(), glm::vec3(CAR_SCALE));
 }

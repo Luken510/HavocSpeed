@@ -11,7 +11,7 @@
 #include "meshLoader.h"
 #include "PhysicsController.h"
 #include "shader.h"
-
+#define GLM_FORCE_RADIANS
 #define _USE_MATH_DEFINES
 
 #define CAR_SCALE 0.15f
@@ -58,13 +58,11 @@ namespace CarConfig
 			m_turningDecrement(0.1f),
 			m_turningLimits(0.50f),
 			m_wheelFriction(2.5f),
-
 			m_wheelRadius(3.302f),
 			m_wheelWidth(2.215f),
 			m_wheelConnectionHeight(3.9f), //x
 			m_wheelConnectionWidth(6.200f), //y
 			m_wheelConnectionLength(12.725f), //z
-
 			m_suspensionStiffness(160.f),
 			m_suspensionDampRelaxtion(12.7f),
 			m_suspensionDampCompression(10.7f),

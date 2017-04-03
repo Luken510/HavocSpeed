@@ -14,7 +14,6 @@
 #include "raceCar.h"
 #include "map.h"
 #define GLM_FORCE_RADIANS
-
 #define MS_PER_UPDATE (float)0.0166666666666667
 #define CAR_TURN_SPEED 0.025f
 #define WIN_WIDTH 1280

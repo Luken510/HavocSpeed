@@ -4,5 +4,3 @@
 [INFO]  Camera = First Person Camera
 [INFO]  Key Pressed = 'TAB'
 [INFO]  Camera = Rear View Camera
-[INFO]  Key Pressed = 'TAB'
-[INFO]  Camera = Free Roam Camera

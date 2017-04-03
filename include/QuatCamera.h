@@ -58,8 +58,13 @@ namespace UTIL {
 
 			void reset(void); //Reset the camera
 
+
 			glm::mat4 View(); //Get the View matrix
 			glm::mat4 G, Projection(); //Get the Projection matrix
+
+	void Follow(glm::mat4 target, float angle);
+
+
 
 		private:
 

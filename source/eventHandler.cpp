@@ -139,9 +139,7 @@ void UTIL::EventHandler::ResizeCallBackImp(GLFWwindow * window, int width, int h
 
 void UTIL::EventHandler::setCamera(std::shared_ptr<UTIL::CAMERA::CameraBase> Camera)
 {
-	
 	m_camera = Camera;
-	
 }
 
 void UTIL::EventHandler::setCamera(std::shared_ptr<UTIL::CAMERA::QuatCamera> Camera)

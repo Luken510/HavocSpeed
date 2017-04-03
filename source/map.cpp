@@ -9,7 +9,6 @@
 
 GAME::Map::Map() 
 {
-
 	m_trackModelMatrix = glm::mat4(1.0f) * glm::translate(glm::vec3(0.0f, -10.f, 0.0f))  * glm::scale(glm::vec3(MAP_SCALE));
 	m_backgroundModelMatrix = glm::mat4(1.0f) * glm::translate(glm::vec3(0.0f, -10.f, 0.0f)) * glm::rotate(-89.55f,glm::vec3(1.0f,0.0f,0.0f)) * glm::scale(glm::vec3(MAP_SCALE));
 }
@@ -18,10 +17,7 @@ void GAME::Map::Init()
 {
 	m_background = std::make_shared<GRAPHICS::Model>("./external/assets/map/obj/racetrack/racetrackwithBG.3ds");
 	m_track = std::make_shared<GRAPHICS::Model>("./external/assets/map/obj/myracetracknoarrows.obj"); 
-
-	CreateMapObjects();
-
-	
+	CreateMapObjects();	
 }
 
 GAME::Map GAME::Map::GetCurrentMap()
@@ -40,7 +36,6 @@ void GAME::Map::Update(double deltaTime)
 
 void GAME::Map::Render(std::shared_ptr<GRAPHICS::Shader> shader)
 {	
-	
 	m_track->Render(shader);
 
 	shader->SetUniform("model", m_backgroundModelMatrix);
@@ -48,7 +43,7 @@ void GAME::Map::Render(std::shared_ptr<GRAPHICS::Shader> shader)
 }
 
 
-void GAME::Map::CreateMapObjects()
+void GAME::Map::CreateMapObjects() 
 {
 
 
@@ -77,9 +72,6 @@ void GAME::Map::CreateMapObjects()
 	btTransform trackTransform;
 	trackTransform.setIdentity();
 	trackTransform.setOrigin(btVector3(0.0f, -10.0f, 0.0f));
-	//btQuaternion trackRotate;
-	//trackRotate.setRotation(btVector3(1.0f, 0.0f, 0.0f), 0.55f);
-	//trackTransform.setRotation(trackRotate);
 
 	for (unsigned int i = 0; i < m_carTrackMesh.size(); i++)
 	{

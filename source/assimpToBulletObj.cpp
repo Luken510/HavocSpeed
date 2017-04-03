@@ -15,13 +15,13 @@ std::shared_ptr<GRAPHICS::ObjInstanceShape> GRAPHICS::AssimpToBulletObj(const st
 		
 		//UTIL::LOG(UTIL::LOG::INFO) << "Obj Loaded: number of extracted Meshes :" << meshes.size();
 			
-		for (int i = 0; i < meshes.size(); i++)
+		for (unsigned int i = 0; i < meshes.size(); i++)
 			{
-				;
+				
 
 			
 
-				for(int v = 0; v<meshes[i].m_vertices.size(); v++)
+				for(unsigned int v = 0; v<meshes[i].m_vertices.size(); v++)
 				{
 
 					ObjInstanceVertex vertex0;
@@ -50,7 +50,7 @@ std::shared_ptr<GRAPHICS::ObjInstanceShape> GRAPHICS::AssimpToBulletObj(const st
 
 				}
 
-				for (int f = 0; f < meshes[i].m_indices.size(); f++)
+				for (unsigned int f = 0; f < meshes[i].m_indices.size(); f++)
 				{
 					indicesPtr->push_back(meshes[i].m_indices[f]);
 				}
@@ -67,6 +67,7 @@ std::shared_ptr<GRAPHICS::ObjInstanceShape> GRAPHICS::AssimpToBulletObj(const st
 	bulletObj->m_numOfIndices = indicesPtr->size();
 	//UTIL::LOG(UTIL::LOG::INFO) << "Obj Loaded: number of extracted vertices :" << bulletObj->m_numOfVertices;
 	//UTIL::LOG(UTIL::LOG::INFO) << "Obj Loaded: number of extracted indices :" << bulletObj->m_numOfIndices;
+
 	for (int i = 0; i < 4; i++)
 		bulletObj->m_scaling[i] = 1;
 

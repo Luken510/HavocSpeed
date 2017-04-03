@@ -35,9 +35,9 @@ namespace UTIL {
 		void ResizeCallBackImp(GLFWwindow * window, int width, int height);
 
 
-
 		void setCamera(std::shared_ptr<UTIL::CAMERA::CameraBase> Camera);
 		void setCamera(std::shared_ptr<UTIL::CAMERA::QuatCamera> Camera);
+
 		void setCar(std::shared_ptr<RaceCar> car);
 
 		void PollKeyEvents(GLFWwindow * window);

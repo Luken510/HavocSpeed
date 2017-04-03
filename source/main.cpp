@@ -4,6 +4,7 @@
 
 #include "game.h"
 
+#define DEBUG_TRIANGLE_MESH 1
 
 /*
 int main()
