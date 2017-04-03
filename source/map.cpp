@@ -10,13 +10,22 @@
 GAME::Map::Map() 
 {
 
+<<<<<<< HEAD
 	m_trackModelMatrix = glm::mat4(1.0f) * glm::translate(glm::vec3(0.0f, -100.f, 0.0f)) * glm::scale(glm::vec3(MAP_SCALE));
+=======
+	m_trackModelMatrix = glm::mat4(1.0f) * glm::translate(glm::vec3(0.0f, -100.f, 0.0f)) * glm::rotate(-89.55f, glm::vec3(1.0f, 0.0f, 0.0f)) * glm::scale(glm::vec3(MAP_SCALE));
+>>>>>>> origin/master
 }
 
 void GAME::Map::Init()
 {
+<<<<<<< HEAD
 	m_background = std::make_shared<GRAPHICS::Model>("./external/assets/map/obj/racetrack/racetrackwithBG.3ds");
 	m_track = std::make_shared<GRAPHICS::Model>("./external/assets/map/obj/myracetracknoarrows.obj");
+=======
+	//m_background = std::make_shared<GRAPHICS::Model>("./external/assets/map/racetrack/racetrackwithBG.3ds");
+	m_track = std::make_shared<GRAPHICS::Model>("./external/assets/map/test/5/4/objnoarrows/myracetrack.obj"); //obj might work as intended
+>>>>>>> origin/master
 
 	CreateMapObjects();
 
@@ -38,9 +47,13 @@ void GAME::Map::Update(double deltaTime)
 }
 
 void GAME::Map::Render(std::shared_ptr<GRAPHICS::Shader> shader)
+<<<<<<< HEAD
 {	
 	m_background->Render(shader);
 	//set Model again for background
+=======
+{//	m_background->Render(shader);
+>>>>>>> origin/master
 	m_track->Render(shader);
 }
 
@@ -73,7 +86,7 @@ void GAME::Map::CreateMapObjects()
 
 	btTransform trackTransform;
 	trackTransform.setIdentity();
-	trackTransform.setOrigin(btVector3(0.0f, -100.0f, 0.0f));
+	trackTransform.setOrigin(btVector3(0.0f, -30.0f, 0.0f));
 	btQuaternion trackRotate;
 	trackRotate.setRotation(btVector3(1.0f, 0.0f, 0.0f), 0.0f);
 	trackTransform.setRotation(trackRotate);

@@ -11,7 +11,11 @@
 #include "PhysicsController.h"
 #include "shader.h"
 
+<<<<<<< HEAD
 #define MAP_SCALE 0.065f 
+=======
+#define MAP_SCALE 0.05f 
+>>>>>>> origin/master
 namespace GAME {
 
 	class Map {
