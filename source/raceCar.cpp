@@ -156,7 +156,7 @@ void RaceCar::Render(std::shared_ptr<GRAPHICS::Shader> shader)
 			glm::vec3(CAR_SCALE)); // 
 
 		if (i == FRONTLEFT || i == REARLEFT)
-			setWheelModel = glm::rotate(setWheelModel, 180.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+			setWheelModel = glm::rotate(setWheelModel, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
 		shader->SetUniform("model", setWheelModel);
 		m_carWheelsPtr[i]->Render(shader);

@@ -79,7 +79,7 @@ namespace GAME {
 		bool m_DrawDebugBool;
 		CameraStates m_cameraStates;
 
-		GLuint m_wireVaoHandle;
+		GLuint m_wireVaoHandle;	
 		GLuint m_wireVboHandle[2];
 		//Physics setup
 		//btBroadphaseInterface* broadphase;

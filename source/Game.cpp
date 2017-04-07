@@ -184,7 +184,7 @@ void GAME::Game::WireFrameMode(std::vector<GRAPHICS::Line> & lines)
 	unsigned int index = 0;
 
 
-	for (std::vector<GRAPHICS::Line>::iterator it = lines.begin(); it != lines.end(); it++) {
+	for (auto it = lines.begin(); it != lines.end(); it++) {
 
 		GRAPHICS::Line temp = *it;
 		//start line

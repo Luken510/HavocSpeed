@@ -169,6 +169,7 @@
     <ClCompile Include="source\map.cpp" />
     <ClCompile Include="source\meshLoader.cpp" />
     <ClCompile Include="source\modelLoader.cpp" />
+    <ClCompile Include="source\particlePool.cpp" />
     <ClCompile Include="source\PhysicsController.cpp" />
     <ClCompile Include="source\physicsDebugDrawer.cpp" />
     <ClCompile Include="source\QuatCamera.cpp" />
@@ -397,6 +398,7 @@
     <ClInclude Include="include\assimpToBulletObj.h" />
     <ClInclude Include="include\basicCamera.h" />
     <ClInclude Include="include\cameraBase.h" />
+    <ClInclude Include="include\command.h" />
     <ClInclude Include="include\eventHandler.h" />
     <ClInclude Include="include\firstPersonCamera.h" />
     <ClInclude Include="include\game.h" />
@@ -405,6 +407,7 @@
     <ClInclude Include="include\map.h" />
     <ClInclude Include="include\meshLoader.h" />
     <ClInclude Include="include\modelLoader.h" />
+    <ClInclude Include="include\particlePool.h" />
     <ClInclude Include="include\PhysicsController.h" />
     <ClInclude Include="include\physicsDebugDrawer.h" />
     <ClInclude Include="include\QuatCamera.h" />
