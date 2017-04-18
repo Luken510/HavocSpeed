@@ -1,19 +1,13 @@
 #pragma once
-// use this to init the world of physics
-// use this to add rigid bodies to it etc.
-// use this to do the time step etc.
-//see example for details
-//init(), addRigidbody(), createcollisionshape(){getmeshes()} , getCar, Memory pool for smaller objects
-// etc etc etc.
 
 #include <memory>
 #include <btBulletDynamicsCommon.h>
-
 #include "meshLoader.h"
 #include "modelLoader.h"
-#include "raceCar.h"
 #include "assimpToBulletObj.h"
 #include "physicsDebugDrawer.h"
+
+class RaceCar;
 
 namespace PHYSICS
 {
@@ -77,6 +71,8 @@ namespace PHYSICS
 
 		//SINGLETON
 		PhysicsController();
+		PhysicsController(PhysicsController const&); //prevents copies
+		void operator=(PhysicsController const&); //prevents assignments
 
 		
 	};

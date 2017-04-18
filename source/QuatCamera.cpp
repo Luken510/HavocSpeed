@@ -180,7 +180,26 @@
 
 	void UTIL::CAMERA::QuatCamera::Follow(double deltaTime, glm::vec3 carVelocity, glm::mat4 target, float angle)
 	{
-		
+		glm::mat3 targetRotation(target);
+		glm::vec3 targetPosition(target[3]); // target is a 4x4 matrix holding both its current rotation and position, position being held in [3][0] [3][1] [3][2]
+
+		_view = glm::mat4(targetRotation[0][0], targetRotation[1][0], targetRotation[2][0], 0,
+			targetRotation[0][1], targetRotation[1][1], targetRotation[2][1], 0,
+			targetRotation[0][2], targetRotation[1][2], targetRotation[2][2], 0,
+			0, 0, 0, 1);
+
+		//Extract the camera coordinate axes from this matrix
+		glm::vec3 xaxis = glm::vec3(_view[0][0], _view[1][0], _view[2][0]);
+		glm::vec3 yaxis = glm::vec3(_view[0][1], _view[1][1], _view[2][1]);
+		glm::vec3 zaxis = glm::vec3(_view[0][2], _view[1][2], _view[2][2]);
+
+		//And use this and current camera position to set the translate part of the view matrix
+		_view[3][0] = -glm::dot(xaxis, targetPosition); //Translation x
+		_view[3][1] = -glm::dot(yaxis, targetPosition); //Translation y
+		_view[3][2] = -glm::dot(zaxis, targetPosition); //Translation z
+
+		_view[3][1] -= 2;
+		_view[3][2] -= 2;
 	}
 
 

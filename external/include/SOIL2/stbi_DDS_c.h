@@ -1,7 +1,7 @@
 
 ///	DDS file support, does decoding, _not_ direct uploading
 ///	(use SOIL for that ;-)
-
+#define _CRT_SECRE_NO_WARNINGS
 #include "image_DXT.h"
 
 static int stbi__dds_test(stbi__context *s)

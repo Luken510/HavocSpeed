@@ -36,6 +36,7 @@ namespace GAME {
 		GLFWwindow* GetWindow();
 
 		void resizeGL(int w, int h);
+		void ViewPort(float x, float y, float w, float h);
 
 		void update(double deltaTime, std::shared_ptr<UTIL::CAMERA::QuatCamera> camera);
 

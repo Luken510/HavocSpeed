@@ -1,18 +1,22 @@
 #include "raceCar.h"
 
-#include <glm\gtc\matrix_transform.hpp>
-#include <glm\gtx\transform.hpp>
-#include <glm\gtc\type_ptr.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 #include <math.h>
 #include "assimpToBulletObj.h"
 #include "logger.h"
-#include "PhysicsController.h"
 
 
 
-RaceCar::RaceCar() : m_enginePower(0),m_turning(0), m_brakingPower(0), m_steeringPower(0), m_carModelMatrix(1.0f)
+RaceCar::RaceCar() : m_enginePower(0),m_turning(0), m_brakingPower(0), m_steeringPower(0), m_carModelMatrix(1.0f), m_rocketFired(false), player2(false)
 {
 
+	m_carModelMatrix = glm::scale(glm::vec3(CAR_SCALE));
+}
+RaceCar::RaceCar(bool player) : m_enginePower(0), m_turning(0), m_brakingPower(0), m_steeringPower(0), m_carModelMatrix(1.0f), m_rocketFired(false)
+{
+	player2 = player;
 	m_carModelMatrix = glm::scale(glm::vec3(CAR_SCALE));
 }
 
@@ -22,17 +26,28 @@ RaceCar::~RaceCar()
 
 void RaceCar::Init()
 {
+	//rocket
+	GRAPHICS::Model modelTemp("./external/assets/weapons/Missile/AVMT300/AVMT300.3ds");
+	m_rocketsModel = std::make_shared<GRAPHICS::RocketModel>(modelTemp);
+	
 	
 	m_car = std::make_shared<GRAPHICS::Model>("./external/assets/car/CarChasis.obj");
 	m_carWheels = std::make_shared<GRAPHICS::Model>("./external/assets/car/carWheels.obj");
+	
 
 	CreateCarBulletObjFromModel();
 
 	m_carChasisComp = new btCompoundShape();
 
 	btTransform startingPos;
-	startingPos.setOrigin(btVector3(40.0f, 100.4f, -55.0f));
-	startingPos.setRotation(GetRotationQuatFromAngle(btVector3(1.0f, 0.0f, 0.0f), 90.0)); // changes the direction it faces  WHY DOES THIS BREAK IT, PLS CHECK TY.
+	if (player2 == true)
+	{
+		startingPos.setOrigin(btVector3(-80.0f, 80.0f, -40.0f));
+	}
+	else
+	startingPos.setOrigin(btVector3(-80.0f, 68.0f, -36.0f));
+
+	startingPos.setRotation(GetRotationQuatFromAngle(btVector3(0.0f, 1.0f, 0.0f), 90.0f)); 
 
 	btTransform localTrans;//
 	localTrans.setIdentity();//
@@ -67,15 +82,18 @@ void RaceCar::Init()
 
 	//rear right wheel
 	WheelConnectionsParams = btVector3(-carConfig.m_wheelConnectionWidth, carConfig.m_wheelConnectionHeight, carConfig.m_wheelConnectionLength);
-	m_raycastCar->addWheel(WheelConnectionsParams, carConfig.m_wheelDirection, carConfig.wheelAxel, carConfig.m_suspensionMaxLength, carConfig.m_wheelRadius, m_tuning, true);
+	m_raycastCar->addWheel(WheelConnectionsParams, carConfig.m_wheelDirection, carConfig.wheelAxel,
+							carConfig.m_suspensionMaxLength, carConfig.m_wheelRadius, m_tuning, true);
 
 	//front left wheel
 	WheelConnectionsParams = btVector3(carConfig.m_wheelConnectionWidth, carConfig.m_wheelConnectionHeight, -carConfig.m_wheelConnectionLength + 0.3f);
-	m_raycastCar->addWheel(WheelConnectionsParams, carConfig.m_wheelDirection, carConfig.wheelAxel, carConfig.m_suspensionMaxLength, carConfig.m_wheelRadius, m_tuning, false);
+	m_raycastCar->addWheel(WheelConnectionsParams, carConfig.m_wheelDirection, carConfig.wheelAxel,
+							carConfig.m_suspensionMaxLength, carConfig.m_wheelRadius, m_tuning, false);
 
 	//front right wheel
 	WheelConnectionsParams = btVector3(-carConfig.m_wheelConnectionWidth, carConfig.m_wheelConnectionHeight, -carConfig.m_wheelConnectionLength + 0.3f);
-	m_raycastCar->addWheel(WheelConnectionsParams, carConfig.m_wheelDirection, carConfig.wheelAxel, carConfig.m_suspensionMaxLength, carConfig.m_wheelRadius, m_tuning, false);
+	m_raycastCar->addWheel(WheelConnectionsParams, carConfig.m_wheelDirection, carConfig.wheelAxel, 
+							carConfig.m_suspensionMaxLength, carConfig.m_wheelRadius, m_tuning, false);
 
 	for (int i = 0; i < m_raycastCar->getNumWheels(); i++)
 	{
@@ -145,9 +163,11 @@ void RaceCar::Update(double deltaTime)
 
 void RaceCar::Render(std::shared_ptr<GRAPHICS::Shader> shader)
 {
+	UpdateMatrix(GetWorldPos(), glm::vec3(CAR_SCALE));
+	shader->SetUniform("model", m_carModelMatrix);
 	m_car->Render(shader);
+	//UTIL::LOG(UTIL::LOG::INFO) << "Car current position = " << m_carModelMatrix[3][0] << m_carModelMatrix[3][1] << m_carModelMatrix[3][2];
 	
-
 	for (int i = 0; i < m_raycastCar->getNumWheels(); i++)
 	{
 		m_raycastCar->updateWheelTransform(i, true);
@@ -162,6 +182,28 @@ void RaceCar::Render(std::shared_ptr<GRAPHICS::Shader> shader)
 		m_carWheelsPtr[i]->Render(shader);
 	}
 	
+	//make sure there are rockets
+	if (m_rockets.size() != 0)
+	{
+		for (auto it = m_rockets.begin(); it != m_rockets.end(); it++)
+		{
+
+			std::shared_ptr<WEAPONS::Rocket> rocket = *it;
+			rocket->Render(shader);
+		}
+	}
+
+	if (m_rocketsFly.size() != 0)
+	{
+		for (auto it = m_rocketsFly.begin(); it != m_rocketsFly.end(); it++)
+		{
+
+			std::shared_ptr<WEAPONS::Rocket> rocket = *it;
+
+			rocket->setModel(m_rocketsModel);
+			rocket->Render(shader);
+		}
+	}
 }
 
 void RaceCar::UpdateMatrix(glm::vec3 Pos, glm::vec3 scale)
@@ -179,7 +221,7 @@ void RaceCar::UpdateMatrix(glm::mat4 matrix, glm::vec3 scale)
 	m_carModelMatrix = matrix * glm::scale(scale); // loses scale so re-adding
 }
 
-glm::mat4 RaceCar::GetCarMatrix()
+glm::mat4 RaceCar::GetMatrix()
 {
 	return m_carModelMatrix;
 }
@@ -206,58 +248,130 @@ glm::vec3 RaceCar::GetVelocity()
 
 void RaceCar::Drive()
 {
-	if (std::abs(m_raycastCar->getCurrentSpeedKmHour()) < carConfig.m_maxSpeed)
-		m_enginePower = carConfig.m_maxEnginePower;
+	if (UTIL::EventHandler::getInstance().GetGameState() == 0)
+	{
 
+	}
+	else
+	{
+		if (std::abs(m_raycastCar->getCurrentSpeedKmHour()) < carConfig.m_maxSpeed)
+			m_enginePower = carConfig.m_maxEnginePower;
 
-	m_brakingPower = 0.0f;
+		m_brakingPower = 0.0f;
+	}
 }
 
 void RaceCar::Reverse()
 {
+	if (UTIL::EventHandler::getInstance().GetGameState() == 0)
+	{
 
-	if (std::abs(m_raycastCar->getCurrentSpeedKmHour()) < carConfig.m_maxSpeed)
-		m_enginePower = -carConfig.m_maxEnginePower;
+	}
+	else
+	{
+		if (std::abs(m_raycastCar->getCurrentSpeedKmHour()) < carConfig.m_maxSpeed)
+			m_enginePower = -carConfig.m_maxEnginePower;
 
-	m_brakingPower = 0.0f;
+		m_brakingPower = 0.0f;
+	}
 }
 
 void RaceCar::TurnLeft()
 {
+	if (UTIL::EventHandler::getInstance().GetGameState() == 0)
+	{
 
-	if (m_steeringPower < 0)
-		m_steeringPower += carConfig.m_turningDecrement;
+	}
 	else
-		m_steeringPower += carConfig.m_turningIncrement;
+	{
+		if (m_steeringPower < 0)
+			m_steeringPower += carConfig.m_turningDecrement;
+		else
+			m_steeringPower += carConfig.m_turningIncrement;
 
-	if (m_steeringPower > carConfig.m_turningLimits)
-		m_steeringPower = carConfig.m_turningLimits;
+		if (m_steeringPower > carConfig.m_turningLimits)
+			m_steeringPower = carConfig.m_turningLimits;
 
-	m_turning = true;
-	
+		m_turning = true;
+	}
 }
 
 void RaceCar::TurnRight()
 {
-	
-	if (m_steeringPower > 0)
-		m_steeringPower -= carConfig.m_turningDecrement;
+	if (UTIL::EventHandler::getInstance().GetGameState() == 0)
+	{
+
+	}
 	else
-		m_steeringPower -= carConfig.m_turningIncrement;
+	{
+		if (m_steeringPower > 0)
+			m_steeringPower -= carConfig.m_turningDecrement;
+		else
+			m_steeringPower -= carConfig.m_turningIncrement;
 
-	if (m_steeringPower < -carConfig.m_turningLimits)
-		m_steeringPower = -carConfig.m_turningLimits;
+		if (m_steeringPower < -carConfig.m_turningLimits)
+			m_steeringPower = -carConfig.m_turningLimits;
 
-	m_turning = true;
-	
+		m_turning = true;
+	}
 }
 
 void RaceCar::Brake()
 {
-	
+	if (UTIL::EventHandler::getInstance().GetGameState() == 0)
+	{
+
+	}
+	else
+	{
 		m_brakingPower = carConfig.m_maxBreakingPower;
 		m_enginePower = 0.0f;
+	}
 }
+
+void RaceCar::Fire()
+{
+	if (UTIL::EventHandler::getInstance().GetGameState() == 0)
+	{
+
+	}
+	if (UTIL::EventHandler::getInstance().GetGameState() == 1) // normal
+	{
+		//not implemented yet
+	}
+	if (UTIL::EventHandler::getInstance().GetGameState() == 2) // with flyweight
+	{
+		/*if (!m_rocketFired) m_rocketFired = true; // for testing they do not have a life time, with a life time a Object pool is needed to maintain the system.
+		
+		if (m_rocketFired)
+			m_rocketsFly.push_back(std::make_shared<WEAPONS::Rocket>(true));*/
+
+		DWORD count = GetTickCount();
+		int loop = 10000;
+		for (int i = 0; i < loop; i++)
+		{
+			m_rocketsFly.push_back(std::make_shared<WEAPONS::Rocket>(true));
+		}
+		UTIL::LOG(UTIL::LOG::INFO) << "Spawned " << loop << " Times " << "Using The flyweight pattern, the Interval = " << GetTickCount() - count << " ms";
+
+		
+	}
+
+	if (UTIL::EventHandler::getInstance().GetGameState() == 3) // testing without patterns
+	{
+		DWORD count = GetTickCount();
+		int loop = 1000;
+		for (int i = 0; i < loop; i++)
+		{
+			m_rockets.push_back(std::make_shared<WEAPONS::Rocket>());
+		}
+
+		UTIL::LOG(UTIL::LOG::INFO) << "Spawned " << loop << " Times - 10x less due to too much memory " << "NOT The flyweight pattern, the Interval = " << GetTickCount() - count << " ms";
+
+	}
+
+}
+
 
 btQuaternion RaceCar::GetRotationQuatFromAngle(const btVector3& axis, btScalar angle)
 {
@@ -274,3 +388,5 @@ btQuaternion RaceCar::GetRotationQuatFromAngle(const btVector3& axis, btScalar a
 {
 	return nullptr;
 }*/
+
+

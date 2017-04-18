@@ -29,9 +29,33 @@ PHYSICS::PhysicsController::PhysicsController()
 
 }
 
+void PHYSICS::PhysicsController::operator=(PhysicsController const &)
+{
+}
+
 PHYSICS::PhysicsController::~PhysicsController()
 {
 	// Clean up, LIFO system
+	//remove the rigidbodies from the dynamics world and delete them
+	int i;
+	for (i = m_dynamicWorld->getNumCollisionObjects() - 1; i >= 0; i--)
+	{
+		btCollisionObject* obj = m_dynamicWorld->getCollisionObjectArray()[i];
+		btRigidBody* body = btRigidBody::upcast(obj);
+		if (body && body->getMotionState())
+		{
+			delete body->getMotionState();
+		}
+		m_dynamicWorld->removeCollisionObject(obj);
+		delete obj;
+	}
+
+	//delete collision shapes
+	for (int j = 0; j<m_collisionShapes.size(); j++)
+	{
+		btCollisionShape* shape = m_collisionShapes[j];
+		delete shape;
+	}
 	delete m_debugDrawer;
 	delete m_dynamicWorld;
 	delete m_constraintSolver;
@@ -43,9 +67,9 @@ PHYSICS::PhysicsController::~PhysicsController()
 PHYSICS::PhysicsController& PHYSICS::PhysicsController::GetPhysicsInstance()
 {
 	
-	static PHYSICS::PhysicsController* instance = new PhysicsController();
+	static PHYSICS::PhysicsController instance;
 
-	return *instance; // singleton
+	return instance; // singleton
 }
 
 void PHYSICS::PhysicsController::StepSimulation(double deltaTime)
@@ -163,6 +187,8 @@ std::vector<btConvexHullShape *> PHYSICS::PhysicsController::CreateConvexHull(st
 
 		if (meshShape)
 			shape.push_back(meshShape);
+
+		
 	}
 
 	for (unsigned int y = 0; y < shape.size(); y++)
@@ -257,6 +283,7 @@ btCollisionShape * PHYSICS::PhysicsController::CreateCollisionShape(std::shared_
 		triShape->addIndexedMesh(test);
 
 		btBvhTriangleMeshShape *shape = new btBvhTriangleMeshShape(triShape, true);
+		delete triShape;
 		shape->setLocalScaling(scale);
 		UTIL::LOG(UTIL::LOG::INFO) << "Created Tri Mesh";
 

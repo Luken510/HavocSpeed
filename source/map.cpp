@@ -1,4 +1,4 @@
-#include "..\include\map.h"
+#include "map.h"
 
 #include <memory>
 #include <glm\gtc\matrix_transform.hpp>
@@ -15,8 +15,10 @@ GAME::Map::Map()
 
 void GAME::Map::Init()
 {
+	
 	m_background = std::make_shared<GRAPHICS::Model>("./external/assets/map/obj/racetrack/racetrackwithBG.3ds");
 	m_track = std::make_shared<GRAPHICS::Model>("./external/assets/map/obj/myracetracknoarrows.obj"); 
+
 	CreateMapObjects();	
 }
 
@@ -62,6 +64,7 @@ void GAME::Map::CreateMapObjects()
 	{
 		PHYSICS::PhysicsController::GetPhysicsInstance().AddStaticRigidBody(m_carTrackModel[i], trackTransform, btVector3(MAP_SCALE, MAP_SCALE, MAP_SCALE));
 	}*/
+
 	//track imported into bullet for physics;
 	std::shared_ptr<GRAPHICS::ObjInstanceShape> glmesh = GRAPHICS::AssimpToBulletObj(m_track->GetMeshes());
 	btAlignedObjectArray<GRAPHICS::ObjInstanceVertex>* vertices = glmesh->m_vertices;
@@ -79,9 +82,6 @@ void GAME::Map::CreateMapObjects()
 		m_staticTrack = PHYSICS::PhysicsController::GetPhysicsInstance().CreateRigidbody(0, trackTransform, m_carTrackMesh[i]);
 		PHYSICS::PhysicsController::GetPhysicsInstance().AddRigidBody(m_staticTrack);
 	}
-
-	
-	
 }
 
 void GAME::Map::UpdateMatrix(glm::vec3 Pos, glm::vec3 scale)

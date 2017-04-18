@@ -1,16 +1,13 @@
 #pragma once
 
-#include <memory>
-#include <btBulletDynamicsCommon.h>
-#include <BulletCollision/CollisionShapes/btHeightfieldTerrainShape.h>
-#include <BulletDynamics\Vehicle\btRaycastVehicle.h>
-#include <BulletDynamics\ConstraintSolver\btHingeConstraint.h>
-#include <BulletDynamics\ConstraintSolver\btSliderConstraint.h>
 
+#include "entity.h"
 #include "modelLoader.h"
 #include "meshLoader.h"
 #include "PhysicsController.h"
-#include "shader.h"
+#include "eventHandler.h"
+#include "rocket.h"
+
 #define GLM_FORCE_RADIANS
 #define _USE_MATH_DEFINES
 
@@ -51,7 +48,7 @@ namespace CarConfig
 			m_mass(5.0f),
 			m_dampingLinear(0.25f),
 			m_dampingAngle(0.0f),
-			m_maxEnginePower(-45.0f), //direction of movement
+			m_maxEnginePower(-30.0f), //direction of movement
 			m_maxBreakingPower(0.5f),
 			m_maxSpeed(120.0f),
 			m_turningIncrement(0.025f),
@@ -62,7 +59,7 @@ namespace CarConfig
 			m_wheelWidth(2.215f),
 			m_wheelConnectionHeight(3.9f), //x
 			m_wheelConnectionWidth(6.200f), //y
-			m_wheelConnectionLength(12.725f), //z
+			m_wheelConnectionLength(11.725f), //z
 			m_suspensionStiffness(160.f),
 			m_suspensionDampRelaxtion(12.7f),
 			m_suspensionDampCompression(10.7f),
@@ -85,50 +82,54 @@ namespace CarConfig
 
 enum Wheels{FRONTLEFT, FRONTRIGHT, REARLEFT, REARRIGHT};
 
-class RaceCar {
+class RaceCar : public UTIL::Entity {
 
 public:
 	/*
 	\brief Constructor
 	*/
 	RaceCar();
+	RaceCar::RaceCar(bool player);
 	/*
 	\brief Destructor
 	*/
 	~RaceCar();
 
-	void Init();
+	virtual void Init();
 
 	void CreateCarBulletObjFromModel();
 
-	void Update(double deltaTime);
-	void Render(std::shared_ptr<GRAPHICS::Shader> shader);
+	virtual void Update(double deltaTime);
+	virtual void Render(std::shared_ptr<GRAPHICS::Shader> shader);
 
-	void UpdateMatrix(glm::vec3 Pos, glm::vec3 scale);
-	void UpdateMatrix(glm::vec3 Pos, glm::vec3 scale, glm::vec3 rotateAxis, float angle);
-	void UpdateMatrix(glm::mat4 matrix, glm::vec3 scale);
-	glm::mat4 GetCarMatrix();
-	glm::mat4 GetWorldPos();
-	glm::vec3 GetVelocity();
-	//glm::mat4 getWheelWorldPos();
+	virtual void UpdateMatrix(glm::vec3 Pos, glm::vec3 scale);
+	virtual	void UpdateMatrix(glm::vec3 Pos, glm::vec3 scale, glm::vec3 rotateAxis, float angle);
+	virtual void UpdateMatrix(glm::mat4 matrix, glm::vec3 scale);
+	virtual glm::mat4 GetMatrix();
+	virtual	glm::mat4 GetWorldPos();
+	virtual glm::vec3 GetVelocity();
 
 	void Drive();
 	void Reverse();
 	void TurnLeft();
 	void TurnRight();
 	void Brake();
+	void Fire();
+	
+	virtual	btQuaternion GetRotationQuatFromAngle(const btVector3& axis, btScalar angle);
 
-	
-	btQuaternion GetRotationQuatFromAngle(const btVector3& axis, btScalar angle);
-	
-	//btRigidBody* LocalCreateRigidBody(btScalar mass, const btTransform& worldTransform, btCollisionShape* colShape);
-	// 
 
 private:
 	std::shared_ptr<GRAPHICS::Model> m_car = nullptr;
 	std::shared_ptr<GRAPHICS::Model> m_carWheels = nullptr;
 	std::vector<std::shared_ptr<GRAPHICS::Model>> m_carWheelsPtr;
 	std::shared_ptr<GRAPHICS::Model> m_map = nullptr;
+
+	std::shared_ptr<GRAPHICS::RocketModel> m_rocketsModel = nullptr;
+	//just for testing have a vector of rockets
+	std::vector<std::shared_ptr<WEAPONS::Rocket>> m_rockets;
+	std::vector<std::shared_ptr<WEAPONS::Rocket>> m_rocketsFly;
+	
 
 	CarConfig::Config carConfig;
 
@@ -142,6 +143,8 @@ private:
 	float m_brakingPower;
 	float m_steeringPower;
 	bool m_turning;
+	bool m_rocketFired;
+	bool player2;
 
 	glm::mat4 m_carModelMatrix;
 

@@ -13,7 +13,7 @@ GAME::Window::Window() : lastCursorPositionX(0), lastCursorPositionY(0), cursorP
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, true);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	glfwWindowHint(GLFW_RESIZABLE, true);
+	glfwWindowHint(GLFW_RESIZABLE, false);
 	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true);
 	glfwWindowHint(GLFW_SAMPLES, 8);
 
@@ -74,6 +74,10 @@ void GAME::Window::resizeGL(int w, int h)
 	m_width = w;
 }
 
+void GAME::Window::ViewPort(float x, float y, float w, float h)
+{
+	gl::Viewport(x, y, w, h);
+}
 
 void GAME::Window::update(double deltaTime, std::shared_ptr<UTIL::CAMERA::QuatCamera> camera)
 {
@@ -82,6 +86,8 @@ void GAME::Window::update(double deltaTime, std::shared_ptr<UTIL::CAMERA::QuatCa
 	//See how much the cursor has moved
 	float deltaX = (float)(lastCursorPositionX - cursorPositionX);
 	float deltaY = (float)(lastCursorPositionY - cursorPositionY);
+
+//	UTIL::LOG(UTIL::LOG::INFO) << " Camera Pos X, Y :" << cursorPositionX << ", " << cursorPositionY;
 
 	//Using a different way (i.e. instead of callback) to check for LEFT mouse button
 	if (glfwGetMouseButton(m_window, GLFW_MOUSE_BUTTON_LEFT))

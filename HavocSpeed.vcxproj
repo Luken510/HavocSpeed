@@ -169,12 +169,15 @@
     <ClCompile Include="source\map.cpp" />
     <ClCompile Include="source\meshLoader.cpp" />
     <ClCompile Include="source\modelLoader.cpp" />
+    <ClCompile Include="source\particle.cpp" />
     <ClCompile Include="source\particlePool.cpp" />
     <ClCompile Include="source\PhysicsController.cpp" />
     <ClCompile Include="source\physicsDebugDrawer.cpp" />
     <ClCompile Include="source\QuatCamera.cpp" />
     <ClCompile Include="source\raceCar.cpp" />
     <ClCompile Include="source\rearCamera.cpp" />
+    <ClCompile Include="source\rocket.cpp" />
+    <ClCompile Include="source\rocketModel.cpp" />
     <ClCompile Include="source\shader.cpp" />
     <ClCompile Include="source\window.cpp" />
   </ItemGroup>
@@ -399,6 +402,7 @@
     <ClInclude Include="include\basicCamera.h" />
     <ClInclude Include="include\cameraBase.h" />
     <ClInclude Include="include\command.h" />
+    <ClInclude Include="include\entity.h" />
     <ClInclude Include="include\eventHandler.h" />
     <ClInclude Include="include\firstPersonCamera.h" />
     <ClInclude Include="include\game.h" />
@@ -407,12 +411,16 @@
     <ClInclude Include="include\map.h" />
     <ClInclude Include="include\meshLoader.h" />
     <ClInclude Include="include\modelLoader.h" />
+    <ClInclude Include="include\particle.h" />
     <ClInclude Include="include\particlePool.h" />
     <ClInclude Include="include\PhysicsController.h" />
     <ClInclude Include="include\physicsDebugDrawer.h" />
+    <ClInclude Include="include\pool.h" />
     <ClInclude Include="include\QuatCamera.h" />
     <ClInclude Include="include\raceCar.h" />
     <ClInclude Include="include\rearCamera.h" />
+    <ClInclude Include="include\rocket.h" />
+    <ClInclude Include="include\rocketModel.h" />
     <ClInclude Include="include\shader.h" />
     <ClInclude Include="include\window.h" />
   </ItemGroup>
@@ -424,6 +432,8 @@
     <None Include="external\assets\shaders\line.vs" />
     <None Include="external\assets\shaders\map.fs" />
     <None Include="external\assets\shaders\map.vs" />
+    <None Include="external\assets\shaders\menu.fs" />
+    <None Include="external\assets\shaders\menu.vs" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4227FB72-E4E5-4A52-A021-E46F07343F5B}</ProjectGuid>
@@ -503,6 +513,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>glfw3.lib;assimp.lib;soil2d32.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -518,6 +529,7 @@
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>glfw3.lib;assimp.lib;soil2d64.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -535,6 +547,7 @@
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -554,6 +567,7 @@
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

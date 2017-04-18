@@ -85,6 +85,18 @@
     <Filter Include="Header Files\UTIL\Cameras">
       <UniqueIdentifier>{8ee4ca1e-2cbf-4008-b669-0cb853995e8d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Draw Framework\Objects">
+      <UniqueIdentifier>{8c8035c6-f797-4b16-966a-370dfc8d3aea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Draw Framework\Objects">
+      <UniqueIdentifier>{a74d219c-2c80-43a5-b659-3e0e9444ea46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Draw Framework\Core">
+      <UniqueIdentifier>{25b132c5-e3f7-4e28-8844-7de9abece589}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Draw Framework\Core">
+      <UniqueIdentifier>{edd96a03-3181-40ed-b0a0-fa9a70494ecf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\main.cpp">
@@ -510,18 +522,6 @@
     <ClCompile Include="external\include\bullet\LinearMath\btVector3.cpp">
       <Filter>BulletPhysicsEngine\LinearMath</Filter>
     </ClCompile>
-    <ClCompile Include="source\gl.cpp">
-      <Filter>Source Files\Draw Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="source\meshLoader.cpp">
-      <Filter>Source Files\Draw Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="source\modelLoader.cpp">
-      <Filter>Source Files\Draw Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="source\shader.cpp">
-      <Filter>Source Files\Draw Framework</Filter>
-    </ClCompile>
     <ClCompile Include="source\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -536,12 +536,6 @@
     </ClCompile>
     <ClCompile Include="source\PhysicsController.cpp">
       <Filter>Source Files\PHYSICS</Filter>
-    </ClCompile>
-    <ClCompile Include="source\assimpToBulletObj.cpp">
-      <Filter>Source Files\Draw Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="source\physicsDebugDrawer.cpp">
-      <Filter>Source Files\Draw Framework</Filter>
     </ClCompile>
     <ClCompile Include="source\map.cpp">
       <Filter>Source Files</Filter>
@@ -560,6 +554,33 @@
     </ClCompile>
     <ClCompile Include="source\particlePool.cpp">
       <Filter>Source Files\UTIL</Filter>
+    </ClCompile>
+    <ClCompile Include="source\rocket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\rocketModel.cpp">
+      <Filter>Source Files\Draw Framework\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="source\particle.cpp">
+      <Filter>Source Files\Draw Framework\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="source\assimpToBulletObj.cpp">
+      <Filter>Source Files\Draw Framework\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gl.cpp">
+      <Filter>Source Files\Draw Framework\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\meshLoader.cpp">
+      <Filter>Source Files\Draw Framework\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\modelLoader.cpp">
+      <Filter>Source Files\Draw Framework\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\physicsDebugDrawer.cpp">
+      <Filter>Source Files\Draw Framework\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\shader.cpp">
+      <Filter>Source Files\Draw Framework\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1216,18 +1237,6 @@
     <ClInclude Include="external\include\bullet\LinearMath\btVector3.h">
       <Filter>BulletPhysicsEngine\LinearMath</Filter>
     </ClInclude>
-    <ClInclude Include="include\gl.hpp">
-      <Filter>Header Files\Draw Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="include\meshLoader.h">
-      <Filter>Header Files\Draw Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="include\modelLoader.h">
-      <Filter>Header Files\Draw Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="include\shader.h">
-      <Filter>Header Files\Draw Framework</Filter>
-    </ClInclude>
     <ClInclude Include="include\game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -1245,12 +1254,6 @@
     </ClInclude>
     <ClInclude Include="include\PhysicsController.h">
       <Filter>Header Files\PHYSICS</Filter>
-    </ClInclude>
-    <ClInclude Include="include\assimpToBulletObj.h">
-      <Filter>Header Files\Draw Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="include\physicsDebugDrawer.h">
-      <Filter>Header Files\Draw Framework</Filter>
     </ClInclude>
     <ClInclude Include="include\map.h">
       <Filter>Header Files</Filter>
@@ -1276,6 +1279,39 @@
     <ClInclude Include="include\command.h">
       <Filter>Header Files\UTIL</Filter>
     </ClInclude>
+    <ClInclude Include="include\rocket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\entity.h">
+      <Filter>Header Files\UTIL</Filter>
+    </ClInclude>
+    <ClInclude Include="include\particle.h">
+      <Filter>Header Files\Draw Framework\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\rocketModel.h">
+      <Filter>Header Files\Draw Framework\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\assimpToBulletObj.h">
+      <Filter>Header Files\Draw Framework\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gl.hpp">
+      <Filter>Header Files\Draw Framework\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\meshLoader.h">
+      <Filter>Header Files\Draw Framework\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\modelLoader.h">
+      <Filter>Header Files\Draw Framework\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\physicsDebugDrawer.h">
+      <Filter>Header Files\Draw Framework\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shader.h">
+      <Filter>Header Files\Draw Framework\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\pool.h">
+      <Filter>Header Files\UTIL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -1295,6 +1331,12 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="external\assets\shaders\line.vs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="external\assets\shaders\menu.fs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="external\assets\shaders\menu.vs">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

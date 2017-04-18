@@ -2,9 +2,9 @@
 #include <gl.hpp>
 #include <GLFW/glfw3.h>
 #include <memory>
-#include "raceCar.h"
 #include "cameraBase.h"
 #include "QuatCamera.h"
+#include "raceCar.h"
 
 #define NUM_OF_CAMERAS 4
 
@@ -39,11 +39,16 @@ namespace UTIL {
 		void setCamera(std::shared_ptr<UTIL::CAMERA::QuatCamera> Camera);
 
 		void setCar(std::shared_ptr<RaceCar> car);
+		void setPlayer2Car(std::shared_ptr<RaceCar> car);
 
 		void PollKeyEvents(GLFWwindow * window);
 
-		bool getWireBool();
-		int getCameraState();
+		bool GetWireBool();
+		int GetCameraState();
+		int GetGameState();
+		void SetGameState(int i);
+		float GetWindowWidth();
+		float GetWindowHeight();
 
 	private:
 		EventHandler();
@@ -54,10 +59,14 @@ namespace UTIL {
 		std::shared_ptr<UTIL::CAMERA::CameraBase> m_camera;
 		std::shared_ptr<UTIL::CAMERA::QuatCamera> m_quatCamera;
 		std::shared_ptr<RaceCar> m_car;
+		std::shared_ptr<RaceCar> m_car2;
 		
 		bool m_boolForWireMode;
 		int m_cameraStateController;
-	
+		int m_gameStateController;
+
+		float m_width;
+		float m_height;
 		
 	};
 

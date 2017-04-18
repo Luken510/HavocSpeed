@@ -12,15 +12,15 @@ class GenericPool
 private:
 static const int POOL_SIZE = MEMORY_POOL_SIZE;
 
-TObject pool_[POOL_SIZE];
-bool    inUse_[POOL_SIZE];
+TObject pool[POOL_SIZE];
+bool    inUse[POOL_SIZE];
 };
 
 */
+#include <glm\glm.hpp>
+#include "particle.h"
 
 #define MEMORY_POOL_SIZE 100
-
-class Particle; // need to set this up and include the header file;
 
 namespace UTIL
 {
@@ -30,17 +30,15 @@ namespace UTIL
 		
 		ParticlePool();
 
-		//returns a pointer to the class, for outside initializing
-		Particle* create(double x, double y, double xVel, double yVel, int duration);
-		// just temp stuff for now
+		//returns a pointer to the object created.
+		GRAPHICS::Particle* create(glm::vec3 position, glm::vec3 velocity, int lifetime);
 
 		void update();
 
-
 	private:
 		static const int POOL_SIZE = MEMORY_POOL_SIZE;
-		Particle m_particles[MEMORY_POOL_SIZE];
-		Particle* m_firstAvailable;
+		GRAPHICS::Particle m_particles[POOL_SIZE];
+		GRAPHICS::Particle* m_firstAvailable;
 
 	};
 }
