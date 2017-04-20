@@ -57,44 +57,63 @@ namespace GAME {
 		*/
 		void Render(double Interpolate);
 		/*!
-		\brief Set up the lighting parameters
+		\brief Set up Model View Projection (camera's view and projection set within the function)
+		\param shader the shader to set the variables to
+		\param the model matrix to used 
 		*/
 		void SetViewMatricies(std::shared_ptr<GRAPHICS::Shader> Shader, glm::mat4 model);
+		/*!
+		\brief Wireframemode render the scene in lines
+		\param lines bullet's lines stored to render all physical objects
+		*/
 		void WireFrameMode(std::vector<GRAPHICS::Line> & lines);
+		/*!
+		\brief PollKeyEvents check for any key events like input
+		*/
 		void PollKeyEvents();
+		/*!
+		\brief CurrentCamera set the current camera (dependpent on the camera controller)
+		*/
 		void CurrentCamera();
-
+		/*!
+		\brief MainMenu Iinitalise the mainmenu
+		*/
 		void MainMenu(bool loaded);
+		/*!
+		\brief RenderMainMenu Render the MainMenu 
+		*/
 		void RenderMainMenu();
-
+		/*!
+		\brief MemoryPoolTest initalise the memory pool test
+		*/
 		void MemoryPoolTest();
 	private:
 		GAME::Window m_window; //!< Window Object to render the game		
-		std::shared_ptr<GRAPHICS::Shader> m_menuShader = std::make_shared<GRAPHICS::Shader>();
-		std::shared_ptr<GRAPHICS::Shader> m_objShader = std::make_shared<GRAPHICS::Shader>();
-		std::shared_ptr<GRAPHICS::Shader> m_MapShader = std::make_shared<GRAPHICS::Shader>();
-		std::shared_ptr<GRAPHICS::Shader> m_debugDrawerShader = std::make_shared<GRAPHICS::Shader>();
-		std::shared_ptr<UTIL::CAMERA::QuatCamera> m_freeRoamCamera = std::make_shared<UTIL::CAMERA::QuatCamera>(glm::vec3(0.0f, 30.0f, 100.0f));
-		std::shared_ptr<UTIL::CAMERA::CameraBase> m_standardCamera = std::make_shared<UTIL::CAMERA::BasicCamera>((float)WIN_WIDTH,(float)WIN_HEIGHT /2);
-		std::shared_ptr<UTIL::CAMERA::BasicCamera> m_standardCamera2 = std::make_shared<UTIL::CAMERA::BasicCamera>((float)WIN_WIDTH, (float)WIN_HEIGHT /2);
-		std::shared_ptr<UTIL::CAMERA::CameraBase> m_rearViewCamera = std::make_shared<UTIL::CAMERA::RearCamera>((float)WIN_WIDTH, (float)WIN_HEIGHT /2);
-		std::shared_ptr<UTIL::CAMERA::CameraBase> m_firstPersonCamera = std::make_shared<UTIL::CAMERA::firstPersonCamera>((float)WIN_WIDTH, (float)WIN_HEIGHT);
-		std::shared_ptr<UTIL::CAMERA::CameraBase> m_CameraController;
-		std::shared_ptr<GAME::Map> m_map = nullptr;
-		std::shared_ptr<RaceCar> m_player1Car = nullptr; 
-		std::shared_ptr<RaceCar> m_player2Car = nullptr;
+		std::shared_ptr<GRAPHICS::Shader> m_menuShader = std::make_shared<GRAPHICS::Shader>(); //!< shader for rendering the menu
+		std::shared_ptr<GRAPHICS::Shader> m_objShader = std::make_shared<GRAPHICS::Shader>(); //!< shader for rendering the objects/entities
+		std::shared_ptr<GRAPHICS::Shader> m_MapShader = std::make_shared<GRAPHICS::Shader>(); //!< shader for rendering the map
+		std::shared_ptr<GRAPHICS::Shader> m_debugDrawerShader = std::make_shared<GRAPHICS::Shader>(); //!< shader for rendering the wireframe mode
+		std::shared_ptr<UTIL::CAMERA::QuatCamera> m_freeRoamCamera = std::make_shared<UTIL::CAMERA::QuatCamera>(glm::vec3(0.0f, 30.0f, 100.0f));  //!< Camera for free roam mode
+		std::shared_ptr<UTIL::CAMERA::CameraBase> m_standardCamera = std::make_shared<UTIL::CAMERA::BasicCamera>((float)WIN_WIDTH,(float)WIN_HEIGHT /2);  //!< Camera for standard view mode
+		std::shared_ptr<UTIL::CAMERA::BasicCamera> m_standardCamera2 = std::make_shared<UTIL::CAMERA::BasicCamera>((float)WIN_WIDTH, (float)WIN_HEIGHT /2);  //!< Camera for standard mode for player2 
+		std::shared_ptr<UTIL::CAMERA::CameraBase> m_rearViewCamera = std::make_shared<UTIL::CAMERA::RearCamera>((float)WIN_WIDTH, (float)WIN_HEIGHT /2);  //!< Camera for RearView mode
+		std::shared_ptr<UTIL::CAMERA::CameraBase> m_firstPersonCamera = std::make_shared<UTIL::CAMERA::firstPersonCamera>((float)WIN_WIDTH, (float)WIN_HEIGHT);  //!< Camera for firstPerson mode
+		std::shared_ptr<UTIL::CAMERA::CameraBase> m_CameraController; //!< Camera Controller
+		std::shared_ptr<GAME::Map> m_map = nullptr; //!< Game's Map
+		std::shared_ptr<RaceCar> m_player1Car = nullptr;  //!< Player1's car
+		std::shared_ptr<RaceCar> m_player2Car = nullptr; //!< Player2's car
 		double m_timeSinceLastUpdate; //!< the time since the last update - "lag"
 		double m_CurrentTime; //!< current time of update
 		double m_PreviousTime; //!< previous time when updated
-		glm::mat4 m_setModel;		
-		bool m_DrawDebugBool;
-		CameraStates m_cameraStates;
-		GLuint m_wireVaoHandle;	
-		GLuint m_wireVboHandle[2];
-		UTIL::ParticlePool m_particleMemoryManager;
+		glm::mat4 m_setModel; //!< Model Matrix to be manipulated
+		bool m_DrawDebugBool; //!< Boolean to draw in wireframe omde
+		CameraStates m_cameraStates; //!< Enum to decide which camera the controller uses
+		GLuint m_wireVaoHandle;	 //!< VAO for wireframe mode
+		GLuint m_wireVboHandle[2]; //!< VBO for wireframe mode
+		UTIL::ParticlePool m_particleMemoryManager; //!< Particle Object Pool
 		//menu
-		GLuint m_menuTexture;
-		GLuint m_quad;
+		GLuint m_menuTexture; //!< Texture of the menu
+		GLuint m_quad; //!< VAO for the screen/menu
 
 	};
 }

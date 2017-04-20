@@ -20,10 +20,6 @@ UTIL::ParticlePool::ParticlePool()
 
 }
 
-/*
-Particle* ExampleParticle = ParticlePool.create(pos,vel,life);
-delete ExamplleParticle;
-*/
 
 GRAPHICS::Particle* UTIL::ParticlePool::create(glm::vec3 position, glm::vec3 velocity, int lifetime)
 {

@@ -27,18 +27,25 @@ namespace UTIL
 	class ParticlePool
 	{
 	public:
-		
+		/*!
+		\brief Constructor
+		*/
 		ParticlePool();
 
-		//returns a pointer to the object created.
+		/*!
+		\brief create used to allocate memory from the Object Pool
+		\return a pointer to the currently created particle.
+		*/
 		GRAPHICS::Particle* create(glm::vec3 position, glm::vec3 velocity, int lifetime);
-
+		/*!
+		\brief Update function used to update all active Objects in the pool or deallocate if dead.
+		*/
 		void update();
 
 	private:
-		static const int POOL_SIZE = MEMORY_POOL_SIZE;
-		GRAPHICS::Particle m_particles[POOL_SIZE];
-		GRAPHICS::Particle* m_firstAvailable;
+		static const int POOL_SIZE = MEMORY_POOL_SIZE; //!< Object Pool size
+		GRAPHICS::Particle m_particles[POOL_SIZE];//!< allocated memory at the start (size of the pool)
+		GRAPHICS::Particle* m_firstAvailable;//!< Pointer to the first avaliable of the list.
 
 	};
 }

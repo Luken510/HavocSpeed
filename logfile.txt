@@ -6,22 +6,6 @@
 [INFO]  
 [INFO] Done!, enjoy the game!
 [INFO]  
-[INFO]  Pattern Test Enabled
+[INFO]  2 Player Mode Enabled
 [INFO]  
 [INFO]  Loading Please Wait..
-[INFO]  Key Pressed = 'TAB'
-[INFO]  Camera = First Person Camera
-[INFO]  Key Pressed = 'TAB'
-[INFO]  Camera = Rear View Camera
-[INFO]  Key Pressed = 'TAB'
-[INFO]  Camera = Free Roam Camera
-[INFO] Spawned 10000 Times Using The flyweight pattern, the Interval = 16 ms
-[INFO] Spawned 10000 Times Using The flyweight pattern, the Interval = 16 ms
-[INFO] Spawned 10000 Times Using The flyweight pattern, the Interval = 15 ms
-[INFO] Spawned 10000 Times Using The flyweight pattern, the Interval = 16 ms
-[INFO] Spawned 10000 Times Using The flyweight pattern, the Interval = 16 ms
-[INFO] Spawned 10000 Times Using The flyweight pattern, the Interval = 15 ms
-[INFO] Spawned 10000 Times Using The flyweight pattern, the Interval = 16 ms
-[INFO] Spawned 10000 Times Using The flyweight pattern, the Interval = 15 ms
-[INFO] Spawned 10000 Times Using The flyweight pattern, the Interval = 16 ms
-[INFO] Spawned 10000 Times Using The flyweight pattern, the Interval = 15 ms

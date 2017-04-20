@@ -26,16 +26,8 @@ GAME::Game::Game() : m_timeSinceLastUpdate(0), m_CurrentTime(0), m_PreviousTime(
 
 GAME::Game::~Game()
 {
-	// Clean up, LIFO system
-	//dynamicsWorld->removeRigidBody(fallRigidBody);
-	//delete fallRigidBody->getMotionState();
-	//delete fallRigidBody;
+	
 
-	//delete dynamicsWorld;
-	//delete solver;
-	//delete dispatcher;
-	//delete collisionConfig;
-	//delete broadphase;
 
 }
 
@@ -108,7 +100,7 @@ void GAME::Game::RunGame()
 	m_PreviousTime = glfwGetTime();
 	double fpsTime = glfwGetTime();
 	int nbFrames = 0;
-	//MEMORY POOL TEST
+	// ---------------------------------- MEMORY POOL TEST -------------------------------------------------------------
 	//MemoryPoolTest();
 	//main game loop
 
@@ -117,12 +109,12 @@ void GAME::Game::RunGame()
 		m_CurrentTime = (double)glfwGetTime();
 		nbFrames++;
 		//FPS
-		if (m_CurrentTime - fpsTime >= 1.0)
+		/*if (m_CurrentTime - fpsTime >= 1.0)
 		{
 		//	printf("%f ms/frame\n", double(1000.0/nbFrames));
 			nbFrames = 0;
 			fpsTime += 1.0;
-		}
+		}*/
 
 		double elaspedTime = m_CurrentTime - m_PreviousTime; //m_CurrentTime - m_PreviousTime;
 		m_PreviousTime = m_CurrentTime;
@@ -201,7 +193,6 @@ void GAME::Game::Render(double Interpolate)
 			m_objShader->SetUniform("model", m_setModel);
 			m_objShader->SetUniform("view", m_standardCamera2->GetView());
 			m_objShader->SetUniform("projection", m_standardCamera2->GetProjection());
-			//SetViewMatricies(m_objShader, m_setModel);
 			m_player2Car->Render(m_objShader);
 			m_player1Car->Render(m_objShader);
 
@@ -271,9 +262,7 @@ void GAME::Game::SetViewMatricies(std::shared_ptr<GRAPHICS::Shader> Shader, glm:
 void GAME::Game::WireFrameMode(std::vector<GRAPHICS::Line> & lines)
 {
 	std::vector<GLfloat> vertices;
-	//vertices.reserve(100000);
 	std::vector<GLuint> indices;
-	//indices.reserve(100000);
 	unsigned int index = 0;
 
 

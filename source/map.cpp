@@ -22,14 +22,6 @@ void GAME::Map::Init()
 	CreateMapObjects();	
 }
 
-GAME::Map GAME::Map::GetCurrentMap()
-{
-	return Map();
-}
-
-void GAME::Map::SetMap()
-{
-}
 
 void GAME::Map::Update(double deltaTime)
 {
@@ -47,23 +39,6 @@ void GAME::Map::Render(std::shared_ptr<GRAPHICS::Shader> shader)
 
 void GAME::Map::CreateMapObjects() 
 {
-
-
-	//m_carTrackModel = PHYSICS::PhysicsController::GetPhysicsInstance().CreateMultiCollisionShapes(m_track, btVector3(MAP_SCALE, MAP_SCALE, MAP_SCALE));
-
-
-	//btTransform trackTransform;
-	//trackTransform.setIdentity();
-	//trackTransform.setOrigin(btVector3(0.0f, -100.0f, 0.0f));
-	//btQuaternion trackRotate;
-	//trackRotate.setRotation(btVector3(1.0f, 0.0f, 0.0f), -89.55f);
-	//trackTransform.setRotation(trackRotate);
-
-	//m_staticTrack = PHYSICS::PhysicsController::GetPhysicsInstance().CreateRigidbody(0, trackTransform, m_carTrackMesh);
-	/*for (int i = 0; i < m_carTrackModel.size(); i++)
-	{
-		PHYSICS::PhysicsController::GetPhysicsInstance().AddStaticRigidBody(m_carTrackModel[i], trackTransform, btVector3(MAP_SCALE, MAP_SCALE, MAP_SCALE));
-	}*/
 
 	//track imported into bullet for physics;
 	std::shared_ptr<GRAPHICS::ObjInstanceShape> glmesh = GRAPHICS::AssimpToBulletObj(m_track->GetMeshes());
@@ -106,13 +81,5 @@ glm::mat4 GAME::Map::GetTrackMatrix()
 
 glm::mat4 GAME::Map::GetWorldPos()
 {
-	/*btTransform translateToWorld;
-	translateToWorld = m_staticTrack->getWorldTransform();
-	btScalar Temp[16];
-	btScalar* OpenGLMatrix = Temp;
-	translateToWorld.getOpenGLMatrix(OpenGLMatrix);
-
-	// had a memory leak, show in testing
-	return glm::make_mat4(Temp);*/
 	return glm::mat4(1.0f);
 }

@@ -31,9 +31,7 @@ void UTIL::CAMERA::firstPersonCamera::Follow(double deltaTime, glm::vec3 carVelo
 {
 	glm::mat3 targetRotation(target);
 	glm::vec3 targetPosition(target[3]); // target is a 4x4 matrix holding both its current rotation and position, position being held in [3][0] [3][1] [3][2]
-	////http://nghiaho.com/?page_id=846
-	//double angle = std::atan2(target[3][1], std::sqrt((target[3][2] * target[3][2]) + (target[3][3] * target[3][3])));
-	//glm::mat4 CameraPosition = glm::translate(glm::vec3(targetPosition.x, targetPosition.y, targetPosition.z)) * glm::rotate((float)angle, glm::vec3(0.0f, 1.0f, 0.0f));
+
 
 	m_view = glm::mat4(targetRotation[0][0], targetRotation[1][0], targetRotation[2][0], 0,
 						targetRotation[0][1], targetRotation[1][1], targetRotation[2][1], 0,
@@ -50,8 +48,7 @@ void UTIL::CAMERA::firstPersonCamera::Follow(double deltaTime, glm::vec3 carVelo
 	m_view[3][2] = -glm::dot(zaxis, targetPosition); //Translation z
 
 	m_view[3][1] -= 2;
-//	m_view[3][2] += 5;
-	//m_view = glm::lookAt(glm::mat3(CameraPosition), targetPosition, glm::vec3(0.0f, 1.0f, 0.0f));
+
 
 }
 

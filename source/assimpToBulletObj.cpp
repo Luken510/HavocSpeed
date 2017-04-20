@@ -13,7 +13,6 @@ std::shared_ptr<GRAPHICS::ObjInstanceShape> GRAPHICS::AssimpToBulletObj(const st
 	btAlignedObjectArray<unsigned int>* indicesPtr(new btAlignedObjectArray<unsigned int>);
 	int vtxBaseIndex = 0;
 		
-		//UTIL::LOG(UTIL::LOG::INFO) << "Obj Loaded: number of extracted Meshes :" << meshes.size();
 			
 		for (unsigned int i = 0; i < meshes.size(); i++)
 			{
@@ -65,8 +64,6 @@ std::shared_ptr<GRAPHICS::ObjInstanceShape> GRAPHICS::AssimpToBulletObj(const st
 	bulletObj->m_numOfVertices = verticesPtr->size();
 	bulletObj->m_indices = indicesPtr;
 	bulletObj->m_numOfIndices = indicesPtr->size();
-	//UTIL::LOG(UTIL::LOG::INFO) << "Obj Loaded: number of extracted vertices :" << bulletObj->m_numOfVertices;
-	//UTIL::LOG(UTIL::LOG::INFO) << "Obj Loaded: number of extracted indices :" << bulletObj->m_numOfIndices;
 
 	for (int i = 0; i < 4; i++)
 		bulletObj->m_scaling[i] = 1;

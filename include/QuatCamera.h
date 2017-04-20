@@ -26,65 +26,133 @@ namespace UTIL {
 		class QuatCamera
 		{
 		public:
-
-			QuatCamera();  //Constructor
+			/*!
+			\brief Constructor
+			*/
+			QuatCamera();
+			/*!
+			\brief Constructor
+			\param position camera's position
+			*/
 			QuatCamera(const glm::vec3& position);
 
-			const glm::vec3& position() const; //position getter method
-			void setPosition(const glm::vec3& position); //position setter method
+			/*!
+			\brief position getter method
+			*/
+			const glm::vec3& position() const; 
+			/*!
+			\brief position setter method
+			\param position camera's position
+			*/
+			void setPosition(const glm::vec3& position);
+			/*!
+			\brief fieldOfView getter method
+			*/
+			float fieldOfView() const; 
+			/*!
+			\brief fieldOfView setter method
+			\param fieldOfView camera's field Of View
+			*/
+			void setFieldOfView(float fieldOfView); 
+			/*!
+			\brief aspectRatio getter method
+			*/
+			float aspectRatio() const; 
 
-			float fieldOfView() const; //fieldOfView getter method
-			void setFieldOfView(float fieldOfView); //fieldOfView setter method
+			/*!
+			\brief aspectRatio setter method
+			\param aspectRatio camera's aspectRatio
+			*/
+			void SetAspectRatio(float aspectRatio);  
 
-			float aspectRatio() const; //aspectRatio getter method
-			void SetAspectRatio(float aspectRatio);  //aspectRatio setter method
+			/*!
+			\brief nearPlane getter method
+			*/
+			float nearPlane() const;  
+			/*!
+			\brief farPlane getter method
+			*/
+			float farPlane() const; 
+			/*!
+			\brief nearPlane and farPLane setter method
+			\param nearPlane cameras miniumum render
+			\param farPlane cameras maximum render
+			*/
+			void setNearAndFarPlanes(float nearPlane, float farPlane); //
 
-			float nearPlane() const;  //nearPlane getter method
-			float farPlane() const;   //farPlane getter method
-			void setNearAndFarPlanes(float nearPlane, float farPlane); //nearPlane and farPLane setter method
+			/*!
+			\brief Rotate rotate camera
+			\param yaw rotate on the yaw axis
+			\param pitch rotate on the pitch axis
+			*/
+			void rotate(const float yaw, const float pitch); 
+			/*!
+			\brief Pan pan the  camera
+			\param x Pan on the yaw axis
+			\param y Pan on the pitch axis
+			*/
+			void pan(const float x, const float y);  
+			/*!
+			\brief roll roll the  camera
+			\param z amount to roll by
+			*/
+			void roll(const float z);
+			/*!
+			\brief zoom zoom the camera
+			\param z amount to zoom in by
+			*/
+			void zoom(const float z); 
 
-
-			void rotate(const float yaw, const float pitch); //Rotate camera
-			void pan(const float x, const float y);  //Pan camera
-			void roll(const float z); //Roll camera
-			void zoom(const float z); //Zoom camera
-
-
-			void updateView();  //Update the camera
-
+			/*!
+			\brief updateView Update the camera view
+			*/
+			void updateView();  
+			/*!
+			\brief Update Update the camera view
+			*/
 			void Update(double deltaTime, glm::mat4 target);
-
+			/*!
+			\brief Follow follow set target
+			\param carVelocity car's velocity
+			\param target targets matrix
+			\param angle angle to follow him by
+			*/
 			void Follow(double deltaTime, glm::vec3 carVelocity, glm::mat4 target, float angle);
+			/*!
+			\brief reset reset the current cammera
+			*/
+			void reset(void); 
 
-			void reset(void); //Reset the camera
-
-
-			glm::mat4 View(); //Get the View matrix
-			glm::mat4 G, Projection(); //Get the Projection matrix
-
-	void Follow(glm::mat4 target, float angle);
+			/*!
+			\brief View return the current camera view
+			*/
+			glm::mat4 View(); 
+			/*!
+			\brief Projection return the projection
+			*/
+			glm::mat4 G, Projection(); 
 
 
 
 		private:
 
-			float _fieldOfView;
-			float _nearPlane;
-			float _farPlane;
-			float _aspectRatio;
+			float m_fieldOfView;//<
+			float m_nearPlane;
+			float m_farPlane;
+			float m_aspectRatio;
 
 			//The camera coordinate axes
-			glm::vec3 _xaxis;
-			glm::vec3 _yaxis;
-			glm::vec3 _zaxis;
+			glm::vec3 m_xaxis;
+			glm::vec3 m_yaxis;
+			glm::vec3 m_zaxis;
 
 			//Camera position vector and Quaternoin to represent camera orientation
-			glm::vec3 _position;
-			glm::quat _orientation;
-			glm::quat _orientationTemp;
+			glm::vec3 m_position;
+			glm::quat m_orientation;
+			glm::quat m_orientationTemp;
 
-			glm::mat4 _view;
-			glm::mat4 _projection;
+			glm::mat4 m_view;
+			glm::mat4 m_projection;
 
 			//World coordinate System Axes
 			const glm::vec3 WORLDX = glm::vec3(1, 0, 0);

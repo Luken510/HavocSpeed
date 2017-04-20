@@ -19,53 +19,53 @@
 	{
 		//_projection = glm::mat4(1.0f);
 		reset();
-		_position = position;
+		m_position = position;
 	}
 
 
 	const glm::vec3& UTIL::CAMERA::QuatCamera::position() const
 	{
-		return _position;
+		return m_position;
 	}
 
 	void UTIL::CAMERA::QuatCamera::setPosition(const glm::vec3& position)
 	{
-		_position = position;
+		m_position = position;
 	}
 
 	float UTIL::CAMERA::QuatCamera::fieldOfView() const
 	{
-		return _fieldOfView;
+		return m_fieldOfView;
 	}
 
 
 	void UTIL::CAMERA::QuatCamera::setFieldOfView(float fieldOfView)
 	{
 		assert(fieldOfView>0.0f && fieldOfView <180.0f);
-		_fieldOfView = fieldOfView;
+		m_fieldOfView = fieldOfView;
 	}
 
 
 	float UTIL::CAMERA::QuatCamera::aspectRatio() const
 	{
-		return _aspectRatio;
+		return m_aspectRatio;
 	}
 
 	void UTIL::CAMERA::QuatCamera::SetAspectRatio(float aspectRatio)
 	{
 		assert(aspectRatio >0.0f);
-		_aspectRatio = aspectRatio;
+		m_aspectRatio = aspectRatio;
 	}
 
 
 	float UTIL::CAMERA::QuatCamera::nearPlane() const
 	{
-		return _nearPlane;
+		return m_nearPlane;
 	}
 
 	float UTIL::CAMERA::QuatCamera::farPlane() const
 	{
-		return _farPlane;
+		return m_farPlane;
 	}
 
 	
@@ -74,8 +74,8 @@
 	{
 		assert(nearPlane > 0.0f);
 		assert(farPlane > nearPlane);
-		_nearPlane = nearPlane;
-		_farPlane = farPlane;
+		m_nearPlane = nearPlane;
+		m_farPlane = farPlane;
 	}
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -107,12 +107,12 @@
 		glm::quat qyPitch = fromAxisAngle(WORLDX, pitch);
 		glm::quat qxYaw = fromAxisAngle(WORLDY, yaw);
 
-		glm::quat qOutput = qyPitch * _orientation * qxYaw; //pitch is effected by the local variables (_orientation)
+		glm::quat qOutput = qyPitch * m_orientation * qxYaw; //pitch is effected by the local variables (_orientation)
 			// yaw we want only affected by world co-ords which means we dont want it effect by orient i.e is doesnt use them (opengl goes backwards remember.)
 		
 		glm::normalize(qOutput);
 
-		_orientation = qOutput;
+		m_orientation = qOutput;
 
 		updateView();
 
@@ -122,8 +122,8 @@
 	void UTIL::CAMERA::QuatCamera::pan(const float x, const float y)
 	{
 		
-		_position += _xaxis * x;
-		_position += _yaxis * -y;
+		m_position += m_xaxis * x;
+		m_position += m_yaxis * -y;
 		
 		
 		updateView();
@@ -132,7 +132,7 @@
 	void UTIL::CAMERA::QuatCamera::zoom(const float z)
 	{
 
-		_position += _zaxis * z;
+		m_position += m_zaxis * z;
 		
 		
 		updateView();
@@ -146,18 +146,18 @@
 
 		//First get the matrix from the 'orientaation' Quaternion
 		//This deals with the rotation and scale part of the view matrix
-			_view = glm::mat4_cast(_orientation); // Rotation and Scale
+		m_view = glm::mat4_cast(m_orientation); // Rotation and Scale
 
 		
 		//Extract the camera coordinate axes from this matrix
-		_xaxis = glm::vec3(_view[0][0], _view[1][0], _view[2][0]);
-		_yaxis = glm::vec3(_view[0][1], _view[1][1], _view[2][1]);
-		_zaxis = glm::vec3(_view[0][2], _view[1][2], _view[2][2]);
+		m_xaxis = glm::vec3(m_view[0][0], m_view[1][0], m_view[2][0]);
+		m_yaxis = glm::vec3(m_view[0][1], m_view[1][1], m_view[2][1]);
+		m_zaxis = glm::vec3(m_view[0][2], m_view[1][2], m_view[2][2]);
 
 		//And use this and current camera position to set the translate part of the view matrix
-		_view[3][0] = -glm::dot(_xaxis, _position); //Translation x
-		_view[3][1] = -glm::dot(_yaxis, _position); //Translation y
-		_view[3][2] = -glm::dot(_zaxis, _position); //Translation z
+		m_view[3][0] = -glm::dot(m_xaxis, m_position); //Translation x
+		m_view[3][1] = -glm::dot(m_yaxis, m_position); //Translation y
+		m_view[3][2] = -glm::dot(m_zaxis, m_position); //Translation z
 		
 	}
 
@@ -169,9 +169,9 @@
 			m_carPos.y = target[3][1];
 			m_carPos.z = target[3][2];
 
-			_orientationTemp = glm::quat_cast(target);
+			m_orientationTemp = glm::quat_cast(target);
 
-			_projection = glm::perspective(_fieldOfView, _aspectRatio, _nearPlane, _farPlane);
+			m_projection = glm::perspective(m_fieldOfView, m_aspectRatio, m_nearPlane, m_farPlane);
 
 			updateView();
 
@@ -183,23 +183,23 @@
 		glm::mat3 targetRotation(target);
 		glm::vec3 targetPosition(target[3]); // target is a 4x4 matrix holding both its current rotation and position, position being held in [3][0] [3][1] [3][2]
 
-		_view = glm::mat4(targetRotation[0][0], targetRotation[1][0], targetRotation[2][0], 0,
+		m_view = glm::mat4(targetRotation[0][0], targetRotation[1][0], targetRotation[2][0], 0,
 			targetRotation[0][1], targetRotation[1][1], targetRotation[2][1], 0,
 			targetRotation[0][2], targetRotation[1][2], targetRotation[2][2], 0,
 			0, 0, 0, 1);
 
 		//Extract the camera coordinate axes from this matrix
-		glm::vec3 xaxis = glm::vec3(_view[0][0], _view[1][0], _view[2][0]);
-		glm::vec3 yaxis = glm::vec3(_view[0][1], _view[1][1], _view[2][1]);
-		glm::vec3 zaxis = glm::vec3(_view[0][2], _view[1][2], _view[2][2]);
+		glm::vec3 xaxis = glm::vec3(m_view[0][0], m_view[1][0], m_view[2][0]);
+		glm::vec3 yaxis = glm::vec3(m_view[0][1], m_view[1][1], m_view[2][1]);
+		glm::vec3 zaxis = glm::vec3(m_view[0][2], m_view[1][2], m_view[2][2]);
 
 		//And use this and current camera position to set the translate part of the view matrix
-		_view[3][0] = -glm::dot(xaxis, targetPosition); //Translation x
-		_view[3][1] = -glm::dot(yaxis, targetPosition); //Translation y
-		_view[3][2] = -glm::dot(zaxis, targetPosition); //Translation z
+		m_view[3][0] = -glm::dot(xaxis, targetPosition); //Translation x
+		m_view[3][1] = -glm::dot(yaxis, targetPosition); //Translation y
+		m_view[3][2] = -glm::dot(zaxis, targetPosition); //Translation z
 
-		_view[3][1] -= 2;
-		_view[3][2] -= 2;
+		m_view[3][1] -= 2;
+		m_view[3][2] -= 2;
 	}
 
 
@@ -208,11 +208,11 @@
 
 		glm::quat qzRoll = fromAxisAngle(WORLDZ, z);
 
-		glm::quat zOutput = _orientation * qzRoll;
+		glm::quat zOutput = m_orientation * qzRoll;
 
 		glm::normalize(zOutput);
 
-		_orientation = zOutput;
+		m_orientation = zOutput;
 
 		updateView();
 
@@ -221,23 +221,23 @@
 	void UTIL::CAMERA::QuatCamera::reset(void)
 	{
 		//Initialise camera axes
-		_xaxis = WORLDX;
-		_yaxis = WORLDY;
-		_zaxis = WORLDZ;
+		m_xaxis = WORLDX;
+		m_yaxis = WORLDY;
+		m_zaxis = WORLDZ;
 
 		//Initialise camera position 
-		_position= glm::vec3(0.0f,2.0f,20.0f);
+		m_position= glm::vec3(0.0f,2.0f,20.0f);
 
 		//Initialise the orientation
-		_orientation = glm::quat(1.0,0.0,0.0,0.0);
+		m_orientation = glm::quat(1.0,0.0,0.0,0.0);
 
 		//Initialise camera perspective parameters
-		_fieldOfView = glm::radians(50.0f);
-		_nearPlane = 0.01f;
-		_farPlane = 1000.0f;
-		_aspectRatio = 4.0f/3.0f;
+		m_fieldOfView = glm::radians(50.0f);
+		m_nearPlane = 0.01f;
+		m_farPlane = 1000.0f;
+		m_aspectRatio = 4.0f/3.0f;
 
-        _projection = glm::perspective(_fieldOfView, _aspectRatio, _nearPlane, _farPlane);
+		m_projection = glm::perspective(m_fieldOfView, m_aspectRatio, m_nearPlane, m_farPlane);
 
 		updateView();
 
@@ -248,13 +248,13 @@
 	{
 	
 		this->updateView();
-		return _view;
+		return m_view;
 	}
 
 	glm::mat4 UTIL::CAMERA::QuatCamera::Projection()
 	{
 
-		return _projection;
+		return m_projection;
 		
 	}
 

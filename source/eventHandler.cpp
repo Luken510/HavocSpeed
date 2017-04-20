@@ -7,7 +7,7 @@
 UTIL::EventHandler & UTIL::EventHandler::getInstance()
 {
 	
-		static EventHandler instance; // lazy singleton, instantiated on first use
+		static EventHandler instance; //singleton, instantiated on first use
 		return instance;
 	
 }
@@ -72,6 +72,7 @@ void UTIL::EventHandler::MouseButtonCallbackImpl(GLFWwindow* window, int button,
 				UTIL::LOG(UTIL::LOG::INFO) << " 2 Player Mode Enabled";
 				UTIL::LOG(UTIL::LOG::INFO) << " ";
 				UTIL::LOG(UTIL::LOG::INFO) << " Loading Please Wait..";
+				m_car2->Init();
 				getInstance().SetGameState(4); // Normal 2 player mode
 			}
 			else if (cursorPositionX >= 850 && cursorPositionX <= 1150 && cursorPositionY >= 390 && cursorPositionY <= 570)

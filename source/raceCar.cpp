@@ -166,7 +166,6 @@ void RaceCar::Render(std::shared_ptr<GRAPHICS::Shader> shader)
 	UpdateMatrix(GetWorldPos(), glm::vec3(CAR_SCALE));
 	shader->SetUniform("model", m_carModelMatrix);
 	m_car->Render(shader);
-	//UTIL::LOG(UTIL::LOG::INFO) << "Car current position = " << m_carModelMatrix[3][0] << m_carModelMatrix[3][1] << m_carModelMatrix[3][2];
 	
 	for (int i = 0; i < m_raycastCar->getNumWheels(); i++)
 	{
@@ -235,7 +234,6 @@ glm::mat4 RaceCar::GetWorldPos()
 	btScalar Test1[16];
 	btScalar* OpenGLMatrix = Test1;
 	translateToWorld.getOpenGLMatrix(OpenGLMatrix);
-	// had a memory leak, show in testing
 	return glm::make_mat4(Test1);
 }
 
@@ -366,7 +364,8 @@ void RaceCar::Fire()
 			m_rockets.push_back(std::make_shared<WEAPONS::Rocket>());
 		}
 
-		UTIL::LOG(UTIL::LOG::INFO) << "Spawned " << loop << " Times - 10x less due to too much memory " << "NOT The flyweight pattern, the Interval = " << GetTickCount() - count << " ms";
+		UTIL::LOG(UTIL::LOG::INFO) << "Spawned " << loop << " Times - 10x less due to eating up too much memory " 
+			<< "NOT The flyweight pattern, the Interval = " << GetTickCount() - count << " ms";
 
 	}
 
@@ -383,10 +382,5 @@ btQuaternion RaceCar::GetRotationQuatFromAngle(const btVector3& axis, btScalar a
 	return rotation;
 	
 }
-
-/*btRigidBody * RaceCar::LocalCreateRigidBody(btScalar mass, const btTransform & worldTransform, btCollisionShape * colShape)
-{
-	return nullptr;
-}*/
 
 

@@ -9,7 +9,7 @@
 PHYSICS::PhysicsController::PhysicsController()
 {
 	//build the broadphase
-	m_broadphase =	new btDbvtBroadphase(); // make sure way of init works.
+	m_broadphase =	new btDbvtBroadphase();
 
 	//set up the collision configuration and dispatcher
 	m_collisionConfig = new btDefaultCollisionConfiguration();
@@ -153,7 +153,7 @@ void PHYSICS::PhysicsController::DrawDebugWorld()
 btConvexHullShape*  PHYSICS::PhysicsController::CreateConvexHull(btAlignedObjectArray<GRAPHICS::ObjInstanceVertex>* vertices, int numOfVerts, 
 																	int Stride, float scale, btScalar mass, bool optimise)
 {
-	//UTIL::LOG(UTIL::LOG::INFO) << " Size of array sent into convexHull : " << vertices->size();
+	
 
 	btConvexHullShape* shape = new btConvexHullShape();
 
@@ -225,8 +225,6 @@ std::vector<btCollisionShape*> PHYSICS::PhysicsController::CreateMultiCollisionS
 	
 	std::vector<btCollisionShape*> ModelShape;
 	
-	
-	//std::shared_ptr<GRAPHICS::ObjInstanceShape> ModelObj = GRAPHICS::AssimpToBulletObj(model->GetMeshes());
 
 	for (unsigned int i = 0; i < model->GetMeshes().size(); i++)
 	{
@@ -279,7 +277,6 @@ btCollisionShape * PHYSICS::PhysicsController::CreateCollisionShape(std::shared_
 		test.m_vertexType = PHY_FLOAT;
 		test.m_indexType = PHY_INTEGER;
 
-		//triShape->setScaling(scale);
 		triShape->addIndexedMesh(test);
 
 		btBvhTriangleMeshShape *shape = new btBvhTriangleMeshShape(triShape, true);
@@ -356,12 +353,6 @@ void PHYSICS::PhysicsController::AddModel(btConvexHullShape * shape)
 
 
 
-
-/*std::shared_ptr<RaceCar> PHYSICS::PhysicsController::getCar()
-{
-	return std::shared_ptr<RaceCar>();
-}*/
-
 btDynamicsWorld * PHYSICS::PhysicsController::GetDynamicWorld()
 {
 	return m_dynamicWorld;
@@ -372,9 +363,6 @@ GRAPHICS::PhysicsDebugDrawer* PHYSICS::PhysicsController::GetDebugDrawer()
 	return m_debugDrawer;
 }
 
-void PHYSICS::PhysicsController::AddCar()
-{
-}
 
 void PHYSICS::PhysicsController::addRocket(const btTransform & transform)
 {

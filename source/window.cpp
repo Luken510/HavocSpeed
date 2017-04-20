@@ -87,7 +87,6 @@ void GAME::Window::update(double deltaTime, std::shared_ptr<UTIL::CAMERA::QuatCa
 	float deltaX = (float)(lastCursorPositionX - cursorPositionX);
 	float deltaY = (float)(lastCursorPositionY - cursorPositionY);
 
-//	UTIL::LOG(UTIL::LOG::INFO) << " Camera Pos X, Y :" << cursorPositionX << ", " << cursorPositionY;
 
 	//Using a different way (i.e. instead of callback) to check for LEFT mouse button
 	if (glfwGetMouseButton(m_window, GLFW_MOUSE_BUTTON_LEFT))
@@ -98,8 +97,7 @@ void GAME::Window::update(double deltaTime, std::shared_ptr<UTIL::CAMERA::QuatCa
 
 	}
 
-	//if (UTIL::EventHandler::getInstance().getCameraState() == 3)
-//	{
+
 
 		//Using a different way (i.e. instead of callback) to check for RIGHT mouse button
 		if (glfwGetMouseButton(m_window, GLFW_MOUSE_BUTTON_RIGHT))
@@ -115,7 +113,7 @@ void GAME::Window::update(double deltaTime, std::shared_ptr<UTIL::CAMERA::QuatCa
 
 			camera->roll(deltaX*ROTATE_VELOCITY);
 		}
-//	}
+
 	//Store the current cursor position
 	lastCursorPositionX = cursorPositionX;
 	lastCursorPositionY = cursorPositionY;
